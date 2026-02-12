@@ -129,19 +129,22 @@ jobs:
             git checkout -B "$TARGET"
           fi
 
-      - name: Replace target branch root with upstream snapshot
+      - name: Replace target branch root with upstream snapshot (no rsync vanish)
         shell: bash
         run: |
           set -euo pipefail
 
-          # Remove everything except .git and the checked-out upstream folder (we still need it to copy from)
-          find . -mindepth 1 -maxdepth 1 ! -name ".git" ! -name "upstream" -exec rm -rf {} +
+          # Stage upstream into a temp dir outside the git working tree
+          STAGE="$(mktemp -d)"
+          cp -a upstream/. "$STAGE/"
+          rm -rf "$STAGE/.git" || true
 
-          # Copy upstream contents into repo root (excluding its .git)
-          rsync -a --delete --exclude ".git" upstream/ .
+          # Wipe working tree except .git (and remove upstream too)
+          find . -mindepth 1 -maxdepth 1 ! -name ".git" -exec rm -rf {} +
 
-          # Remove the upstream working folder after copy so it doesn't get committed
-          rm -rf upstream
+          # Copy staged snapshot into repo root
+          cp -a "$STAGE/." .
+          rm -rf "$STAGE"
 
           echo "Upstream branch date: ${{ steps.pick_date.outputs.branch_date }}" > .vendored-from
           echo "Repo: ${{ env.UPSTREAM_REPO }}" >> .vendored-from
