@@ -1,0 +1,160 @@
+name: Vendor rstats-on-nix/nixpkgs by date from rix CSV
+
+on:
+  workflow_dispatch:
+    inputs:
+      csv_url:
+        description: "CSV URL containing a 'date' column"
+        required: false
+        default: "https://raw.githubusercontent.com/ropensci/rix/refs/heads/main/inst/extdata/available_df.csv"
+      date_column:
+        description: "CSV column name to use as upstream branch"
+        required: false
+        default: "date"
+      pick:
+        description: "Which date to pick: latest | oldest"
+        required: false
+        default: "latest"
+      import_dir:
+        description: "Directory in this repo to place the vendored nixpkgs snapshot"
+        required: false
+        default: "vendor/nixpkgs"
+  schedule:
+    - cron: "0 3 * * 1" # weekly (Mon 03:00 UTC)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vendor-nixpkgs
+  cancel-in-progress: true
+
+env:
+  UPSTREAM_REPO: "rstats-on-nix/nixpkgs"
+
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout this repo (main)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Fetch CSV
+        id: fetch_csv
+        shell: bash
+        run: |
+          set -euo pipefail
+          CSV_URL="${{ inputs.csv_url }}"
+          if [ -z "${CSV_URL:-}" ]; then
+            CSV_URL="https://raw.githubusercontent.com/ropensci/rix/refs/heads/main/inst/extdata/available_df.csv"
+          fi
+          curl -fsSL "$CSV_URL" -o /tmp/available_df.csv
+          echo "csv_path=/tmp/available_df.csv" >> "$GITHUB_OUTPUT"
+
+      - name: Pick date (upstream branch)
+        id: pick_date
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv, os, sys
+          from datetime import date
+
+          csv_path = os.environ["CSV_PATH"]
+          col = os.environ.get("DATE_COLUMN", "date")
+          pick = os.environ.get("PICK", "latest").strip().lower()
+
+          with open(csv_path, newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            rows = list(reader)
+
+          if not rows:
+            print("CSV has no data rows", file=sys.stderr)
+            sys.exit(1)
+
+          if col not in rows[0]:
+            print(f"Missing column '{col}' in CSV headers: {list(rows[0].keys())}", file=sys.stderr)
+            sys.exit(1)
+
+          dates = []
+          for r in rows:
+            v = (r.get(col) or "").strip()
+            if not v:
+              continue
+            # Expect ISO yyyy-mm-dd
+            try:
+              y, m, d = map(int, v.split("-"))
+              dates.append((date(y, m, d), v))
+            except Exception:
+              print(f"Invalid date value '{v}' (expected YYYY-MM-DD)", file=sys.stderr)
+              sys.exit(1)
+
+          if not dates:
+            print(f"No valid dates found in column '{col}'", file=sys.stderr)
+            sys.exit(1)
+
+          chosen = min(dates)[1] if pick == "oldest" else max(dates)[1]
+
+          out = os.environ["GITHUB_OUTPUT"]
+          with open(out, "a", encoding="utf-8") as f:
+            f.write(f"branch_date={chosen}\n")
+
+          print(f"Selected upstream branch: {chosen}")
+          PY
+        env:
+          CSV_PATH: ${{ steps.fetch_csv.outputs.csv_path }}
+          DATE_COLUMN: ${{ inputs.date_column }}
+          PICK: ${{ inputs.pick }}
+
+      - name: Checkout upstream repo at that date branch
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.UPSTREAM_REPO }}
+          ref: ${{ steps.pick_date.outputs.branch_date }}
+          path: upstream
+          fetch-depth: 1
+
+      - name: Sync upstream snapshot into this repo
+        shell: bash
+        run: |
+          set -euo pipefail
+          IMPORT_DIR="${{ inputs.import_dir }}"
+          if [ -z "${IMPORT_DIR:-}" ]; then
+            IMPORT_DIR="vendor/nixpkgs"
+          fi
+
+          mkdir -p "$IMPORT_DIR"
+          rm -rf "${IMPORT_DIR:?}/"*  # clear previous snapshot (keeps dir)
+
+          # Copy everything except .git
+          rsync -a --delete --exclude ".git" upstream/ "${IMPORT_DIR}/"
+
+          echo "Upstream branch date: ${{ steps.pick_date.outputs.branch_date }}" > "${IMPORT_DIR}/.vendored-from"
+          echo "Repo: ${{ env.UPSTREAM_REPO }}" >> "${IMPORT_DIR}/.vendored-from"
+
+      - name: Commit to main (if changes)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          IMPORT_DIR="${{ inputs.import_dir }}"
+          if [ -z "${IMPORT_DIR:-}" ]; then
+            IMPORT_DIR="vendor/nixpkgs"
+          fi
+
+          git add "$IMPORT_DIR"
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          BR="${{ steps.pick_date.outputs.branch_date }}"
+          git commit -m "Vendor ${{ env.UPSTREAM_REPO }} branch ${BR} (from rix available_df.csv)"
+          git push origin HEAD:main
