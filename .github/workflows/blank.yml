@@ -1,4 +1,4 @@
-name: Vendor rstats-on-nix/nixpkgs by date from rix CSV
+name: Mirror rstats-on-nix/nixpkgs to nixpkgs branch by date from rix CSV
 
 on:
   workflow_dispatch:
@@ -15,25 +15,25 @@ on:
         description: "Which date to pick: latest | oldest"
         required: false
         default: "latest"
-      import_dir:
-        description: "Directory in this repo to place the vendored nixpkgs snapshot"
+      target_branch:
+        description: "Branch in THIS repo that will contain the mirrored nixpkgs content"
         required: false
-        default: "vendor/nixpkgs"
+        default: "nixpkgs"
   schedule:
-    - cron: "0 3 * * 1" # weekly (Mon 03:00 UTC)
+    - cron: "0 3,15 * * *"
 
 permissions:
   contents: write
 
 concurrency:
-  group: vendor-nixpkgs
+  group: mirror-nixpkgs
   cancel-in-progress: true
 
 env:
   UPSTREAM_REPO: "rstats-on-nix/nixpkgs"
 
 jobs:
-  vendor:
+  mirror:
     runs-on: ubuntu-latest
 
     steps:
@@ -48,11 +48,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          CSV_URL="${{ inputs.csv_url }}"
-          if [ -z "${CSV_URL:-}" ]; then
-            CSV_URL="https://raw.githubusercontent.com/ropensci/rix/refs/heads/main/inst/extdata/available_df.csv"
-          fi
-          curl -fsSL "$CSV_URL" -o /tmp/available_df.csv
+          curl -fsSL "${{ inputs.csv_url }}" -o /tmp/available_df.csv
           echo "csv_path=/tmp/available_df.csv" >> "$GITHUB_OUTPUT"
 
       - name: Pick date (upstream branch)
@@ -85,7 +81,6 @@ jobs:
             v = (r.get(col) or "").strip()
             if not v:
               continue
-            # Expect ISO yyyy-mm-dd
             try:
               y, m, d = map(int, v.split("-"))
               dates.append((date(y, m, d), v))
@@ -102,7 +97,6 @@ jobs:
           out = os.environ["GITHUB_OUTPUT"]
           with open(out, "a", encoding="utf-8") as f:
             f.write(f"branch_date={chosen}\n")
-
           print(f"Selected upstream branch: {chosen}")
           PY
         env:
@@ -118,37 +112,49 @@ jobs:
           path: upstream
           fetch-depth: 1
 
-      - name: Sync upstream snapshot into this repo
+      - name: Switch to target branch in this repo (create/reset)
         shell: bash
         run: |
           set -euo pipefail
-          IMPORT_DIR="${{ inputs.import_dir }}"
-          if [ -z "${IMPORT_DIR:-}" ]; then
-            IMPORT_DIR="vendor/nixpkgs"
+          TARGET="${{ inputs.target_branch }}"
+          if [ -z "${TARGET:-}" ]; then TARGET="nixpkgs"; fi
+
+          # Ensure we know about remote branches
+          git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+
+          # Create local target branch (or reset it to remote if it exists)
+          if git show-ref --verify --quiet "refs/remotes/origin/$TARGET"; then
+            git checkout -B "$TARGET" "origin/$TARGET"
+          else
+            git checkout -B "$TARGET"
           fi
 
-          mkdir -p "$IMPORT_DIR"
-          rm -rf "${IMPORT_DIR:?}/"*  # clear previous snapshot (keeps dir)
-
-          # Copy everything except .git
-          rsync -a --delete --exclude ".git" upstream/ "${IMPORT_DIR}/"
-
-          echo "Upstream branch date: ${{ steps.pick_date.outputs.branch_date }}" > "${IMPORT_DIR}/.vendored-from"
-          echo "Repo: ${{ env.UPSTREAM_REPO }}" >> "${IMPORT_DIR}/.vendored-from"
-
-      - name: Commit to main (if changes)
+      - name: Replace target branch root with upstream snapshot
         shell: bash
         run: |
           set -euo pipefail
+
+          # Remove everything except .git and the checked-out upstream folder (we still need it to copy from)
+          find . -mindepth 1 -maxdepth 1 ! -name ".git" ! -name "upstream" -exec rm -rf {} +
+
+          # Copy upstream contents into repo root (excluding its .git)
+          rsync -a --delete --exclude ".git" upstream/ .
+
+          # Remove the upstream working folder after copy so it doesn't get committed
+          rm -rf upstream
+
+          echo "Upstream branch date: ${{ steps.pick_date.outputs.branch_date }}" > .vendored-from
+          echo "Repo: ${{ env.UPSTREAM_REPO }}" >> .vendored-from
+
+      - name: Commit and push to target branch (force)
+        shell: bash
+        run: |
+          set -euo pipefail
+
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          IMPORT_DIR="${{ inputs.import_dir }}"
-          if [ -z "${IMPORT_DIR:-}" ]; then
-            IMPORT_DIR="vendor/nixpkgs"
-          fi
-
-          git add "$IMPORT_DIR"
+          git add -A
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
@@ -156,5 +162,8 @@ jobs:
           fi
 
           BR="${{ steps.pick_date.outputs.branch_date }}"
-          git commit -m "Vendor ${{ env.UPSTREAM_REPO }} branch ${BR} (from rix available_df.csv)"
-          git push origin HEAD:main
+          TARGET="${{ inputs.target_branch }}"
+          if [ -z "${TARGET:-}" ]; then TARGET="nixpkgs"; fi
+
+          git commit -m "Mirror ${{ env.UPSTREAM_REPO }} branch ${BR}"
+          git push --force-with-lease origin "HEAD:$TARGET"
