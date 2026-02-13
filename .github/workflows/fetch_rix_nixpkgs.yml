@@ -32,6 +32,12 @@ concurrency:
 env:
   UPSTREAM_REPO: "rstats-on-nix/nixpkgs"
 
+  # Hard defaults (schedule has no inputs)
+  DEFAULT_CSV_URL: "https://raw.githubusercontent.com/ropensci/rix/refs/heads/main/inst/extdata/available_df.csv"
+  DEFAULT_DATE_COLUMN: "date"
+  DEFAULT_PICK: "latest"
+  DEFAULT_TARGET_BRANCH: "nixpkgs"
+
 jobs:
   mirror:
     runs-on: ubuntu-latest
@@ -43,12 +49,47 @@ jobs:
           ref: main
           fetch-depth: 0
 
+      - name: Resolve parameters (dispatch + schedule safe)
+        id: params
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Present only for workflow_dispatch. Empty for schedule.
+          CSV_URL='${{ github.event.inputs.csv_url }}'
+          DATE_COLUMN='${{ github.event.inputs.date_column }}'
+          PICK='${{ github.event.inputs.pick }}'
+          TARGET_BRANCH='${{ github.event.inputs.target_branch }}'
+
+          if [[ -z "${CSV_URL}" ]]; then CSV_URL="${DEFAULT_CSV_URL}"; fi
+          if [[ -z "${DATE_COLUMN}" ]]; then DATE_COLUMN="${DEFAULT_DATE_COLUMN}"; fi
+          if [[ -z "${PICK}" ]]; then PICK="${DEFAULT_PICK}"; fi
+          if [[ -z "${TARGET_BRANCH}" ]]; then TARGET_BRANCH="${DEFAULT_TARGET_BRANCH}"; fi
+
+          PICK="$(echo "${PICK}" | tr '[:upper:]' '[:lower:]' | xargs)"
+          if [[ "${PICK}" != "latest" && "${PICK}" != "oldest" ]]; then
+            echo "Invalid pick='${PICK}'. Must be 'latest' or 'oldest'." >&2
+            exit 1
+          fi
+
+          echo "csv_url=${CSV_URL}" >> "$GITHUB_OUTPUT"
+          echo "date_column=${DATE_COLUMN}" >> "$GITHUB_OUTPUT"
+          echo "pick=${PICK}" >> "$GITHUB_OUTPUT"
+          echo "target_branch=${TARGET_BRANCH}" >> "$GITHUB_OUTPUT"
+
+          echo "Resolved:"
+          echo "  csv_url=${CSV_URL}"
+          echo "  date_column=${DATE_COLUMN}"
+          echo "  pick=${PICK}"
+          echo "  target_branch=${TARGET_BRANCH}"
+
       - name: Fetch CSV
         id: fetch_csv
         shell: bash
         run: |
           set -euo pipefail
-          curl -fsSL "${{ inputs.csv_url }}" -o /tmp/available_df.csv
+          curl -fsSL "${{ steps.params.outputs.csv_url }}" -o /tmp/available_df.csv
+          test -s /tmp/available_df.csv
           echo "csv_path=/tmp/available_df.csv" >> "$GITHUB_OUTPUT"
 
       - name: Pick date (upstream branch)
@@ -61,8 +102,8 @@ jobs:
           from datetime import date
 
           csv_path = os.environ["CSV_PATH"]
-          col = os.environ.get("DATE_COLUMN", "date")
-          pick = os.environ.get("PICK", "latest").strip().lower()
+          col = (os.environ.get("DATE_COLUMN") or "date").strip()
+          pick = (os.environ.get("PICK") or "latest").strip().lower()
 
           with open(csv_path, newline="", encoding="utf-8") as f:
             reader = csv.DictReader(f)
@@ -72,8 +113,9 @@ jobs:
             print("CSV has no data rows", file=sys.stderr)
             sys.exit(1)
 
-          if col not in rows[0]:
-            print(f"Missing column '{col}' in CSV headers: {list(rows[0].keys())}", file=sys.stderr)
+          headers = list(rows[0].keys())
+          if col not in headers:
+            print(f"Missing column '{col}' in CSV headers: {headers}", file=sys.stderr)
             sys.exit(1)
 
           dates = []
@@ -101,8 +143,8 @@ jobs:
           PY
         env:
           CSV_PATH: ${{ steps.fetch_csv.outputs.csv_path }}
-          DATE_COLUMN: ${{ inputs.date_column }}
-          PICK: ${{ inputs.pick }}
+          DATE_COLUMN: ${{ steps.params.outputs.date_column }}
+          PICK: ${{ steps.params.outputs.pick }}
 
       - name: Checkout upstream repo at that date branch
         uses: actions/checkout@v4
@@ -116,8 +158,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          TARGET="${{ inputs.target_branch }}"
-          if [ -z "${TARGET:-}" ]; then TARGET="nixpkgs"; fi
+          TARGET="${{ steps.params.outputs.target_branch }}"
 
           # Ensure we know about remote branches
           git fetch origin "+refs/heads/*:refs/remotes/origin/*"
@@ -166,8 +207,7 @@ jobs:
           fi
 
           BR="${{ steps.pick_date.outputs.branch_date }}"
-          TARGET="${{ inputs.target_branch }}"
-          if [ -z "${TARGET:-}" ]; then TARGET="nixpkgs"; fi
+          TARGET="${{ steps.params.outputs.target_branch }}"
 
           git commit -m "Mirror ${{ env.UPSTREAM_REPO }} branch ${BR}"
           git push --force-with-lease origin "HEAD:$TARGET"
