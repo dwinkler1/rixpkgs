@@ -5,17 +5,15 @@
   python3,
 }:
 
-python3.pkgs.buildPythonApplication rec {
+python3.pkgs.buildPythonApplication (finalAttrs: {
   pname = "autosuspend";
   version = "9.0.1";
   pyproject = true;
 
-  disabled = python3.pythonOlder "3.11";
-
   src = fetchFromGitHub {
     owner = "languitar";
     repo = "autosuspend";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-PVxsdCPGu+bhjfAF5Hu4Xa3lETARitbBUKuy7ursAUE=";
   };
 
@@ -58,7 +56,7 @@ python3.pkgs.buildPythonApplication rec {
   meta = {
     description = "Daemon to automatically suspend and wake up a system";
     homepage = "https://autosuspend.readthedocs.io";
-    changelog = "https://github.com/languitar/autosuspend/releases/tag/${src.tag}";
+    changelog = "https://github.com/languitar/autosuspend/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.gpl2Only;
     maintainers = with lib.maintainers; [
       bzizou
@@ -67,4 +65,4 @@ python3.pkgs.buildPythonApplication rec {
     mainProgram = "autosuspend";
     platforms = lib.platforms.linux;
   };
-}
+})

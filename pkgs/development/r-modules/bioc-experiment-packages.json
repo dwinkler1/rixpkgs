@@ -1085,8 +1085,8 @@
     },
     "RnBeads_hg38": {
       "name": "RnBeads.hg38",
-      "version": "1.42.0",
-      "sha256": "0iy09yys2zfmsi2wwz8s4njscw1l7c6yibg6n25mdvhx2qp1i3w3",
+      "version": "1.42.1",
+      "sha256": "1dlnqkywcf0gwsfxhkhjxl6vpyvsdw5kpiv6p4zlgw4x4g7f24rp",
       "depends": ["GenomicRanges"]
     },
     "RnBeads_mm10": {
