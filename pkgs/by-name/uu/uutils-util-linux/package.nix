@@ -10,13 +10,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "uutils-util-linux";
-  version = "0.0.1-unstable-2026-02-12";
+  version = "0.0.1-unstable-2026-04-24";
 
   src = fetchFromGitHub {
     owner = "uutils";
     repo = "util-linux";
-    rev = "30b133e62708d438ed6f55f5e012ebc26148f4f2";
-    hash = "sha256-QagAhJF9L06SfGMe0fOBBAy/pkrQQGRD232EdxbwhGw=";
+    rev = "23de6cc33cfcd3579a7d00ff5ca41ed557b94e1f";
+    hash = "sha256-X2ZALHdGt//mrge+069Sxp5GYKPUbZtxPsbUSzDIz5s=";
   };
 
   postPatch = ''
@@ -29,7 +29,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
       --replace-fail '"cut"' '"${lib.getExe' coreutils "cut"}"'
   '';
 
-  cargoHash = "sha256-Ay917G67gICdEG98tRRgJhwYDJ140lKmn0mZa7SNels=";
+  cargoHash = "sha256-ZC71bM/h2v6HI+sN4cFsCR3VkOP+YGsgBjlfaSvoGUM=";
 
   nativeBuildInputs = [
     pkg-config
@@ -41,6 +41,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   preBuild = ''
     export NIX_LDFLAGS="$NIX_LDFLAGS -lsmartcols -lmount"
   '';
+
+  cargoBuildFlags = [ "--workspace" ];
 
   checkFlags = [
     # Operation not supported

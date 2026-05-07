@@ -10,10 +10,8 @@
 let
   inherit (lib)
     all
-    attrNames
     attrValues
     concatMapStrings
-    concatMapStringsSep
     concatStrings
     filter
     findFirst
@@ -26,7 +24,8 @@ let
     optionalString
     isAttrs
     isString
-    mapAttrs
+    warn
+    foldl'
     ;
 
   inherit (lib.lists)
@@ -38,9 +37,8 @@ let
     ;
 
   inherit (lib.meta)
-    availableOn
+    platformMatch
     cpeFullVersionWithVendor
-    tryCPEPatchVersionInUpdateWithVendor
     ;
 
   inherit (lib.generators)
@@ -49,15 +47,17 @@ let
 
   inherit (builtins)
     getEnv
-    trace
     ;
+
+  inherit (import ./problems.nix { inherit lib; })
+    problemsType
+    genCheckProblems
+    ;
+  checkProblems = genCheckProblems config;
 
   # If we're in hydra, we can dispense with the more verbose error
   # messages and make problems easier to spot.
   inHydra = config.inHydra or false;
-  # Allow the user to opt-into additional warnings, e.g.
-  # import <nixpkgs> { config = { showDerivationWarnings = [ "maintainerless" ]; }; }
-  showWarnings = config.showDerivationWarnings;
 
   getNameWithVersion =
     attrs: attrs.name or "${attrs.pname or "«name-missing»"}-${attrs.version or "«version-missing»"}";
@@ -82,30 +82,32 @@ let
   hasListedLicense =
     assert areLicenseListsValid;
     list:
-    if list == [ ] then
-      attrs: false
-    else
-      attrs:
-      attrs ? meta.license
-      && (
-        if isList attrs.meta.license then
-          any (l: elem l list) attrs.meta.license
-        else
-          elem attrs.meta.license list
-      );
+    let
+      containsListLicenses = lib.licenses.containsLicenses list;
+    in
+    attrs:
+    attrs ? meta.license
+    && (
+      if isList attrs.meta.license then
+        any (l: elem l list) attrs.meta.license
+      else if attrs.meta.license ? "licenseType" then
+        containsListLicenses attrs.meta.license
+      else
+        elem attrs.meta.license list
+    );
 
   hasAllowlistedLicense = hasListedLicense allowlist;
 
   hasBlocklistedLicense = hasListedLicense blocklist;
-
-  allowBroken = config.allowBroken || getEnv "NIXPKGS_ALLOW_BROKEN" == "1";
 
   allowUnsupportedSystem =
     config.allowUnsupportedSystem || getEnv "NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM" == "1";
 
   isUnfree =
     licenses:
-    if isAttrs licenses then
+    if isAttrs licenses && licenses ? "licenseType" then
+      !(lib.licenses.isFree licenses)
+    else if isAttrs licenses then
       !(licenses.free or true)
     # TODO: Returning false in the case of a string is a bug that should be fixed.
     # In a previous implementation of this function the function body
@@ -118,36 +120,16 @@ let
 
   hasUnfreeLicense = attrs: attrs ? meta.license && isUnfree attrs.meta.license;
 
-  hasNoMaintainers =
-    # To get usable output, we want to avoid flagging "internal" derivations.
-    # Because we do not have a way to reliably decide between internal or
-    # external derivation, some heuristics are required to decide.
-    #
-    # If `outputHash` is defined, the derivation is a FOD, such as the output of a fetcher.
-    # If `description` is not defined, the derivation is probably not a package.
-    # Simply checking whether `meta` is defined is insufficient,
-    # as some fetchers and trivial builders do define meta.
-    attrs:
-    (!attrs ? outputHash)
-    && (attrs ? meta.description)
-    && (attrs.meta.maintainers or [ ] == [ ])
-    && (attrs.meta.teams or [ ] == [ ]);
-
   isMarkedBroken = attrs: attrs.meta.broken or false;
 
-  # Allow granular checks to allow only some broken packages
-  # Example:
-  # { pkgs, ... }:
-  # {
-  #   allowBroken = false;
-  #   allowBrokenPredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [ "hello" ];
-  # }
-  allowBrokenPredicate = config.allowBrokenPredicate or (x: false);
-
-  hasDeniedBroken =
-    attrs: (attrs.meta.broken or false) && !allowBroken && !allowBrokenPredicate attrs;
-
-  hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+  # Logical inversion of meta.availableOn for hostPlatform
+  hasUnsupportedPlatform =
+    let
+      anyHostPlatform = any (platformMatch hostPlatform);
+    in
+    pkg:
+    pkg ? meta.platforms && !(anyHostPlatform pkg.meta.platforms)
+    || pkg ? meta.badPlatforms && anyHostPlatform pkg.meta.badPlatforms;
 
   isMarkedInsecure = attrs: (attrs.meta.knownVulnerabilities or [ ]) != [ ];
 
@@ -203,7 +185,6 @@ let
     attrs:
     attrs ? meta.sourceProvenance
     && any (t: !t.isSource) attrs.meta.sourceProvenance
-    && !allowNonSource
     && !allowNonSourcePredicate attrs;
 
   showLicenseOrSourceType =
@@ -217,7 +198,6 @@ let
     allow_attr:
     {
       Unfree = "NIXPKGS_ALLOW_UNFREE";
-      Broken = "NIXPKGS_ALLOW_BROKEN";
       UnsupportedSystem = "NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM";
       NonSource = "NIXPKGS_ALLOW_NONSOURCE";
     }
@@ -226,7 +206,6 @@ let
     allow_attr:
     {
       Unfree = "unfree packages";
-      Broken = "broken packages";
       UnsupportedSystem = "packages that are unsupported for this system";
       NonSource = "packages not built from source";
     }
@@ -317,7 +296,7 @@ let
       ${concatStrings (map (output: "  - ${output}\n") missingOutputs)}
     '';
 
-  metaTypes =
+  metaType =
     let
       types = import ./meta-types.nix { inherit lib; };
       inherit (types)
@@ -329,13 +308,14 @@ let
         any
         listOf
         bool
+        record
         ;
       platforms = listOf (union [
         str
         (attrsOf any)
       ]); # see lib.meta.platformMatch
     in
-    {
+    record {
       # These keys are documented
       description = str;
       mainProgram = str;
@@ -370,10 +350,13 @@ let
       pkgConfigModules = listOf str;
       inherit platforms;
       hydraPlatforms = listOf str;
+      # Automatically turns into meta.problems.broken, see ./problems.nix
       broken = bool;
       unfree = bool;
       unsupported = bool;
       insecure = bool;
+      # This is checked in more detail further down
+      problems = problemsType;
       timeout = int;
       knownVulnerabilities = listOf str;
       badPlatforms = platforms;
@@ -404,98 +387,68 @@ let
       identifiers = attrs;
     };
 
-  # Map attrs directly to the verify function for performance
-  metaTypes' = mapAttrs (_: t: t.verify) metaTypes;
-
-  checkMetaAttr =
-    k: v:
-    if metaTypes ? ${k} then
-      if metaTypes'.${k} v then
-        [ ]
-      else
-        [
-          "key 'meta.${k}' has invalid value; expected ${metaTypes.${k}.name}, got\n    ${
-            toPretty { indent = "    "; } v
-          }"
-        ]
-    else
-      [
-        "key 'meta.${k}' is unrecognized; expected one of: \n  [${
-          concatMapStringsSep ", " (x: "'${x}'") (attrNames metaTypes)
-        }]"
-      ];
-
-  checkMeta = meta: concatMap (attr: checkMetaAttr attr meta.${attr}) (attrNames meta);
-
-  metaInvalid =
-    if config.checkMeta then
-      meta: !all (attr: metaTypes ? ${attr} && metaTypes'.${attr} meta.${attr}) (attrNames meta)
-    else
-      meta: false;
+  checkMeta = config.checkMeta;
 
   checkOutputsToInstall =
-    if config.checkMeta then
-      attrs:
+    attrs:
+    attrs.meta ? outputsToInstall
+    && (
       let
         actualOutputs = attrs.outputs or [ "out" ];
       in
-      any (output: !elem output actualOutputs) (attrs.meta.outputsToInstall or [ ])
-    else
-      attrs: false;
+      !all (output: elem output actualOutputs) attrs.meta.outputsToInstall
+    );
 
   # Check if a derivation is valid, that is whether it passes checks for
   # e.g brokenness or license.
   #
   # Return { valid: "yes", "warn" or "no" } and additionally
-  # { reason: String; errormsg: String, remediation: String } if it is not valid, where
+  # { reason: String; msg: String, remediation: String } if it is not valid, where
   # reason is one of "unfree", "blocklisted", "broken", "insecure", ...
   # !!! reason strings are hardcoded into OfBorg, make sure to keep them in sync
   # Along with a boolean flag for each reason
   checkValidity =
     attrs:
+    if !attrs ? meta then
+      null
+    else
     # Check meta attribute types first, to make sure it is always called even when there are other issues
     # Note that this is not a full type check and functions below still need to by careful about their inputs!
-    if metaInvalid (attrs.meta or { }) then
+    if checkMeta && !metaType.verify attrs.meta then
       {
         reason = "unknown-meta";
-        errormsg = "has an invalid meta attrset:${
-          concatMapStrings (x: "\n  - " + x) (checkMeta attrs.meta)
+        msg = "has an invalid meta attrset:${
+          concatMapStrings (x: "\n  - " + x) (metaType.errors "${getName attrs}.meta" attrs.meta)
         }\n";
         remediation = "";
       }
 
     # --- Put checks that cannot be ignored here ---
-    else if checkOutputsToInstall attrs then
+    else if checkMeta && checkOutputsToInstall attrs then
       {
         reason = "broken-outputs";
-        errormsg = "has invalid meta.outputsToInstall";
+        msg = "has invalid meta.outputsToInstall";
         remediation = remediateOutputsToInstall attrs;
       }
 
     # --- Put checks that can be ignored here ---
-    else if hasDeniedUnfreeLicense attrs && !(hasAllowlistedLicense attrs) then
+    else if hasDeniedUnfreeLicense attrs && !(allowlist != [ ] && hasAllowlistedLicense attrs) then
       {
         reason = "unfree";
-        errormsg = "has an unfree license (‘${showLicense attrs.meta.license}’)";
+        msg = "has an unfree license (‘${showLicense attrs.meta.license}’)";
         remediation = remediate_allowlist "Unfree" (remediate_predicate "allowUnfreePredicate" attrs);
       }
-    else if hasBlocklistedLicense attrs then
+    else if blocklist != [ ] && hasBlocklistedLicense attrs then
       {
         reason = "blocklisted";
-        errormsg = "has a blocklisted license (‘${showLicense attrs.meta.license}’)";
+        msg = "has a blocklisted license (‘${showLicense attrs.meta.license}’)";
         remediation = "";
       }
-    else if hasDeniedNonSourceProvenance attrs then
+    else if !allowNonSource && hasDeniedNonSourceProvenance attrs then
       {
         reason = "non-source";
-        errormsg = "contains elements not built from source (‘${showSourceType attrs.meta.sourceProvenance}’)";
+        msg = "contains elements not built from source (‘${showSourceType attrs.meta.sourceProvenance}’)";
         remediation = remediate_allowlist "NonSource" (remediate_predicate "allowNonSourcePredicate" attrs);
-      }
-    else if hasDeniedBroken attrs then
-      {
-        reason = "broken";
-        errormsg = "is marked as broken";
-        remediation = remediate_allowlist "Broken" "";
       }
     else if hasUnsupportedPlatform attrs && !allowUnsupportedSystem then
       let
@@ -506,7 +459,7 @@ let
       in
       {
         reason = "unsupported";
-        errormsg = ''
+        msg = ''
           is not available on the requested hostPlatform:
             hostPlatform.system = "${hostPlatform.system}"
             package.meta.platforms = ${toPretty' (attrs.meta.platforms or [ ])}
@@ -517,20 +470,8 @@ let
     else if hasDisallowedInsecure attrs then
       {
         reason = "insecure";
-        errormsg = "is marked as insecure";
+        msg = "is marked as insecure";
         remediation = remediate_insecure attrs;
-      }
-    else
-      null;
-
-  # Please also update the type in /pkgs/top-level/config.nix alongside this.
-  checkWarnings =
-    attrs:
-    if hasNoMaintainers attrs then
-      {
-        reason = "maintainerless";
-        errormsg = "has no maintainers or teams";
-        remediation = "";
       }
     else
       null;
@@ -550,19 +491,18 @@ let
       version,
       update,
       edition,
+      language,
       sw_edition,
       target_sw,
       target_hw,
-      language,
       other,
     }:
-    "cpe:2.3:${part}:${vendor}:${product}:${version}:${update}:${edition}:${sw_edition}:${target_sw}:${target_hw}:${language}:${other}";
+    "cpe:2.3:${part}:${vendor}:${product}:${version}:${update}:${edition}:${language}:${sw_edition}:${target_sw}:${target_hw}:${other}";
   possibleCPEPartsFuns = [
     (vendor: version: {
       success = true;
       value = cpeFullVersionWithVendor vendor version;
     })
-    tryCPEPatchVersionInUpdateWithVendor
   ];
 
   # The meta attribute is passed in the resulting attribute set,
@@ -695,54 +635,70 @@ let
         && ((config.checkMetaRecursively or false) -> all (d: d.meta.available or true) references);
     };
 
-  validYes = {
-    valid = "yes";
-    handled = true;
-  };
+  handle =
+    {
+      attrs,
+      meta,
+      warnings ? [ ],
+      error ? null,
+    }:
+    let
+      withError =
+        if isNull error then
+          true
+        else
+          let
+            msg =
+              "Refusing to evaluate package '${getNameWithVersion attrs}' in ${pos_str meta} because it ${error.msg}"
+              + lib.optionalString (!inHydra && error.remediation != "") "\n${error.remediation}";
+          in
+          if config ? handleEvalIssue then
+            if error.reason == "problem" then
+              error.handleProblem config.handleEvalIssue
+            else
+              config.handleEvalIssue error.reason msg
+          else
+            throw msg;
+
+      giveWarning =
+        acc: warning:
+        let
+          msg =
+            "Package '${getNameWithVersion attrs}' in ${pos_str meta} ${warning.msg}"
+            + lib.optionalString (!inHydra && warning.remediation != "") " ${warning.remediation}";
+        in
+        warn msg acc;
+    in
+    # Give all warnings first, then error if any
+    builtins.seq (foldl' giveWarning null warnings) withError;
 
   assertValidity =
     { meta, attrs }:
     let
       invalid = checkValidity attrs;
-      warning = checkWarnings attrs;
+      problems = checkProblems attrs;
     in
     if isNull invalid then
-      if isNull warning then
-        validYes
+      if isNull problems then
+        {
+          valid = "yes";
+          handled = true;
+        }
       else
-        let
-          msg =
-            if inHydra then
-              "Warning while evaluating ${getNameWithVersion attrs}: «${warning.reason}»: ${warning.errormsg}"
-            else
-              "Package ${getNameWithVersion attrs} in ${pos_str meta} ${warning.errormsg}, continuing anyway."
-              + (optionalString (warning.remediation != "") "\n${warning.remediation}");
-
-          handled = if elem warning.reason showWarnings then trace msg true else true;
-        in
-        warning
-        // {
-          valid = "warn";
-          handled = handled;
+        {
+          valid = if isNull problems.error then "warn" else "no";
+          handled = handle {
+            inherit attrs meta;
+            inherit (problems) error warnings;
+          };
         }
     else
-      let
-        msg =
-          if inHydra then
-            "Failed to evaluate ${getNameWithVersion attrs}: «${invalid.reason}»: ${invalid.errormsg}"
-          else
-            ''
-              Package ‘${getNameWithVersion attrs}’ in ${pos_str meta} ${invalid.errormsg}, refusing to evaluate.
-
-            ''
-            + invalid.remediation;
-
-        handled = if config ? handleEvalIssue then config.handleEvalIssue invalid.reason msg else throw msg;
-      in
-      invalid
-      // {
+      {
         valid = "no";
-        handled = handled;
+        handled = handle {
+          inherit attrs meta;
+          error = invalid;
+        };
       };
 
 in

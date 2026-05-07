@@ -9,13 +9,12 @@
   protobuf,
   installShellFiles,
   makeBinaryWrapper,
-  librusty_v8 ? callPackage ./librusty_v8.nix {
-    inherit (callPackage ./fetchers.nix { }) fetchLibrustyV8;
-  },
+  librusty_v8 ? callPackage ./librusty_v8.nix { },
   libffi,
   sqlite,
   lld,
   writableTmpDirAsHomeHook,
+  fetchpatch,
 
   # Test deps
   curl,
@@ -30,17 +29,17 @@ let
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "deno";
-  version = "2.6.8";
+  version = "2.7.14";
 
   src = fetchFromGitHub {
     owner = "denoland";
     repo = "deno";
     tag = "v${finalAttrs.version}";
     fetchSubmodules = true; # required for tests
-    hash = "sha256-RBrBtkDd8lgrnRmFkRwF86xuUr2zTDHUrcNVh5P6gCc=";
+    hash = "sha256-tkZc89JOhXCdMVSAOQYGR6HDe7KmCI5/haLH1RP2p7I=";
   };
 
-  cargoHash = "sha256-6UTRvrQzuEvrHxleTEEpoTwgDWDG79+9Txjo0SLL3Ns=";
+  cargoHash = "sha256-bFQLsAF4hFBRw04VaL+sxvxIZ9p7nXOLSr2BIZKcwiI=";
 
   patches = [
     ./patches/0002-tests-replace-hardcoded-paths.patch
@@ -130,7 +129,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoTestFlags = [
     "--lib" # unit tests
-    "--test=integration_tests"
+    "--test=integration_test"
     # Test targets not included here:
     # - node_compat: there are tons of network access in them and it's not trivial to skip test cases.
     # - specs: this target uses a custom test harness that doesn't implement the --skip flag.
@@ -179,6 +178,12 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
     # sqlite extension tests are in a separate Cargo crate and therefore are not handled by the nixpkgs Cargo tooling
     "--skip=sqlite_extension_test"
+
+    # Needs deno in $PATH
+    "--skip=tests::test_rebuild_async_stubs"
+
+    # Causes SIGTRAP
+    "--skip=external::tests::test_external_deref_after_take"
   ]
   ++ lib.optionals stdenv.hostPlatform.isDarwin [
     # Expects specific shared libraries from macOS to be linked
@@ -237,7 +242,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   '';
 
   passthru = {
-    updateScript = ./update/update.ts;
+    updateScript = ./update.sh;
     tests = callPackage ./tests { };
     inherit librusty_v8;
   };
@@ -260,6 +265,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     maintainers = with lib.maintainers; [
       jk
       ofalvai
+      mynacol
     ];
     platforms = [
       "x86_64-linux"

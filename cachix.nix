@@ -31,7 +31,7 @@ let
     blavaan
     codetools
     collapse
-     devtools
+    devtools
      fixest
      geos
      gpboost
@@ -46,7 +46,7 @@ let
      sf
      stars
      stringi
-     sys
+    sys
     terra
     testthat
     vapour
@@ -68,3 +68,4 @@ let
     buildInputs = [ system_packages r_packages wrapped_pkgs ];
 
   }
+

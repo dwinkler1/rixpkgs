@@ -7,14 +7,14 @@
 
 python3.pkgs.buildPythonApplication (finalAttrs: {
   pname = "radicale";
-  version = "3.6.0";
+  version = "3.7.2";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "Kozea";
     repo = "Radicale";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-FzCNmmlQeka+Z7h1Dp631coKPF7gc0LOWnyca994bgs=";
+    hash = "sha256-eZnm3mlG+HoqOXlKxv4UIdN99z04ty0qiwaJeNo3zEM=";
   };
 
   build-system = with python3.pkgs; [
@@ -27,7 +27,6 @@ python3.pkgs.buildPythonApplication (finalAttrs: {
       defusedxml
       libpass
       vobject
-      packaging
       pika
       requests
       ldap3

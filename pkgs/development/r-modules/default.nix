@@ -385,6 +385,7 @@ let
     data_table = [ jbedo ];
     BiocManager = [ jbedo ];
     ggplot2 = [ jbedo ];
+    iscream = [ jamespeapen ];
     svaNUMT = [ jbedo ];
     svaRetro = [ jbedo ];
     StructuralVariantAnnotation = [ jbedo ];
@@ -431,6 +432,22 @@ let
       cargo
       rustc
     ];
+    b32 = with pkgs; [
+      cargo
+      rustc
+    ];
+    RPesto = with pkgs; [
+      cargo
+      rustc
+    ];
+    fru = with pkgs; [
+      cargo
+      rustc
+    ];
+    fastgeojson = with pkgs; [
+      cargo
+      rustc
+    ];
     audio = [ pkgs.portaudio ];
     BayesChange = [ pkgs.gsl ];
     BayesSAE = [ pkgs.gsl ];
@@ -451,6 +468,7 @@ let
       which
     ];
     bio3d = [ pkgs.zlib ];
+    BigDataStatMeth = [ pkgs.pkg-config ];
     BiocCheck = [ pkgs.which ];
     Biostrings = [ pkgs.zlib ];
     blosc = [ pkgs.pkg-config ];
@@ -513,6 +531,10 @@ let
       cargo
       rustc
     ];
+    waysign = with pkgs; [
+      cargo
+      rustc
+    ];
     fftw = [ pkgs.fftw.dev ];
     fftwtools = with pkgs; [
       fftw.dev
@@ -568,6 +590,7 @@ let
       cargo
       rustc
     ];
+    harbinger = [ pkgs.glibcLocales ];
     haven = with pkgs; [ zlib.dev ];
     hellorust = [ pkgs.cargo ];
     hgwrr = [ pkgs.gsl ];
@@ -647,6 +670,10 @@ let
       which
       curl.dev
     ];
+    roxigraph = with pkgs; [
+      cargo
+      rustc
+    ];
     rsbml = [ pkgs.pkg-config ];
     rvg = [ pkgs.libpng.dev ];
     MAGEE = [
@@ -673,7 +700,7 @@ let
       pkg-config
     ];
     n1qn1 = [ pkgs.gfortran ];
-    odbc = [ pkgs.unixODBC ];
+    odbc = [ pkgs.unixodbc ];
     opencv = [ pkgs.pkg-config ];
     pak = [ pkgs.curl.dev ];
     pander = with pkgs; [
@@ -803,6 +830,7 @@ let
     Rserve = [ pkgs.openssl ];
     Rssa = [ pkgs.fftw.dev ];
     rsvg = [ pkgs.pkg-config ];
+    fs = [ pkgs.which pkgs.pkg-config pkgs.libuv.dev pkgs.cmake ];
     runjags = [ pkgs.jags ];
     tomledit = with pkgs; [
       cargo
@@ -835,6 +863,10 @@ let
       rustc
     ];
     arcpbf = with pkgs; [
+      cargo
+      rustc
+    ];
+    caugi = with pkgs; [
       cargo
       rustc
     ];
@@ -958,7 +990,7 @@ let
       rustc
     ];
     vdiffr = [ pkgs.libpng.dev ];
-    V8 = [ pkgs.nodejs_22.libv8 ]; # when unpinning the version, don't forget about the other usages later
+    V8 = [ pkgs.nodejs-slim_22.libv8 ]; # when unpinning the version, don't forget about the other usages later
     xactonomial = with pkgs; [
       cargo
       rustc
@@ -1120,6 +1152,7 @@ let
     nat = [ pkgs.which ];
     nat_templatebrains = [ pkgs.which ];
     pbdZMQ = [ pkgs.zeromq ] ++ lib.optionals stdenv.hostPlatform.isDarwin [ pkgs.darwin.binutils ];
+    pqsfinder = [ pkgs.boost ];
     bigmemory = lib.optionals stdenv.hostPlatform.isLinux [ pkgs.libuuid.dev ];
     bayesWatch = [ pkgs.boost.dev ];
     clustermq = [ pkgs.pkg-config ];
@@ -1517,12 +1550,18 @@ let
     psbcGroup = [ pkgs.gsl.dev ];
     rrd = [ pkgs.rrdtool ];
     flowWorkspace = [ pkgs.zlib.dev ];
+    MethScope = with pkgs; [
+      ncurses
+      zlib.dev
+    ];
     RITCH = [ pkgs.zlib.dev ];
     RcppMeCab = [ pkgs.mecab ];
     PING = [ pkgs.gsl ];
+    Rwbo = [ pkgs.zlib.dev ];
     PROJ = [ pkgs.proj.dev ];
     RcppAlgos = [ pkgs.gmp.dev ];
     RcppBigIntAlgos = [ pkgs.gmp.dev ];
+    BigDataStatMeth = [ pkgs.zlib ];
     spaMM = [ pkgs.gsl ];
     shrinkTVP = [ pkgs.gsl ];
     sbrl = with pkgs; [
@@ -1543,6 +1582,7 @@ let
         expat
         libxdmcp
       ];
+    XYomics = [ pkgs.boost ];
     HilbertVisGUI = [ pkgs.gtkmm2.dev ];
     textshaping = with pkgs; [
       harfbuzz.dev
@@ -1689,9 +1729,11 @@ let
     "ceramic"
     "connections"
     "covidmx"
+    "ggiraph"
     "csodata"
     "DiceView"
     "facmodTS"
+    "fwtraits"
     "gasanalyzer"
     "margaret"
     "MSnID"
@@ -1703,6 +1745,7 @@ let
     "PCRA"
     "PSCBS"
     "iemisc"
+    "ready4"
     "red"
     "repmis"
     "R_cache"
@@ -1718,6 +1761,7 @@ let
     "teal_code"
     "TreeTools"
     "TreeSearch"
+    "PKbioanalysis"
     "ACNE"
     "APAlyzer"
     "BAT"
@@ -1820,7 +1864,9 @@ let
     });
 
     vegan3d = old.vegan3d.overrideAttrs (attrs: {
-      RGL_USE_NULL = "true";
+      env = (attrs.env or { }) // {
+        RGL_USE_NULL = "true";
+      };
     });
 
     # it can happen that the major version of arrow-cpp is ahead of the
@@ -1838,10 +1884,20 @@ let
       prePatch = "cd r";
       postPatch = ''
         patchShebangs configure
+        substituteInPlace src/arrow_cpp11.h \
+          --replace-fail 'Rf_findVarInFrame(self, arrow::r::symbols::xp)' \
+                         'R_getVarEx(arrow::r::symbols::xp, self, (Rboolean)FALSE, R_NilValue)' \
+          --replace-fail 'Rf_findVarInFrame(r6, arrow::r::symbols::xp)' \
+                         'R_getVarEx(arrow::r::symbols::xp, r6, (Rboolean)FALSE, R_NilValue)' \
+          --replace-fail 'Rf_findVarInFrame3(arrow::r::ns::arrow, r6_class, FALSE)' \
+                         'R_getVarEx(r6_class, arrow::r::ns::arrow, (Rboolean)FALSE, R_UnboundValue)'
       '';
       buildInputs = attrs.buildInputs ++ [
         pkgs.arrow-cpp
       ];
+      env = (attrs.env or { }) // {
+        NIX_CFLAGS_COMPILE = (attrs.env.NIX_CFLAGS_COMPILE or "") + " -fpermissive";
+      };
     });
 
     gifski = old.gifski.overrideAttrs (attrs: {
@@ -1894,6 +1950,10 @@ let
       ];
     });
 
+    trajeR = old.trajeR.overrideAttrs (attrs: {
+      patches = [ ./patches/trajeR.patch ];
+    });
+
     arcpbf = old.arcpbf.overrideAttrs (attrs: {
       postPatch = "patchShebangs configure";
     });
@@ -1910,11 +1970,34 @@ let
       postPatch = "patchShebangs configure";
     });
 
+    caugi = old.caugi.overrideAttrs (attrs: {
+      postPatch = "patchShebangs configure";
+    });
+
+    enderecobr = old.enderecobr.overrideAttrs (attrs: {
+      postPatch = "patchShebangs configure";
+      nativeBuildInputs = attrs.nativeBuildInputs ++ [
+        pkgs.cargo
+        pkgs.rustc
+      ];
+    });
+
+    fixest = old.fixest.overrideAttrs (attrs: {
+      postPatch = "patchShebangs configure";
+    });
+
     h3o = old.h3o.overrideAttrs (attrs: {
       postPatch = "patchShebangs configure";
     });
 
     ironseed = old.ironseed.overrideAttrs (attrs: {
+      postPatch = "patchShebangs configure";
+    });
+
+    roxigraph = old.roxigraph.overrideAttrs (attrs: {
+      env = (attrs.env or { }) // {
+        LIBCLANG_PATH = "${lib.getLib pkgs.libclang}/lib";
+      };
       postPatch = "patchShebangs configure";
     });
 
@@ -1928,6 +2011,14 @@ let
 
     ymd = old.ymd.overrideAttrs (attrs: {
       postPatch = "patchShebangs configure";
+    });
+
+    yaml12 = old.yaml12.overrideAttrs (attrs: {
+      postPatch = "patchShebangs configure";
+      nativeBuildInputs = attrs.nativeBuildInputs ++ [
+        pkgs.cargo
+        pkgs.rustc
+      ];
     });
 
     SynExtend = old.SynExtend.overrideAttrs (attrs: {
@@ -1965,13 +2056,6 @@ let
 
     fio = old.fio.overrideAttrs (attrs: {
       postPatch = "patchShebangs configure";
-    });
-
-    hypeR = old.hypeR.overrideAttrs (attrs: {
-      postPatch = ''
-        substituteInPlace NAMESPACE R/db_msig.R --replace-fail \
-        "msigdbr_show_species" "msigdbr_species"
-      '';
     });
 
     alcyon = old.alcyon.overrideAttrs (attrs: {
@@ -2120,7 +2204,9 @@ let
     });
 
     nanonext = old.nanonext.overrideAttrs (attrs: {
-      NIX_LDFLAGS = "-lnng -lmbedtls -lmbedx509 -lmbedcrypto";
+      env = (attrs.env or { }) // {
+        NIX_LDFLAGS = "-lnng -lmbedtls -lmbedx509 -lmbedcrypto";
+      };
     });
 
     clustermq = old.clustermq.overrideAttrs (attrs: {
@@ -2128,7 +2214,9 @@ let
     });
 
     Cairo = old.Cairo.overrideAttrs (attrs: {
-      NIX_LDFLAGS = "-lfontconfig";
+      env = (attrs.env or { }) // {
+        NIX_LDFLAGS = "-lfontconfig";
+      };
     });
 
     curl = old.curl.overrideAttrs (attrs: {
@@ -2181,6 +2269,10 @@ let
         pkgs.cargo
         pkgs.rustc
       ];
+    });
+
+    waysign = old.waysign.overrideAttrs (attrs: {
+      postPatch = "patchShebangs configure";
     });
 
     purrr = old.purrr.overrideAttrs (attrs: {
@@ -2257,6 +2349,12 @@ let
 
     cisPath = old.cisPath.overrideAttrs (attrs: {
       hardeningDisable = [ "format" ];
+    });
+
+    harbinger = old.harbinger.overrideAttrs (attrs: {
+      env = (attrs.env or { }) // {
+        LC_ALL = "en_US.UTF-8";
+      };
     });
 
     HilbertVis = old.HilbertVis.overrideAttrs (attrs: {
@@ -2434,8 +2532,9 @@ let
     });
 
     RAppArmor = old.RAppArmor.overrideAttrs (attrs: {
-      patches = [ ./patches/RAppArmor.patch ];
-      LIBAPPARMOR_HOME = pkgs.libapparmor;
+      env = (attrs.env or { }) // {
+        LIBAPPARMOR_HOME = pkgs.libapparmor;
+      };
     });
 
     # Append cargo path to path variable
@@ -2450,17 +2549,21 @@ let
     });
 
     RMySQL = old.RMySQL.overrideAttrs (attrs: {
-      MYSQL_DIR = "${pkgs.libmysqlclient}";
-      PKGCONFIG_CFLAGS = "-I${pkgs.libmysqlclient.dev}/include/mysql";
-      NIX_CFLAGS_LINK = "-L${pkgs.libmysqlclient}/lib/mysql -lmysqlclient";
+      env = (attrs.env or { }) // {
+        MYSQL_DIR = "${pkgs.libmysqlclient}";
+        PKGCONFIG_CFLAGS = "-I${pkgs.libmysqlclient.dev}/include/mysql";
+        NIX_CFLAGS_LINK = "-L${pkgs.libmysqlclient}/lib/mysql -lmysqlclient";
+      };
       preConfigure = ''
         patchShebangs configure
       '';
     });
 
     devEMF = old.devEMF.overrideAttrs (attrs: {
-      NIX_CFLAGS_LINK = "-L${pkgs.libxft.out}/lib -lXft";
-      NIX_LDFLAGS = "-lX11";
+      env = (attrs.env or { }) // {
+        NIX_CFLAGS_LINK = "-L${pkgs.libxft.out}/lib -lXft";
+        NIX_LDFLAGS = "-lX11";
+      };
     });
 
     hdf5r = old.hdf5r.overrideAttrs (attrs: {
@@ -2468,11 +2571,15 @@ let
     });
 
     slfm = old.slfm.overrideAttrs (attrs: {
-      PKG_LIBS = "-L${pkgs.blas}/lib -lblas -L${pkgs.lapack}/lib -llapack";
+      env = (attrs.env or { }) // {
+        PKG_LIBS = "-L${pkgs.blas}/lib -lblas -L${pkgs.lapack}/lib -llapack";
+      };
     });
 
     SamplerCompare = old.SamplerCompare.overrideAttrs (attrs: {
-      PKG_LIBS = "-L${pkgs.blas}/lib -lblas -L${pkgs.lapack}/lib -llapack";
+      env = (attrs.env or { }) // {
+        PKG_LIBS = "-L${pkgs.blas}/lib -lblas -L${pkgs.lapack}/lib -llapack";
+      };
     });
 
     FLAMES = old.FLAMES.overrideAttrs (attrs: {
@@ -2483,13 +2590,17 @@ let
       preConfigure = ''
         patchShebangs configure
       '';
-      PKGCONFIG_CFLAGS = "-I${pkgs.openssl.dev}/include";
-      PKGCONFIG_LIBS = "-Wl,-rpath,${lib.getLib pkgs.openssl}/lib -L${lib.getLib pkgs.openssl}/lib -lssl -lcrypto";
+      env = (attrs.env or { }) // {
+        PKGCONFIG_CFLAGS = "-I${pkgs.openssl.dev}/include";
+        PKGCONFIG_LIBS = "-Wl,-rpath,${lib.getLib pkgs.openssl}/lib -L${lib.getLib pkgs.openssl}/lib -lssl -lcrypto";
+      };
     });
 
     websocket = old.websocket.overrideAttrs (attrs: {
-      PKGCONFIG_CFLAGS = "-I${pkgs.openssl.dev}/include";
-      PKGCONFIG_LIBS = "-Wl,-rpath,${lib.getLib pkgs.openssl}/lib -L${lib.getLib pkgs.openssl}/lib -lssl -lcrypto";
+      env = (attrs.env or { }) // {
+        PKGCONFIG_CFLAGS = "-I${pkgs.openssl.dev}/include";
+        PKGCONFIG_LIBS = "-Wl,-rpath,${lib.getLib pkgs.openssl}/lib -L${lib.getLib pkgs.openssl}/lib -lssl -lcrypto";
+      };
     });
 
     Rserve = old.Rserve.overrideAttrs (attrs: {
@@ -2515,16 +2626,18 @@ let
 
       preConfigure = ''
         # when unpinning the version, don't forget about the other usage earlier
-        export INCLUDE_DIR=${pkgs.nodejs_22.libv8}/include
-        export LIB_DIR=${pkgs.nodejs_22.libv8}/lib
+        export INCLUDE_DIR=${pkgs.nodejs-slim_22.libv8}/include
+        export LIB_DIR=${pkgs.nodejs-slim_22.libv8}/lib
         patchShebangs configure
       '';
 
-      R_MAKEVARS_SITE = lib.optionalString (pkgs.stdenv.system == "aarch64-linux") (
-        pkgs.writeText "Makevars" ''
-          CXX14PICFLAGS = -fPIC
-        ''
-      );
+      env = (attrs.env or { }) // {
+        R_MAKEVARS_SITE = lib.optionalString (pkgs.stdenv.system == "aarch64-linux") (
+          pkgs.writeText "Makevars" ''
+            CXX14PICFLAGS = -fPIC
+          ''
+        );
+      };
     });
 
     acs = old.acs.overrideAttrs (attrs: {
@@ -2537,7 +2650,9 @@ let
       preConfigure = ''
         patchShebangs configure
       '';
-      NIX_LDFLAGS = "-lfontconfig -lfreetype";
+      env = (attrs.env or { }) // {
+        NIX_LDFLAGS = "-lfontconfig -lfreetype";
+      };
     });
 
     magick = old.magick.overrideAttrs (attrs: {
@@ -2566,7 +2681,9 @@ let
       preConfigure = ''
         export TCLLIBPATH="${pkgs.tclPackages.bwidget}/lib/bwidget${pkgs.tclPackages.bwidget.version}"
       '';
-      TCLLIBPATH = "${pkgs.tclPackages.bwidget}/lib/bwidget${pkgs.tclPackages.bwidget.version}";
+      env = (attrs.env or { }) // {
+        TCLLIBPATH = "${pkgs.tclPackages.bwidget}/lib/bwidget${pkgs.tclPackages.bwidget.version}";
+      };
     });
 
     networkscaleup = old.networkscaleup.overrideAttrs (attrs: {
@@ -2780,8 +2897,10 @@ let
       preConfigure = ''
         patchShebangs configure
       '';
-      PKGCONFIG_CFLAGS = "-I${pkgs.openssl.dev}/include -I${pkgs.cyrus_sasl.dev}/include -I${pkgs.zlib.dev}/include";
-      PKGCONFIG_LIBS = "-Wl,-rpath,${lib.getLib pkgs.openssl}/lib -L${lib.getLib pkgs.openssl}/lib -L${pkgs.cyrus_sasl.out}/lib -L${pkgs.zlib.out}/lib -lssl -lcrypto -lsasl2 -lz";
+      env = (attrs.env or { }) // {
+        PKGCONFIG_CFLAGS = "-I${pkgs.openssl.dev}/include -I${pkgs.cyrus_sasl.dev}/include -I${pkgs.zlib.dev}/include";
+        PKGCONFIG_LIBS = "-Wl,-rpath,${lib.getLib pkgs.openssl}/lib -L${lib.getLib pkgs.openssl}/lib -L${pkgs.cyrus_sasl.out}/lib -L${pkgs.zlib.out}/lib -lssl -lcrypto -lsasl2 -lz";
+      };
     });
 
     ChemmineOB = old.ChemmineOB.overrideAttrs (attrs: {
@@ -2896,7 +3015,7 @@ let
       postPatch = ''
         substituteInPlace src/Makefile --replace-fail \
           "all:\$(PROG) ../inst/bwa clean" \
-          "all:\$(PROG) ../inst/bwa" \
+          "all:\$(PROG) ../inst/bwa"
       '';
     });
 
@@ -2905,6 +3024,12 @@ let
         "--with-oci-lib=${pkgs.oracle-instantclient.lib}/lib"
         "--with-oci-inc=${pkgs.oracle-instantclient.dev}/include"
       ];
+    });
+
+    SAIGEgds = old.SAIGEgds.overrideAttrs (attrs: {
+      env = (attrs.env or { }) // {
+        NIX_CFLAGS_COMPILE = attrs.env.NIX_CFLAGS_COMPILE + " -fpermissive";
+      };
     });
 
     xslt = old.xslt.overrideAttrs (attrs: {
@@ -2939,7 +3064,9 @@ let
     ChIPXpress = old.ChIPXpress.override { hydraPlatforms = [ ]; };
 
     rgl = old.rgl.overrideAttrs (attrs: {
-      RGL_USE_NULL = "true";
+      env = (attrs.env or { }) // {
+        RGL_USE_NULL = "true";
+      };
     });
 
     Rrdrand = old.Rrdrand.override { platforms = lib.platforms.x86_64 ++ lib.platforms.x86; };
@@ -2971,7 +3098,9 @@ let
     dbarts = old.dbarts.override { platforms = lib.platforms.x86_64 ++ lib.platforms.x86; };
 
     geomorph = old.geomorph.overrideAttrs (attrs: {
-      RGL_USE_NULL = "true";
+      env = (attrs.env or { }) // {
+        RGL_USE_NULL = "true";
+      };
     });
 
     gpuMagic = old.gpuMagic.overrideAttrs (_: {
@@ -2994,24 +3123,35 @@ let
 
     Rhdf5lib =
       let
-        hdf5 = pkgs.hdf5_1_10;
+        hdf5 = pkgs.hdf5;
       in
       old.Rhdf5lib.overrideAttrs (attrs: {
         propagatedBuildInputs = attrs.propagatedBuildInputs ++ [
           hdf5.dev
           pkgs.libaec
         ];
+
+        # Skip bundled biocmake/cmake HDF5 build; use system hdf5 instead
+        preConfigure = ''
+          echo "#!/bin/sh" > configure
+          chmod +x configure
+        '';
+
         patches = [ ./patches/Rhdf5lib.patch ];
+        postPatch = ''
+          substituteInPlace R/zzz.R --replace-fail '@hdf5@' '${hdf5}'
+        '';
+
+        postInstall = ''
+          mkdir -p $out/library/Rhdf5lib/include
+          ln -s ${hdf5.dev}/include/* $out/library/Rhdf5lib/include/
+        '';
+
         passthru.hdf5 = hdf5;
       });
 
     rhdf5filters = old.rhdf5filters.overrideAttrs (attrs: {
       patches = [ ./patches/rhdf5filters.patch ];
-    });
-
-    rhdf5 = old.rhdf5.overrideAttrs (attrs: {
-      patches = [ ./patches/rhdf5.patch ];
-      env.NIX_CFLAGS_COMPILE = "-Wno-error=implicit-function-declaration";
     });
 
     rmarkdown = old.rmarkdown.overrideAttrs (_: {
@@ -3021,13 +3161,22 @@ let
       '';
     });
 
+    rts2 = old.rts2.overrideAttrs (attrs: {
+      postPatch = ''
+        mkdir -p inst/include
+        echo '// stan_meta_header.hpp (stub)' > inst/include/stan_meta_header.hpp
+      '';
+    });
+
     webfakes = old.webfakes.overrideAttrs (_: {
       postPatch = "patchShebangs configure";
     });
 
-    redland = old.redland.overrideAttrs (_: {
-      PKGCONFIG_CFLAGS = "-I${pkgs.redland}/include -I${pkgs.librdf_raptor2}/include/raptor2 -I${pkgs.librdf_rasqal}/include/rasqal";
-      PKGCONFIG_LIBS = "-L${pkgs.redland}/lib -L${pkgs.librdf_raptor2}/lib -L${pkgs.librdf_rasqal}/lib -lrdf -lraptor2 -lrasqal";
+    redland = old.redland.overrideAttrs (attrs: {
+      env = (attrs.env or { }) // {
+        PKGCONFIG_CFLAGS = "-I${pkgs.redland}/include -I${pkgs.librdf_raptor2}/include/raptor2 -I${pkgs.librdf_rasqal}/include/rasqal";
+        PKGCONFIG_LIBS = "-L${pkgs.redland}/lib -L${pkgs.librdf_raptor2}/lib -L${pkgs.librdf_rasqal}/lib -lrdf -lraptor2 -lrasqal";
+      };
     });
 
     textshaping = old.textshaping.overrideAttrs (attrs: {
@@ -3057,19 +3206,13 @@ let
       '';
     });
 
-    iscream =
-      let
-        # https://huishenlab.github.io/iscream/articles/htslib.html
-        htslib-deflate = pkgs.htslib.overrideAttrs (attrs: {
-          buildInputs = attrs.buildInputs ++ [ pkgs.libdeflate ];
-        });
-      in
-      old.iscream.overrideAttrs (attrs: {
-        # Rhtslib (in LinkingTo) is not needed if we provide a proper htslib
-        propagatedBuildInputs =
-          builtins.filter (el: el != pkgs.rPackages.Rhtslib) attrs.propagatedBuildInputs
-          ++ [ htslib-deflate ];
-      });
+    iscream = old.iscream.overrideAttrs (attrs: {
+      # https://huishenlab.github.io/iscream/articles/htslib.html
+      # Rhtslib (in LinkingTo) is not needed if we provide a proper htslib
+      propagatedBuildInputs =
+        builtins.filter (el: el != pkgs.rPackages.Rhtslib) attrs.propagatedBuildInputs
+        ++ [ pkgs.htslib ];
+    });
 
     torch = old.torch.overrideAttrs (attrs: {
       preConfigure = ''
@@ -3085,6 +3228,22 @@ let
         patchShebangs src/library/pkgdepends/configure
         patchShebangs src/library/ps/configure
       '';
+    });
+
+    b32 = old.b32.overrideAttrs (_: {
+      preConfigure = "patchShebangs configure";
+    });
+
+    BigDataStatMeth = old.BigDataStatMeth.overrideAttrs (_: {
+      preConfigure = "patchShebangs configure";
+    });
+
+    bigPLSR = old.bigPLSR.overrideAttrs (_: {
+      preConfigure = "patchShebangs configure";
+    });
+
+    RPesto = old.RPesto.overrideAttrs (_: {
+      preConfigure = "patchShebangs configure";
     });
 
     pkgdepends = old.pkgdepends.overrideAttrs (attrs: {

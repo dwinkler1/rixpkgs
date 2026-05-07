@@ -8,16 +8,16 @@
 
 buildGoModule (finalAttrs: {
   pname = "honeycomb-refinery";
-  version = "3.1.0";
+  version = "3.2.0";
 
   src = fetchFromGitHub {
     owner = "honeycombio";
     repo = "refinery";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-JHjjaK5WFRzDYuVkenfYowFsPnrF+Wjo85gQAbaVxO8=";
+    hash = "sha256-8UzFoIxi9Vvf5/67rFsED/XTOz1pGeyxyuvLlTO7mVc=";
   };
 
-  NO_REDIS_TEST = true;
+  env.NO_REDIS_TEST = true;
 
   patches = [
     # Allows turning off the one test requiring a Redis service during build.
@@ -37,7 +37,7 @@ buildGoModule (finalAttrs: {
     "-X main.BuildID=${finalAttrs.version}"
   ];
 
-  vendorHash = "sha256-PvkOvMADUjHc1/T/1bR5YDFM902q8CvGeWxj/uhu3+8=";
+  vendorHash = "sha256-nzz4SdJnISM6/yCgwelg2w7wlPBInQU1YizT5Ds2z5Y=";
 
   doCheck = true;
 

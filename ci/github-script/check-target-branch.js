@@ -25,6 +25,16 @@ async function checkTargetBranch({ github, context, core, dry }) {
    *   changed: string[],
    *   removed: string[],
    *  },
+   *  attrdiffByKernel: Record<string, {
+   *   added: string[],
+   *   changed: string[],
+   *   removed: string[],
+   *  }>,
+   *  attrdiffByPlatform: Record<string, {
+   *   added: string[],
+   *   changed: string[],
+   *   removed: string[],
+   *  }>,
    *  labels: Record<string, boolean>,
    *  rebuildCountByKernel: Record<string, number>,
    *  rebuildsByKernel: Record<string, string[]>,
@@ -141,11 +151,9 @@ async function checkTargetBranch({ github, context, core, dry }) {
       core,
       dry,
       body,
-      event: 'COMMENT',
+      event: 'REQUEST_CHANGES',
       reviewKey,
     })
-
-    throw new Error('This PR is against the wrong branch.')
   } else if (rebuildsAllTests && !isExemptKernelUpdate) {
     let branchText
     if (base === 'master' && maxRebuildCount >= 500) {
@@ -169,11 +177,9 @@ async function checkTargetBranch({ github, context, core, dry }) {
       core,
       dry,
       body,
-      event: 'COMMENT',
+      event: 'REQUEST_CHANGES',
       reviewKey,
     })
-
-    throw new Error('This PR is against the wrong branch.')
   } else if (
     maxRebuildCount >= 500 &&
     !isExemptKernelUpdate &&
@@ -194,7 +200,7 @@ async function checkTargetBranch({ github, context, core, dry }) {
       core,
       dry,
       body,
-      event: 'COMMENT',
+      event: 'REQUEST_CHANGES',
       reviewKey,
     })
   } else {

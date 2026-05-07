@@ -10,14 +10,14 @@
 
 buildPythonPackage rec {
   pname = "netbox-bgp";
-  version = "0.17.0";
+  version = "0.18.1";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "netbox-community";
     repo = "netbox-bgp";
     tag = "v${version}";
-    hash = "sha256-2Ss1ImJTqhr1FTRpnk1cwpFbHPjoNuUdpXoJJ9mjzHQ=";
+    hash = "sha256-CLvtu4Xhja1hU48uAF1aEMNInc3FiworYvgGykQtWV4=";
   };
 
   build-system = [ setuptools ];

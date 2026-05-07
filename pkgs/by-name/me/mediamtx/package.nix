@@ -1,6 +1,6 @@
 {
   lib,
-  buildGoModule,
+  buildGo126Module,
   fetchFromGitHub,
   fetchurl,
   nixosTests,
@@ -12,19 +12,19 @@ let
     hash = "sha256-QTqD4rsMd+0L8L4QXVOdF+9F39mEoLE+zTsUqQE4OTg=";
   };
 in
-buildGoModule (finalAttrs: {
+buildGo126Module (finalAttrs: {
   pname = "mediamtx";
   # check for hls.js version updates in internal/servers/hls/hlsjsdownloader/VERSION
-  version = "1.16.0";
+  version = "1.18.0";
 
   src = fetchFromGitHub {
     owner = "bluenviron";
     repo = "mediamtx";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-bi93rZnX8hymcmW6H/Iglujdv6LiqueitlVJbVlGNis=";
+    hash = "sha256-DScZKan8PnEF0znAxJVx8fgbEskw73tv35v38d2jJtM=";
   };
 
-  vendorHash = "sha256-vxKltySKNXs1HDPeBk51OFyMrjM4bSbWTqRIWxMO1HQ=";
+  vendorHash = "sha256-FJqERr/rC4y8nBFKh8luwm9pOeVEiKPHorZ5z57wD1E=";
 
   postPatch = ''
     cp ${hlsJs} internal/servers/hls/hls.min.js

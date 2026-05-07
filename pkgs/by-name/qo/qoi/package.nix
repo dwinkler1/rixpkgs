@@ -10,13 +10,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "qoi";
-  version = "0-unstable-2026-02-04"; # no upstream version yet.
+  version = "0-unstable-2026-04-21"; # no upstream version yet.
 
   src = fetchFromGitHub {
     owner = "phoboslab";
     repo = "qoi";
-    rev = "a2f3ab61bc1f3271aad699abc47653df36162bbc";
-    hash = "sha256-NLvePFZGTWlY+fDInLqnLriUTyBfh0koHQwik917vQY=";
+    rev = "e084ec009b38c755acc40fe31d3f83ee17935b9d";
+    hash = "sha256-sPwmpkMo++Eo33fsiLHY6QYScXQNCucQyNPJdDysgFw=";
   };
 
   patches = [

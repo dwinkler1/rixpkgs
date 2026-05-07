@@ -50,14 +50,14 @@
 
 buildPythonPackage rec {
   pname = "aiohttp";
-  version = "3.13.3";
+  version = "3.13.4";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "aio-libs";
     repo = "aiohttp";
     tag = "v${version}";
-    hash = "sha256-V+digrfigdA3hwd2xW47BACh3r07j6pGE8WFAGivZnA=";
+    hash = "sha256-/MpN8Lvdm6ZN18eLip0YXHEFzJqRsWWyx1HHfqTmjqA=";
   };
 
   postPatch = ''
@@ -132,6 +132,9 @@ buildPythonPackage rec {
     "test_invalid_idna"
     # don't run benchmarks
     "test_import_time"
+    "test_cookie_pattern_performance"
+    "test_forwarded_re_performance"
+    "test_regex_performance"
     # racy
     "test_uvloop_secure_https_proxy"
     # Cannot connect to host example.com:443 ssl:default [Could not contact DNS servers]

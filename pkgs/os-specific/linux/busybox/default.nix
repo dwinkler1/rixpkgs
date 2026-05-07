@@ -20,10 +20,7 @@ assert stdenv.hostPlatform.libc == "musl" -> useMusl;
 let
   configParser = ''
     function parseconfig {
-        while read LINE; do
-            NAME=`echo "$LINE" | cut -d \  -f 1`
-            OPTION=`echo "$LINE" | cut -d \  -f 2`
-
+        while IFS=" " read NAME OPTION; do
             if ! [[ "$NAME" =~ ^CONFIG_ ]]; then continue; fi
 
             echo "parseconfig: removing $NAME"
@@ -93,6 +90,8 @@ stdenv.mkDerivation rec {
       excludes = [ "networking/httpd_ratelimit_cgi.c" ]; # New since release.
       hash = "sha256-Msm9sDZrVx7ofunnvnTS73SPKUUpR3Tv5xZ/wBd+rts=";
     })
+    # https://lists.busybox.net/pipermail/busybox/2026-March/092010.html
+    ./build-system-buffer-overflow.patch
   ]
   ++ lib.optional (stdenv.hostPlatform != stdenv.buildPlatform) ./clang-cross.patch;
 
@@ -168,6 +167,7 @@ stdenv.mkDerivation rec {
     1 a busybox() { '$out'/bin/busybox "$@"; }\
     logger() { '$out'/bin/logger "$@"; }\
     ' ${debianDispatcherScript} > ${outDispatchPath}
+    sed -i 's|/sbin/resolvconf|"$(busybox which resolvconf)"|g' ${outDispatchPath}
     chmod 555 ${outDispatchPath}
     HOST_PATH=$out/bin patchShebangs --host ${outDispatchPath}
   '';
@@ -196,7 +196,9 @@ stdenv.mkDerivation rec {
       TethysSvensson
       qyliss
     ];
+    teams = [ lib.teams.security-review ];
     platforms = lib.platforms.linux;
     priority = 15; # below systemd (halt, init, poweroff, reboot) and coreutils
+    identifiers.cpeParts = lib.meta.cpeFullVersionWithVendor "busybox" version;
   };
 }

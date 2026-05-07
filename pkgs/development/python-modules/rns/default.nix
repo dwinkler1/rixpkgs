@@ -14,14 +14,14 @@
 
 buildPythonPackage (finalAttrs: {
   pname = "rns";
-  version = "1.1.3";
+  version = "1.2.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "markqvist";
     repo = "Reticulum";
     tag = finalAttrs.version;
-    hash = "sha256-Iz/1mSCww/v6wsRTG5j55IRTOjQ6y2eOlBda/CcwsOE=";
+    hash = "sha256-DsEE+KRR4INC6kR39VCWrhMgEHNPexrQABYea5OSntI=";
   };
 
   patches = [
