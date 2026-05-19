@@ -1517,8 +1517,8 @@
     },
     "brgedata": {
       "name": "brgedata",
-      "version": "1.33.0",
-      "sha256": "19n2yyav47r1v0hn9v5q1pn9mm68xh8vmd9bc4c9xjz12qc2kpjy",
+      "version": "1.34.0",
+      "sha256": "18mmnwk90dmfy23588fvg01bxnnmak4cj0q0hsnfipfbbfswz62k",
       "depends": ["Biobase", "SummarizedExperiment"]
     },
     "bronchialIL13": {
@@ -1535,8 +1535,8 @@
     },
     "bugphyzz": {
       "name": "bugphyzz",
-      "version": "1.5.0",
-      "sha256": "176jddyj2q5fn4mif1pjr3ff95fcsylnyqi49yi82idw2dqwj2wb",
+      "version": "1.6.0",
+      "sha256": "1cvwg65rfjn5d28l2mps6dka7rx3irv3mpjfna1yn74vznbymrig",
       "depends": ["BiocFileCache", "S4Vectors", "dplyr", "httr2", "purrr", "stringr", "tidyr", "tidyselect"]
     },
     "cMap2data": {
