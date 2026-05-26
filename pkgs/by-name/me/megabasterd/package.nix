@@ -6,7 +6,7 @@
   maven,
 }:
 let
-  version = "8.23";
+  version = "8.47";
 in
 maven.buildMavenPackage {
   pname = "megabasterd";
@@ -16,10 +16,10 @@ maven.buildMavenPackage {
     owner = "tonikelope";
     repo = "megabasterd";
     tag = "v${version}";
-    hash = "sha256-FcEG+DvHa+ZcMV2CfKmLzMaXgEXzTW3qmULV4PwHaQ8=";
+    hash = "sha256-pJk6ZDVPs/hrm0ZZI9YXv+dfZAEbpwwI8Z1By+FPwCs=";
   };
 
-  mvnHash = "sha256-b7+17CXmBB65fMG472FPjOvr+9nAsUurdBC/7esalCE=";
+  mvnHash = "sha256-DVfPmW0ep6y/GxnwNKXxo68W5idcTkoNqUEKm7ouTEY=";
 
   nativeBuildInputs = [ makeWrapper ];
 

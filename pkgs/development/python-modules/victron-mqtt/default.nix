@@ -12,14 +12,14 @@
 
 buildPythonPackage (finalAttrs: {
   pname = "victron-mqtt";
-  version = "2026.5.0";
+  version = "2026.5.5";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "tomer-w";
     repo = "victron_mqtt";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-0VGDGtuMs1Bw+98ddI0Gggxm1nWEWWn4Z/RbuTfzqoY=";
+    hash = "sha256-8tl158Pd7TkrQbKfAFePjQRBc5tmyAUsz9cEd06blDs=";
   };
 
   build-system = [

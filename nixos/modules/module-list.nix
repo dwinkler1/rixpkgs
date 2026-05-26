@@ -1366,6 +1366,7 @@
   ./services/networking/rdnssd.nix
   ./services/networking/realm.nix
   ./services/networking/redsocks.nix
+  ./services/networking/reframe.nix
   ./services/networking/resilio.nix
   ./services/networking/robustirc-bridge.nix
   ./services/networking/rosenpass.nix
@@ -1696,6 +1697,7 @@
   ./services/web-apps/komga.nix
   ./services/web-apps/lanraragi.nix
   ./services/web-apps/lasuite-docs.nix
+  ./services/web-apps/lasuite-drive.nix
   ./services/web-apps/lasuite-meet.nix
   ./services/web-apps/lauti.nix
   ./services/web-apps/lemmy.nix
@@ -1896,6 +1898,7 @@
   ./system/activation/switchable-system.nix
   ./system/activation/top-level.nix
   ./system/boot/binfmt.nix
+  ./system/boot/clevis-luks-askpass.nix
   ./system/boot/clevis.nix
   ./system/boot/emergency-mode.nix
   ./system/boot/grow-partition.nix
