@@ -765,7 +765,9 @@ let
     ];
     RGtk2 = [ pkgs.gtk2.dev ];
     rhdf5 = [ pkgs.zlib ];
-    Rhdf5lib = with pkgs; [ zlib.dev ];
+    Rhdf5lib = with pkgs; [
+      cmake
+    ];
     Rhpc = with pkgs; [
       zlib
       bzip2.dev
@@ -821,7 +823,10 @@ let
     rpanel = [ pkgs.tclPackages.bwidget ];
     Rpoppler = [ pkgs.poppler ];
     RPostgreSQL = with pkgs; [ libpq.pg_config ];
-    RProtoBuf = [ pkgs.protobuf ];
+    RProtoBuf = with pkgs; [
+      protobuf
+      abseil-cpp.dev
+    ];
     rsamplr = with pkgs; [
       cargo
       rustc
@@ -830,7 +835,6 @@ let
     Rserve = [ pkgs.openssl ];
     Rssa = [ pkgs.fftw.dev ];
     rsvg = [ pkgs.pkg-config ];
-    fs = [ pkgs.which pkgs.pkg-config pkgs.libuv.dev pkgs.cmake ];
     runjags = [ pkgs.jags ];
     tomledit = with pkgs; [
       cargo
@@ -863,6 +867,10 @@ let
       rustc
     ];
     arcpbf = with pkgs; [
+      cargo
+      rustc
+    ];
+    tinyimg = with pkgs; [
       cargo
       rustc
     ];
@@ -967,6 +975,7 @@ let
       fontconfig.dev
       freetype.dev
     ];
+    rlas = [ pkgs.pkg-config ];
     TAQMNGR = [ pkgs.zlib.dev ];
     TDA = [ pkgs.gmp ];
     tesseract = with pkgs; [
@@ -1228,10 +1237,16 @@ let
       xz.dev
       zlib.dev
     ];
+    fs = [ pkgs.libuv ];
     pgenlibr = [ pkgs.zlib.dev ];
     fftw = [ pkgs.pkg-config ];
     gdtools = [ pkgs.pkg-config ];
     archive = [ pkgs.libarchive ];
+    lpsymphony = with pkgs; [
+      symphony
+      cgl
+      clp
+    ];
     gdalcubes = with pkgs; [
       proj.dev
       gdal
@@ -1251,6 +1266,10 @@ let
     cartogramR = with pkgs; [
       fftw.dev
       pkg-config
+    ];
+    Rhdf5lib = with pkgs; [
+      curl
+      zlib.dev
     ];
     GRAB = [ pkgs.zlib.dev ];
     jqr = [ pkgs.jq.out ];
@@ -1542,7 +1561,13 @@ let
     redux = [ pkgs.hiredis ];
     RmecabKo = [ pkgs.mecab ];
     markets = [ pkgs.gsl ];
-    rlas = [ pkgs.boost ];
+    rlas = with pkgs; [
+      boost
+      gdal
+      proj
+      sqlite
+      geos
+    ];
     bgx = [ pkgs.boost ];
     PoissonBinomial = [ pkgs.fftw.dev ];
     poisbinom = [ pkgs.fftw.dev ];
@@ -1884,20 +1909,10 @@ let
       prePatch = "cd r";
       postPatch = ''
         patchShebangs configure
-        substituteInPlace src/arrow_cpp11.h \
-          --replace-fail 'Rf_findVarInFrame(self, arrow::r::symbols::xp)' \
-                         'R_getVarEx(arrow::r::symbols::xp, self, (Rboolean)FALSE, R_NilValue)' \
-          --replace-fail 'Rf_findVarInFrame(r6, arrow::r::symbols::xp)' \
-                         'R_getVarEx(arrow::r::symbols::xp, r6, (Rboolean)FALSE, R_NilValue)' \
-          --replace-fail 'Rf_findVarInFrame3(arrow::r::ns::arrow, r6_class, FALSE)' \
-                         'R_getVarEx(r6_class, arrow::r::ns::arrow, (Rboolean)FALSE, R_UnboundValue)'
       '';
       buildInputs = attrs.buildInputs ++ [
         pkgs.arrow-cpp
       ];
-      env = (attrs.env or { }) // {
-        NIX_CFLAGS_COMPILE = (attrs.env.NIX_CFLAGS_COMPILE or "") + " -fpermissive";
-      };
     });
 
     gifski = old.gifski.overrideAttrs (attrs: {
@@ -1958,6 +1973,10 @@ let
       postPatch = "patchShebangs configure";
     });
 
+    fixest = old.fixest.overrideAttrs (attrs: {
+      postPatch = "patchShebangs configure";
+    });
+
     arcgisplaces = old.arcgisplaces.overrideAttrs (attrs: {
       postPatch = "patchShebangs configure";
     });
@@ -1982,15 +2001,15 @@ let
       ];
     });
 
-    fixest = old.fixest.overrideAttrs (attrs: {
-      postPatch = "patchShebangs configure";
-    });
-
     h3o = old.h3o.overrideAttrs (attrs: {
       postPatch = "patchShebangs configure";
     });
 
     ironseed = old.ironseed.overrideAttrs (attrs: {
+      postPatch = "patchShebangs configure";
+    });
+
+    ramr = old.ramr.overrideAttrs (attrs: {
       postPatch = "patchShebangs configure";
     });
 
@@ -2453,6 +2472,10 @@ let
             ".onLoad <- function(libname, pkgname) {
              Sys.setenv(\"JAVA_HOME\" = Sys.getenv(\"JAVA_HOME\", unset = \"${pkgs.jdk}\"))"
       '';
+    });
+
+    RProtoBuf = old.RProtoBuf.overrideAttrs (attrs: {
+      configureFlags = [ "ac_cv_prog_cxx_cxx11=" ];
     });
 
     JavaGD = old.JavaGD.overrideAttrs (attrs: {
@@ -2963,7 +2986,10 @@ let
     );
 
     lpsymphony = old.lpsymphony.overrideAttrs (attrs: {
-      preConfigure = ''
+      postPatch = ''
+        substituteInPlace configure \
+          --replace-fail '--libs SYMPHONY' '--libs symphony' \
+          --replace-fail '--cflags SYMPHONY' '--cflags symphony'
         patchShebangs configure
       '';
     });
@@ -3123,30 +3149,20 @@ let
 
     Rhdf5lib =
       let
-        hdf5 = pkgs.hdf5;
+        hdf5 = pkgs.hdf5.overrideAttrs (attrs: {
+          cmakeFlags = attrs.cmakeFlags ++ [ "-DHDF5_ENABLE_ROS3_VFD:BOOL=TRUE" ];
+          buildInputs = attrs.buildInputs ++ [ pkgs.curl.dev ];
+          postInstall = attrs.postInstall or "" + ''
+            cp src/libhdf5.settings $dev/lib
+          '';
+        });
       in
       old.Rhdf5lib.overrideAttrs (attrs: {
         propagatedBuildInputs = attrs.propagatedBuildInputs ++ [
           hdf5.dev
           pkgs.libaec
         ];
-
-        # Skip bundled biocmake/cmake HDF5 build; use system hdf5 instead
-        preConfigure = ''
-          echo "#!/bin/sh" > configure
-          chmod +x configure
-        '';
-
         patches = [ ./patches/Rhdf5lib.patch ];
-        postPatch = ''
-          substituteInPlace R/zzz.R --replace-fail '@hdf5@' '${hdf5}'
-        '';
-
-        postInstall = ''
-          mkdir -p $out/library/Rhdf5lib/include
-          ln -s ${hdf5.dev}/include/* $out/library/Rhdf5lib/include/
-        '';
-
         passthru.hdf5 = hdf5;
       });
 
@@ -3154,17 +3170,15 @@ let
       patches = [ ./patches/rhdf5filters.patch ];
     });
 
+    rhdf5 = old.rhdf5.overrideAttrs (attrs: {
+      patches = [ ./patches/rhdf5.patch ];
+      env.NIX_CFLAGS_COMPILE = "-Wno-error=implicit-function-declaration";
+    });
+
     rmarkdown = old.rmarkdown.overrideAttrs (_: {
       preConfigure = ''
         substituteInPlace R/pandoc.R \
           --replace-fail '"~/opt/pandoc"' '"~/opt/pandoc", "${pkgs.pandoc}/bin"'
-      '';
-    });
-
-    rts2 = old.rts2.overrideAttrs (attrs: {
-      postPatch = ''
-        mkdir -p inst/include
-        echo '// stan_meta_header.hpp (stub)' > inst/include/stan_meta_header.hpp
       '';
     });
 
@@ -3227,6 +3241,8 @@ let
         patchShebangs src/library/keyring/configure
         patchShebangs src/library/pkgdepends/configure
         patchShebangs src/library/ps/configure
+    patchShebangs src/library/tsitter/configure
+    patchShebangs src/library/tstoml/configure
       '';
     });
 
