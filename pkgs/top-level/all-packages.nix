@@ -909,9 +909,7 @@ with pkgs;
     inherit (darwin) signingUtils;
   };
 
-  vmTools = callPackage ../build-support/vm {
-    img = stdenv.hostPlatform.linux-kernel.target;
-  };
+  vmTools = callPackage ../build-support/vm { };
 
   releaseTools = callPackage ../build-support/release { };
 
@@ -1209,10 +1207,6 @@ with pkgs;
     libsForQt5.callPackage ../applications/version-management/svn-all-fast-export
       { };
 
-  svn2git = callPackage ../applications/version-management/svn2git {
-    git = gitSVN;
-  };
-
   inherit (haskellPackages) git-annex;
 
   inherit (haskellPackages) git-brunch;
@@ -1253,20 +1247,10 @@ with pkgs;
     else
       throw "Don't know 32-bit platform for cross from: ${stdenv.hostPlatform.stdenv}";
 
-  cdemu-client = callPackage ../applications/emulators/cdemu/client.nix { };
-
-  cdemu-daemon = callPackage ../applications/emulators/cdemu/daemon.nix { };
-
   fceux-qt5 = fceux.override { ___qtVersion = "5"; };
   fceux-qt6 = fceux.override { ___qtVersion = "6"; };
 
-  gcdemu = callPackage ../applications/emulators/cdemu/gui.nix { };
-
-  image-analyzer = callPackage ../applications/emulators/cdemu/analyzer.nix { };
-
   kega-fusion = pkgsi686Linux.callPackage ../applications/emulators/kega-fusion { };
-
-  libmirage = callPackage ../applications/emulators/cdemu/libmirage.nix { };
 
   mame-tools = lib.addMetaAttrs {
     description = mame.meta.description + " (tools only)";
@@ -1632,11 +1616,6 @@ with pkgs;
 
   diagrams-builder = callPackage ../tools/graphics/diagrams-builder {
     inherit (haskellPackages) ghcWithPackages diagrams-builder;
-  };
-
-  ding = callPackage ../applications/misc/ding {
-    aspellDicts_de = aspellDicts.de;
-    aspellDicts_en = aspellDicts.en;
   };
 
   discourse = callPackage ../servers/web-apps/discourse { };
@@ -2159,14 +2138,8 @@ with pkgs;
 
   Fabric = with python3Packages; toPythonApplication fabric;
 
-  fcitx5-lua = callPackage ../tools/inputmethods/fcitx5/fcitx5-lua.nix { lua = lua5_3; };
-
   flatpak-builder = callPackage ../development/tools/flatpak-builder {
     binutils = binutils-unwrapped;
-  };
-
-  fltrdr = callPackage ../tools/misc/fltrdr {
-    icu = icu63;
   };
 
   file = callPackage ../tools/misc/file {
@@ -2435,8 +2408,6 @@ with pkgs;
 
   iocsearcher = with python3Packages; toPythonApplication iocsearcher;
 
-  iperf2 = callPackage ../tools/networking/iperf/2.nix { };
-  iperf3 = callPackage ../tools/networking/iperf/3.nix { };
   iperf = iperf3;
 
   i-pi = with python3Packages; toPythonApplication i-pi;
@@ -5528,22 +5499,6 @@ with pkgs;
 
   openai-whisper = with python3.pkgs; toPythonApplication openai-whisper;
 
-  openocd-rp2040 = openocd.overrideAttrs (old: {
-    pname = "openocd-rp2040";
-    src = fetchFromGitHub {
-      owner = "raspberrypi";
-      repo = "openocd";
-      rev = "4d87f6dcae77d3cbcd8ac3f7dc887adf46ffa504";
-      hash = "sha256-bBqVoHsnNoaC2t8hqcduI8GGlO0VDMUovCB0HC+rxvc=";
-      # openocd disables the vendored libraries that use submodules and replaces them with nix versions.
-      # this works out as one of the submodule sources seems to be flakey.
-      fetchSubmodules = false;
-    };
-    nativeBuildInputs = old.nativeBuildInputs ++ [
-      autoreconfHook
-    ];
-  });
-
   oprofile = callPackage ../development/tools/profiling/oprofile {
     libiberty_static = libiberty.override { staticBuild = true; };
   };
@@ -5878,7 +5833,7 @@ with pkgs;
       stdenv = clangStdenv;
     };
   };
-  factorPackages = factorPackages-0_100;
+  factorPackages = factorPackages-0_101;
 
   factor-lang-0_99 = factorPackages-0_99.factor-lang;
   factor-lang-0_100 = factorPackages-0_100.factor-lang;
@@ -8769,10 +8724,6 @@ with pkgs;
 
   bitwig-studio = bitwig-studio6;
 
-  blucontrol = callPackage ../applications/misc/blucontrol/wrapper.nix {
-    inherit (haskellPackages) ghcWithPackages;
-  };
-
   breezy = with python3Packages; toPythonApplication breezy;
 
   # calico-felix and calico-node have not been packaged due to libbpf, linking issues
@@ -9432,8 +9383,6 @@ with pkgs;
 
   mpvScripts = callPackage ../by-name/mp/mpv/scripts.nix { };
 
-  mu-repo = callPackage ../applications/misc/mu-repo { };
-
   murmur =
     (callPackages ../applications/networking/mumble {
       avahi = avahi-compat;
@@ -9449,10 +9398,6 @@ with pkgs;
     }).mumble;
 
   mumble_overlay = (callPackages ../applications/networking/mumble { }).overlay;
-
-  mwic = callPackage ../applications/misc/mwic {
-    pythonPackages = python3Packages;
-  };
 
   netmaker = callPackage ../applications/networking/netmaker { subPackages = [ "." ]; };
   netmaker-full = callPackage ../applications/networking/netmaker { };
@@ -9552,8 +9497,6 @@ with pkgs;
   orpie = callPackage ../applications/misc/orpie {
     ocamlPackages = ocaml-ng.ocamlPackages_4_14;
   };
-
-  parsec-bin = callPackage ../applications/misc/parsec/bin.nix { };
 
   pdfpc = callPackage ../applications/misc/pdfpc {
     inherit (gst_all_1)
@@ -9660,8 +9603,6 @@ with pkgs;
     withXineBackend = true;
   };
 
-  rednotebook = callPackage ../applications/editors/rednotebook { };
-
   ringboard-wayland = callPackage ../by-name/ri/ringboard/package.nix { displayServer = "wayland"; };
 
   ripcord =
@@ -9686,6 +9627,8 @@ with pkgs;
 
   rstudio-server = rstudio.override { server = true; };
 
+  foks-server = foks.server;
+
   inherit (callPackages ../applications/radio/rtl-sdr { })
     rtl-sdr-librtlsdr
     rtl-sdr-osmocom
@@ -9699,10 +9642,6 @@ with pkgs;
   scantailor-advanced = callPackage ../applications/graphics/scantailor/advanced.nix { };
 
   scantailor-universal = callPackage ../applications/graphics/scantailor/universal.nix { };
-
-  stag = callPackage ../applications/misc/stag {
-    curses = ncurses;
-  };
 
   sweethome3d = recurseIntoAttrs (
     (callPackage ../applications/misc/sweethome3d { })
@@ -10239,11 +10178,6 @@ with pkgs;
   napari = with python312Packages; toPythonApplication napari;
 
   pycoin = with python3Packages; toPythonApplication pycoin;
-
-  inherit (callPackages ../applications/blockchains/teos { })
-    teos
-    teos-watchtower-plugin
-    ;
 
   vertcoind = vertcoin.override {
     withGui = false;
@@ -11559,5 +11493,10 @@ with pkgs;
 
   gpac-unstable = callPackage ../by-name/gp/gpac/package.nix {
     releaseChannel = "unstable";
+  };
+
+  clipse-x11 = callPackage ../by-name/cl/clipse/package.nix {
+    enableWayland = false;
+    enableX11 = true;
   };
 }

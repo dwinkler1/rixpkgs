@@ -5531,8 +5531,8 @@
     },
     "Rega": {
       "name": "Rega",
-      "version": "1.0.0",
-      "sha256": "184cxjfm0hiik4d3l4fylch0m7gg0wyv7gj9hdkasf8vj57fqy2s",
+      "version": "1.0.2",
+      "sha256": "0zfc86qjhlhhv5g6f8xwdf50yyg1p7p66fprgmhrpb0ggp7f53fg",
       "depends": ["askpass", "httr2", "jsonlite", "jsonvalidate", "keyring", "readxl", "rlang", "stringr", "tibble", "tidyr", "validate", "yaml"]
     },
     "RegionalST": {
@@ -5927,9 +5927,9 @@
     },
     "SPONGE": {
       "name": "SPONGE",
-      "version": "1.34.0",
-      "sha256": "0q5pngbdj2n3bz706qzs7smcs23a4avx6fp6p6zsxygwbmv1679k",
-      "depends": ["Biobase", "ComplexHeatmap", "MASS", "MetBrewer", "biomaRt", "caret", "cvms", "data_table", "doRNG", "dplyr", "expm", "foreach", "gRbase", "ggplot2", "ggpubr", "ggridges", "glmnet", "igraph", "iterators", "logging", "ppcor", "randomForest", "rlang", "stringr", "tidyr", "tidyverse", "tnet"]
+      "version": "1.34.1",
+      "sha256": "03iiwv7kf7kj94fbnshvlqd6ldsj0b49g2vvpl0c1ggrbmkcc1xp",
+      "depends": ["Biobase", "ComplexHeatmap", "MASS", "MetBrewer", "biomaRt", "caret", "cvms", "data_table", "doRNG", "dplyr", "expm", "foreach", "gRbase", "ggplot2", "ggpubr", "ggridges", "glmnet", "igraph", "iterators", "logger", "ppcor", "randomForest", "rlang", "stringr", "tibble", "tidyr", "tnet"]
     },
     "SPOTlight": {
       "name": "SPOTlight",
@@ -6257,8 +6257,8 @@
     },
     "Spectra": {
       "name": "Spectra",
-      "version": "1.22.1",
-      "sha256": "1129ap9cfkwhgq59xqjpaq55g8nn27snxji9iglnn34mq7xf1v92",
+      "version": "1.22.2",
+      "sha256": "0zpy23zr8vzji4g05y51hfc9snf9l8zb4bbg5pyh6jzvqj6m759a",
       "depends": ["BiocGenerics", "BiocParallel", "IRanges", "MetaboCoreUtils", "MsCoreUtils", "ProtGenerics", "S4Vectors", "data_table", "fs"]
     },
     "SpectraQL": {
@@ -10067,8 +10067,8 @@
     },
     "igblastr": {
       "name": "igblastr",
-      "version": "1.2.7",
-      "sha256": "1bpma6f2qmh0pl0fkv2407wdcj22zirjwnifhgpfri73lm86d06d",
+      "version": "1.2.9",
+      "sha256": "1rw2ir22msp99jsln0gq7946nd0br5hpmhziyhyc5a43c1vps5x4",
       "depends": ["BiocGenerics", "Biostrings", "GenomeInfoDb", "IRanges", "R_utils", "S4Vectors", "curl", "httr", "jsonlite", "rvest", "tibble", "xml2", "xtable"]
     },
     "igvR": {
@@ -12395,9 +12395,9 @@
     },
     "rfaRm": {
       "name": "rfaRm",
-      "version": "1.23.0",
-      "sha256": "1v4zv4spfvnj4wsq5bkcv4mf0xl4g98n87b3xrl4w2lyr6s2sg19",
-      "depends": ["Biostrings", "IRanges", "S4Vectors", "data_table", "httr", "jsonlite", "magick", "rsvg", "rvest", "stringi", "xml2"]
+      "version": "1.24.1",
+      "sha256": "1jam21z522ara21xr8yhwsxg0w7mi9w3qmys65mnly1ry25s79hi",
+      "depends": ["Biostrings", "IRanges", "S4Vectors", "data_table", "httr", "magick", "rsvg", "rvest", "stringi", "xml2"]
     },
     "rgoslin": {
       "name": "rgoslin",
