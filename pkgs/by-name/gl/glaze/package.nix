@@ -11,13 +11,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "glaze";
-  version = "7.8.2";
+  version = "7.9.1";
 
   src = fetchFromGitHub {
     owner = "stephenberry";
     repo = "glaze";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-T0oYGqmF+0gXT4VESN4h1P/rUfV9BGmpvLWp+6BKiFI=";
+    hash = "sha256-NRRq5MGF2f5PW0teYnq58ELzson+U6KHVPaY6r30KLA=";
   };
 
   nativeBuildInputs = [ cmake ];

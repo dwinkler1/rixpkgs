@@ -305,6 +305,8 @@ stdenv.mkDerivation (finalAttrs: {
         "arrow-flight-integration-test"
         # File already exists in database: orc_proto.proto
         "arrow-orc-adapter-test"
+        # missing test fixture
+        "parquet-encryption-test"
       ]
       ++ lib.optionals stdenv.hostPlatform.isDarwin [
         # https://github.com/NixOS/nixpkgs/issues/460687

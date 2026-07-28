@@ -32,7 +32,6 @@
   enableWideVine ? false,
   ungoogled ? false, # Whether to build chromium or ungoogled-chromium
   cupsSupport ? true,
-  pulseSupport ? config.pulseaudio or stdenv.hostPlatform.isLinux,
   commandLineArgs ? "",
   pkgsBuildBuild,
   pkgs,
@@ -76,7 +75,6 @@ let
       inherit
         proprietaryCodecs
         cupsSupport
-        pulseSupport
         ungoogled
         ;
       gnChromium = buildPackages.gn.override upstream-info.deps.gn;
@@ -204,7 +202,7 @@ stdenv.mkDerivation {
       ln -s "$out/bin/chromium" "$out/bin/chromium-browser"
 
       mkdir -p "$out/share"
-      for f in '${chromium.browser}'/share/*; do
+      for f in '${chromiumWV}'/share/*; do
         ln -s -t "$out/share/" "$f"
       done
     '';

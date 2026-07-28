@@ -2,19 +2,20 @@
   lib,
   cacert,
   fetchFromGitHub,
+  nix-update-script,
   rustPlatform,
   versionCheckHook,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "vandelay";
-  version = "1.0.3";
+  version = "1.0.6";
   src = fetchFromGitHub {
     owner = "stalwartlabs";
     repo = "vandelay";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-khEK+uB/CrNBv4syDO9smDx9CbQ2BeDLZQn3wBuuA1g=";
+    hash = "sha256-Eg4kQncwCHpFzCZBp2OK4yUsBsYXwf1pQ+USHwmU9Ro=";
   };
-  cargoHash = "sha256-i0MtrOIguU4bXeTqvyJjwvJwherib2vCnW7hTFB0aNk=";
+  cargoHash = "sha256-+v0xgVliX/sDDDMCzWMVDnBDoJK9a2xaIkMJwEIO6ks=";
   __structuredAttrs = true;
   __darwinAllowLocalNetworking = true;
   # called `Result::unwrap()` on an `Err` value: Tls("rustls platform verifier: unexpected error: No CA certificates were loaded from the system")
@@ -23,6 +24,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   ];
   doInstallCheck = true;
   nativeInstallCheckInputs = [ versionCheckHook ];
+  passthru.updateScript = nix-update-script { };
   meta = {
     description = "JMAP importer-exporter (and backup tool)";
     longDescription = ''

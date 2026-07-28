@@ -12,7 +12,7 @@
 
 buildNpmPackage (finalAttrs: {
   pname = "matterjs-server";
-  version = "1.1.0";
+  version = "1.3.1";
   __structuredAttrs = true;
   strictDeps = true;
 
@@ -20,10 +20,10 @@ buildNpmPackage (finalAttrs: {
     owner = "matter-js";
     repo = "matterjs-server";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-LNSj9y+FDCsz4xiP8pL4xs7TVg2Cl5FOtWLTclewVbU=";
+    hash = "sha256-HY1VEjqQ2C6Ym9PB2/g7M7TeAgOFsVYMX6jvpZLPgOI=";
   };
 
-  npmDepsHash = "sha256-bvmh6Jv0KDOZOY7Ti0TgbSdVcyYHhX0YOY/8PB7pebs=";
+  npmDepsHash = "sha256-I/iY2YdsgvdLMkLRzML5VttmmDNUr/U38l+Wp8bu2B8=";
 
   nativeBuildInputs = [
     makeBinaryWrapper

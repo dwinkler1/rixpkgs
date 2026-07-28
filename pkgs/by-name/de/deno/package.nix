@@ -33,17 +33,24 @@ let
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "deno";
-  version = "2.8.3";
+  version = "2.9.4";
+
+  __structuredAttrs = true;
+
+  outputs = [
+    "out"
+    "denort"
+  ];
 
   src = fetchFromGitHub {
     owner = "denoland";
     repo = "deno";
     tag = "v${finalAttrs.version}";
     fetchSubmodules = true; # required for tests
-    hash = "sha256-jOcIrZj+830XMZJcgTm0C4yDvk96dbW7RYGgyhLHS4Y=";
+    hash = "sha256-ivch++yGRUyWtox/5QqomC4DlTvMBxK+gIcN9/7tt5E=";
   };
 
-  cargoHash = "sha256-QtCkmNXOrtl4T4NSESV7J3qiyKMwMOoa4oWfTZIJRMc=";
+  cargoHash = "sha256-ynbHLZXkPPYpsC4dCu6jA6x8ftiTHWZ/uxzdbUcUaa0=";
 
   patches = [
     ./patches/0002-tests-replace-hardcoded-paths.patch
@@ -152,6 +159,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     "--skip=node_unit_tests::net_test"
     "--skip=node_unit_tests::tls_test"
     "--skip=npm::lock_file_lock_write"
+    "--skip=happy_eyeballs::tests::test_parallel_second_wins"
 
     # GPU access
     "--skip=js_unit_tests::webgpu_test"
@@ -203,6 +211,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   ++ lib.optionals stdenv.hostPlatform.isLinux [
     # Wants to access /etc/resolv.conf: https://github.com/hickory-dns/hickory-dns/issues/2959
     "--skip=tests::test_userspace_resolver"
+    # We don't have a tmp dir with sticky bit during build
+    "--skip=util::temp::test::test_ensure_secure_temp_parent_rejects_non_sticky_writable_dir"
   ];
 
   __darwinAllowLocalNetworking = true;
@@ -225,7 +235,9 @@ rustPlatform.buildRustPackage (finalAttrs: {
   '';
 
   postInstall = ''
-    # Remove non-essential binaries like denort and test_server
+    moveToOutput "bin/denort" "$denort"
+
+    # Remove non-essential binaries like test_server
     find $out/bin/* -not -name "deno" -delete
 
     # Do what `deno x --install-alias` would do (it doesn't work with Nix-packaged Deno)
@@ -279,12 +291,12 @@ rustPlatform.buildRustPackage (finalAttrs: {
       jk
       ofalvai
       mynacol
+      anish
     ];
     maxSilent = 14400; # 4h, double the default of 7200s; sometimes needed for x86_64-darwin on hydra
     platforms = [
       "x86_64-linux"
       "aarch64-linux"
-      "x86_64-darwin"
       "aarch64-darwin"
     ];
   };

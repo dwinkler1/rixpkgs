@@ -1,33 +1,35 @@
 {
   lib,
-  beartype,
   buildPythonPackage,
-  fetchPypi,
+  fetchFromGitHub,
+
+  # build-system
   hatch-vcs,
   hatchling,
+
+  # dependencies
+  beartype,
+  rich,
+  typing-extensions,
+
+  # tests
   ipython,
   numpy,
-  pythonAtLeast,
-  pythonOlder,
-  rich,
-  sybil,
-  typing-extensions,
   pytestCheckHook,
+  sybil,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "plum-dispatch";
-  version = "2.8.0";
+  version = "2.9.0";
   pyproject = true;
+  __structuredAttrs = true;
 
-  doCheck = false;
-
-  disabled = pythonOlder "3.10" || pythonAtLeast "3.14";
-
-  src = fetchPypi {
-    pname = "plum_dispatch";
-    inherit version;
-    hash = "sha256-RT/HvGfSo5SSyDSwDJTYFocdFItaCl0/SeK78jkeJhk=";
+  src = fetchFromGitHub {
+    owner = "beartype";
+    repo = "plum";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-oQTM2Op/ymNYu0yCOADI9Is2RutwF+AYmhMLAkMe87s=";
   };
 
   build-system = [
@@ -41,6 +43,8 @@ buildPythonPackage rec {
     typing-extensions
   ];
 
+  pythonImportsCheck = [ "plum" ];
+
   nativeCheckInputs = [
     ipython
     numpy
@@ -48,13 +52,11 @@ buildPythonPackage rec {
     sybil
   ];
 
-  pythonImportsCheck = [ "plum" ];
-
   meta = {
     description = "Multiple dispatch in Python";
-    homepage = "https://github.com/wesselb/plum";
-    changelog = "https://github.com/wesselb/plum/releases/tag/v${version}";
+    homepage = "https://github.com/beartype/plum";
+    changelog = "https://github.com/beartype/plum/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ ];
+    maintainers = with lib.maintainers; [ GaetanLepage ];
   };
-}
+})

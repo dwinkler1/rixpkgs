@@ -27,11 +27,13 @@ assert (
 stdenv.mkDerivation (finalAttrs: {
   pname = "dftd4";
   version = "4.2.0";
+  __structuredAttrs = true;
+  strictDeps = true;
 
   src = fetchFromGitHub {
     owner = "dftd4";
     repo = "dftd4";
-    rev = "v${finalAttrs.version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-uKjNOIza3/I0oREp88oFESoNqEdumo1AztIjcrVb1O8=";
   };
 
@@ -79,12 +81,9 @@ stdenv.mkDerivation (finalAttrs: {
       app/tester.py
   '';
 
-  preCheck = ''
-    export OMP_NUM_THREADS=2
-  '';
-
   meta = {
     description = "Generally Applicable Atomic-Charge Dependent London Dispersion Correction";
+    changelog = "https://github.com/dftd4/dftd4/releases/tag/${finalAttrs.src.tag}";
     mainProgram = "dftd4";
     license = with lib.licenses; [
       lgpl3Plus

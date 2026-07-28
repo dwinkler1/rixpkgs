@@ -13,13 +13,13 @@ let
 in
 buildNpmPackage (finalAttrs: {
   pname = "nezha-theme-user";
-  version = "2.2.1";
+  version = "2.4.2";
 
   src = fetchFromGitHub {
     owner = "hamster1963";
     repo = "nezha-dash-v2";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-X7NRpDeZqLijgbUQOEdML00TPRM2D55zlJkzWB2TKfM=";
+    hash = "sha256-n1q9mjheW2J500mEPhBaGHuMAEVtddxXCyLC+Au/8Ts=";
   };
 
   postPatch = ''
@@ -37,7 +37,7 @@ buildNpmPackage (finalAttrs: {
     inherit (finalAttrs) pname version src;
     inherit pnpm;
     fetcherVersion = 4;
-    hash = "sha256-4Zfiw//9w16I2CXOEy/ocAI5frK5w4g3b8pxguGWOdA=";
+    hash = "sha256-OPI4xMOJA5TJ1XAAFqawXPUQePgNKe2ES+g2MsIstFo=";
   };
   npmConfigHook = pnpmConfigHook;
 
