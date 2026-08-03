@@ -461,8 +461,8 @@
     },
     "GSVAdata": {
       "name": "GSVAdata",
-      "version": "1.48.0",
-      "sha256": "0b974c28wnskx7clz54qj1hvm9fiaclbl9r6z2ygbgbphs4lwa2s",
+      "version": "1.48.1",
+      "sha256": "07rzmck9fzr6725jz3x8r8pf0ixgk3bm0ky64wfccfdiqml602kb",
       "depends": ["Biobase", "GSEABase", "Matrix", "SpatialExperiment", "SummarizedExperiment"]
     },
     "GWASdata": {

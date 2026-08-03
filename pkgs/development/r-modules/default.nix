@@ -1977,6 +1977,7 @@ let
     "NetLogoR"
     "av"
     "minired" # deprecated on CRAN
+    "netboost" # opens store path in append mode
     "valse"
     # keep-sorted end
 

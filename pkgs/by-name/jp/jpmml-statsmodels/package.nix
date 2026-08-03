@@ -7,17 +7,17 @@
   nix-update-script,
 }:
 
-let
+maven.buildMavenPackage (finalAttrs: {
   pname = "jpmml-statsmodels";
   version = "1.3.13";
-in
-maven.buildMavenPackage {
-  inherit pname version;
+
+  strictDeps = true;
+  __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "jpmml";
     repo = "jpmml-statsmodels";
-    tag = version;
+    tag = finalAttrs.version;
     hash = "sha256-QVJhJliHLST5MJV9OZVC+jTk8vV+bUu7i2IL6GSqK34=";
   };
 
@@ -39,10 +39,6 @@ maven.buildMavenPackage {
 
   mvnParameters = "-B package";
 
-  strictDeps = true;
-
-  __structuredAttrs = true;
-
   nativeBuildInputs = [ makeBinaryWrapper ];
 
   installPhase = ''
@@ -50,10 +46,10 @@ maven.buildMavenPackage {
 
     mkdir -p "$out/share/java" "$out/bin"
     install -Dm444 \
-      pmml-statsmodels-example/target/pmml-statsmodels-example-executable-${version}.jar \
+      pmml-statsmodels-example/target/pmml-statsmodels-example-executable-${finalAttrs.version}.jar \
       "$out/share/java/jpmml-statsmodels.jar"
 
-    makeBinaryWrapper ${jre_headless}/bin/java "$out/bin/jpmml-statsmodels" \
+    makeBinaryWrapper ${lib.getExe jre_headless} "$out/bin/jpmml-statsmodels" \
       --add-flags "-jar $out/share/java/jpmml-statsmodels.jar"
 
     runHook postInstall
@@ -61,7 +57,7 @@ maven.buildMavenPackage {
 
   passthru.updateScript = nix-update-script { };
 
-  meta = {
+  meta = with lib; {
     description = "Java library and CLI for converting StatsModels models to PMML";
     longDescription = ''
       JPMML-StatsModels converts Python StatsModels fitted model results
@@ -74,11 +70,11 @@ maven.buildMavenPackage {
       models, OrderedModel, and ARIMA time-series models.
     '';
     homepage = "https://github.com/jpmml/jpmml-statsmodels";
-    changelog = "https://github.com/jpmml/jpmml-statsmodels/releases/tag/${version}";
-    license = lib.licenses.agpl3Only;
-    maintainers = with lib.maintainers; [ b-rodrigues ];
+    changelog = "https://github.com/jpmml/jpmml-statsmodels/releases/tag/${finalAttrs.version}";
+    license = licenses.agpl3Only;
+    maintainers = with maintainers; [ b-rodrigues ];
     mainProgram = "jpmml-statsmodels";
-    platforms = lib.platforms.all;
-    sourceProvenance = with lib.sourceTypes; [ fromSource ];
+    platforms = platforms.all;
+    sourceProvenance = with sourceTypes; [ fromSource ];
   };
-}
+})
