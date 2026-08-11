@@ -262,8 +262,8 @@ let
         mktplcRef = {
           name = "ng-template";
           publisher = "Angular";
-          version = "22.0.0";
-          hash = "sha256-3b77hepFW03I2hwsVvCA3f1Jqwnq5WfGAq2yqBDIt5Q=";
+          version = "22.0.1";
+          hash = "sha256-IaaqFb0YLJcVqoV5QT9fZmYd5GbfQCUlK68SF76Y/dY=";
         };
         meta = {
           changelog = "https://marketplace.visualstudio.com/items/Angular.ng-template/changelog";
@@ -358,6 +358,22 @@ let
         };
         meta = {
           license = lib.licenses.mit;
+        };
+      };
+
+      arktypeio.arkdark = buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          publisher = "arktypeio";
+          name = "arkdark";
+          version = "6.6.0";
+          hash = "sha256-9QsHaH8mXM7D7QE5+xTFrGyxh6MShPF9Wk0hFHpxk8A=";
+        };
+        meta = {
+          description = "Syntax highlighting and inline errors for ArkType";
+          downloadPage = "https://marketplace.visualstudio.com/items?itemName=arktypeio.arkdark";
+          homepage = "https://github.com/arktypeio/arktype";
+          license = lib.licenses.mit;
+          maintainers = with lib.maintainers; [ logn ];
         };
       };
 
@@ -1117,7 +1133,7 @@ let
           hash = "sha256-aSyTgGZt9AMZopmPLHb3Mc2RxUGZH87eMtOPX8DlgWQ=";
         };
         meta = {
-          description = "The offical CUE extension for VS Code, providing syntax highlighting and language server integration (LSP)";
+          description = "The official CUE extension for VS Code, providing syntax highlighting and language server integration (LSP)";
           downloadPage = "https://marketplace.visualstudio.com/items?itemName=cuelangorg.vscode-cue";
           homepage = "https://github.com/cue-lang/vscode-cue";
           license = lib.licenses.mit;
@@ -1174,8 +1190,8 @@ let
         mktplcRef = {
           publisher = "DanielSanMedium";
           name = "dscodegpt";
-          version = "3.24.29";
-          hash = "sha256-E/B1YiTc2RR/dh3QpYTO/bgzFldYQfuM/tZ650nJYJA=";
+          version = "3.24.39";
+          hash = "sha256-r1XkER09s+38uCbUxK9MM5bHRNp3UnMj6VJCHUMZM1Q=";
         };
         meta = {
           changelog = "https://marketplace.visualstudio.com/items/DanielSanMedium.dscodegpt/changelog";
@@ -1226,8 +1242,8 @@ let
         mktplcRef = {
           name = "databricks";
           publisher = "databricks";
-          version = "2.12.3";
-          hash = "sha256-/hFBw6STQG4zycS44em1DlaQSpKGP4w7YlH+fu/cHlA=";
+          version = "2.12.4";
+          hash = "sha256-29xG0/AhBhidM8Hd7vHUWxESCDt8MwACIkBpmfvhD2Q=";
         };
         meta = {
           changelog = "https://marketplace.visualstudio.com/items/databricks.databricks/changelog";
@@ -1380,7 +1396,7 @@ let
         };
         meta = {
           changelog = "https://marketplace.visualstudio.com/items/DivyanshuAgrawal.competitive-programming-helper/changelog";
-          description = "Makes judging, compiling, and downloading problems for competitve programming easy. Also supports auto-submit for a few sites";
+          description = "Makes judging, compiling, and downloading problems for competitive programming easy. Also supports auto-submit for a few sites";
           downloadPage = "https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper";
           homepage = "https://github.com/agrawal-d/cph";
           license = lib.licenses.gpl3;
@@ -1553,7 +1569,7 @@ let
           hash = "sha256-6xooF8petGLn8Zlh8rCXG2RJdAcdt8t8GPwhfgc5Gxs=";
         };
         meta = {
-          description = "Adwaita VS Code theme with Github syntax highlighting";
+          description = "Adwaita VS Code theme with GitHub syntax highlighting";
           downloadPage = "https://marketplace.visualstudio.com/items?itemName=egirlcatnip.adwaita-github-theme";
           homepage = "https://github.com/egirlcatnip/adwaita-github-theme";
           license = lib.licenses.gpl3;
@@ -1664,7 +1680,7 @@ let
           hash = "sha256-caNcbDTB/F2mdlGpfIfJv13lzY5Wwj7p7r8dAte9+3A=";
         };
         meta = {
-          description = "Visual Studio Code extension of using chinese-english dictonary in right-click menu";
+          description = "Visual Studio Code extension of using chinese-english dictionary in right-click menu";
           homepage = "https://github.com/exiahuang/fanyi-vscode";
           changelog = "https://marketplace.visualstudio.com/items/ExiaHuang.dictionary/changelog";
           license = lib.licenses.gpl3Only;
@@ -1760,8 +1776,8 @@ let
         mktplcRef = {
           name = "foam-vscode";
           publisher = "foam";
-          version = "0.44.4";
-          hash = "sha256-YMNYT/QDcg25fG2fidbFOU41RBIk/l49Se5ca4AyMe8=";
+          version = "0.44.5";
+          hash = "sha256-MiQ1Ze0vW0JCfmKVFe6eAWBbHhZqDKtRhhiQMkBgRe4=";
         };
         meta = {
           changelog = "https://marketplace.visualstudio.com/items/foam.foam-vscode/changelog";
@@ -1987,8 +2003,8 @@ let
         mktplcRef = {
           name = "vscode-github-actions";
           publisher = "github";
-          version = "0.31.5";
-          hash = "sha256-hGdcMAkzpJqX61Ki87ckFAhncOm6LmNCQh4imIg64oY=";
+          version = "0.32.3";
+          hash = "sha256-BYRiFiyynU0iNB2RLBXc+iGUd0sekvww/LoabKPJGr0=";
         };
         meta = {
           description = "Visual Studio Code extension for GitHub Actions workflows and runs for github.com hosted repositories";
@@ -2003,8 +2019,8 @@ let
         mktplcRef = {
           publisher = "github";
           name = "vscode-pull-request-github";
-          version = "0.158.0";
-          hash = "sha256-8wQRoWtVj3S/Dsc4IY1iThA4Jy96X3e0z/J8WzlliSQ=";
+          version = "0.162.0";
+          hash = "sha256-MoL6nM4Gvq9x0GohvryQYlFlg/I3cPX9RYztCObitAs=";
         };
         meta = {
           license = lib.licenses.mit;
@@ -3039,7 +3055,7 @@ let
         };
         meta = {
           changelog = "https://marketplace.visualstudio.com/items/mechatroner.rainbow-csv/changelog";
-          description = "Rainbow syntax higlighting for CSV and TSV files in Visual Studio Code";
+          description = "Rainbow syntax highlighting for CSV and TSV files in Visual Studio Code";
           downloadPage = "https://marketplace.visualstudio.com/items?itemname=mechatroner.rainbow-csv";
           homepage = "https://github.com/mechatroner/vscode_rainbow_csv";
           license = lib.licenses.mit;
@@ -3138,7 +3154,7 @@ let
 
         meta = {
           changelog = "https://github.com/moshfeu/vscode-compare-folders/releases";
-          description = "Extension allows you to compare folders, show the diffs in a list and present diff in a splitted view side by side";
+          description = "Extension allows you to compare folders, show the diffs in a list and present diff in a split view side by side";
           downloadPage = "https://marketplace.visualstudio.com/items?itemName=moshfeu.compare-folders";
           homepage = "https://github.com/moshfeu/vscode-compare-folders";
           license = lib.licenses.mit;
@@ -5241,8 +5257,8 @@ let
         mktplcRef = {
           name = "volar";
           publisher = "Vue";
-          version = "3.3.8";
-          hash = "sha256-d8Q+y0JetwkZhgQ9lLU6d+v54QYac+5wvRRnjKor15A=";
+          version = "3.3.9";
+          hash = "sha256-aJI96adY6ASvwtUY192i0okzxyBllCF4l3WYJ6lXbAc=";
         };
         meta = {
           changelog = "https://github.com/vuejs/language-tools/blob/master/CHANGELOG.md";
@@ -5468,7 +5484,7 @@ let
           hash = "sha256-sin2kTx7aXFPhtraKUjsowuV8Z2z237RIePL4F/JiPM=";
         };
         meta = {
-          description = "Visual Studio Code extension to help user easyly finish long words ";
+          description = "Visual Studio Code extension to help user easily finish long words ";
           longDescription = ''
             Dictionary completion allows user to get a list of keywords, based off of the current word at the cursor.
             This is useful if you are typing a long word (e.g. acknowledgeable) and don't want to finish typing or don't remember the Spelling

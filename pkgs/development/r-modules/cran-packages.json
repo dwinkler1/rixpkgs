@@ -397,6 +397,12 @@
       "sha256": "184d6xr4mgs78jvi7xa4njrq6p625i9sx69wak6mdn53qpl9b8ap",
       "depends": ["Iso", "nnls"]
     },
+    "ALSBinary": {
+      "name": "ALSBinary",
+      "version": "1.0.0",
+      "sha256": "0h33ym6azcv1gm13a99ay8f46h92gvxcv69ka6zmw2fn5arbar4g",
+      "depends": ["DT", "readr", "readxl", "shiny"]
+    },
     "ALSCPC": {
       "name": "ALSCPC",
       "version": "1.0",
@@ -558,6 +564,12 @@
       "version": "1.0.8",
       "sha256": "04qpdpa5b6gz5nmryy4y8dvblqv2j17y9v203lp9ybsnvkws0wpd",
       "depends": ["checkmate", "colorspace", "dplyr", "ggplot2", "ggpubr", "knitr", "mgcv", "scales", "stringr", "tidyr"]
+    },
+    "APD": {
+      "name": "APD",
+      "version": "1.0.1",
+      "sha256": "1mv9jzzihhrdmn0b9gil8zrqnz3c1yfa3m91nxvp9r4615f07ik9",
+      "depends": ["boot", "psych"]
     },
     "APFr": {
       "name": "APFr",
@@ -997,6 +1009,12 @@
       "sha256": "04w0v2fv9ixfz148d8f5vv7w5ypdywwf1qysk2ypc7a7md4vv9qz",
       "depends": ["DataVisualizations", "Rcpp", "plotly", "pracma", "shiny"]
     },
+    "AdaptHyCensor": {
+      "name": "AdaptHyCensor",
+      "version": "0.1.0",
+      "sha256": "1l9hqw5dgrxhcya9q0frx4rm8v6sixqv9fv0z7b07mndl7lr57r2",
+      "depends": []
+    },
     "AdaptiveBoxplot": {
       "name": "AdaptiveBoxplot",
       "version": "0.1.1",
@@ -1011,8 +1029,8 @@
     },
     "AddiVortes": {
       "name": "AddiVortes",
-      "version": "0.6.8",
-      "sha256": "1szd7z2hxw7xzj05idhamq2fqsq8646hj9q0zi0cx8975sli167n",
+      "version": "0.6.9",
+      "sha256": "18212rlq3xy9vilvrqwq0rqjqs8xf4f694y38wdq72vgi7v8kf51",
       "depends": ["pbapply"]
     },
     "AdequacyModel": {
@@ -1116,6 +1134,12 @@
       "version": "0.1.1",
       "sha256": "1bvinzylvsaipa8mq15f45b6h37znavlrdl0rbrx1pqw52r7z8kv",
       "depends": ["psych"]
+    },
+    "AgriDataTools": {
+      "name": "AgriDataTools",
+      "version": "0.1.2",
+      "sha256": "0qm88vyvrqis8spa7wmbcjfkq0pd0nf7irp628x68mrcd1mz7r4s",
+      "depends": ["circlize", "dendextend", "dplyr", "factoextra", "ggplot2", "reshape2"]
     },
     "AgriDiversiX": {
       "name": "AgriDiversiX",
@@ -2041,6 +2065,12 @@
       "sha256": "0raji9z3ka3pzv8pw206q3sb6ffrnv3vklrrg9nivrzy6y86j3v8",
       "depends": ["LaplacesDemon", "RColorBrewer", "Rcpp", "RcppArmadillo", "dplyr", "fastmatrix", "ggplot2", "ggpubr", "gridExtra", "mvtnorm", "psych", "tibble", "tidyr"]
     },
+    "BCGcalc": {
+      "name": "BCGcalc",
+      "version": "2.3.1",
+      "sha256": "15hs85qpi8l18dq3w6rgv40l55wf7bcyc854ywi8j0a4xcqc45zj",
+      "depends": ["dplyr", "reshape2"]
+    },
     "BCHM": {
       "name": "BCHM",
       "version": "1.00",
@@ -2059,10 +2089,22 @@
       "sha256": "1bbn24dg980w3plaqq49x18qz5skf54mq4hhz9dgm9zsaq0m6cnw",
       "depends": ["EnvStats", "Formula", "GeneralizedHyperbolic", "distr", "gamlss_dist"]
     },
+    "BCT": {
+      "name": "BCT",
+      "version": "1.3",
+      "sha256": "0yp5701ivlc0w4khxxl8v9s88ddybz421jkxm23fmqlrpay9h7kd",
+      "depends": ["Rcpp", "igraph", "stringr"]
+    },
     "BCgee": {
       "name": "BCgee",
       "version": "0.1.1",
       "sha256": "09p2523hslfhg0qryfn81cd5mn8nskiv98yw3s0ajfywfnwrb68k",
+      "depends": []
+    },
+    "BCodifSIS": {
+      "name": "BCodifSIS",
+      "version": "0.3.2",
+      "sha256": "12hc85zmsvwjmw515ndjxgk69g5ffajlgdk5b0rll471f6klhcn0",
       "depends": []
     },
     "BDAlgo": {
@@ -2076,6 +2118,12 @@
       "version": "1.6",
       "sha256": "0dyjd5f1cqmzqnrbxz06pbxrk6gjrmsh2x6p7qllczvlmm7jdm5i",
       "depends": ["fpow", "ggplot2"]
+    },
+    "BDPTobitQR": {
+      "name": "BDPTobitQR",
+      "version": "0.1.0",
+      "sha256": "0z6j7a59dn9ynvgg4qzw7lrb81w5pcjmni1hhzq47ypyws95wb0r",
+      "depends": []
     },
     "BDWreg": {
       "name": "BDWreg",
@@ -2277,8 +2325,8 @@
     },
     "BIDistances": {
       "name": "BIDistances",
-      "version": "0.1.3",
-      "sha256": "1mm1ph9j0b75gg5w6vqalv97ggfh2jhvgkz4hqpf4z86z025gc8j",
+      "version": "0.1.5",
+      "sha256": "0af70gccpnlw0n6d3qpz1a5hdpi4jbl6w73z163zswj6vmgli6c3",
       "depends": ["DataVisualizations", "Rcpp", "RcppArmadillo", "RcppParallel", "diptest", "e1071", "ggplot2", "parallelDist", "pracma", "vegan"]
     },
     "BIEN": {
@@ -2371,6 +2419,12 @@
       "sha256": "00df2h0qh5g7fhirsjqpdmyp0cvxar2n7l0wdr2gm29sx1pkvxj8",
       "depends": ["ggplot2"]
     },
+    "BKMutate": {
+      "name": "BKMutate",
+      "version": "0.1.0",
+      "sha256": "13qc58xg37bi0zcdhdj4a44klmaznda552nygrnc5hkfmx4ydl2x",
+      "depends": ["ggplot2"]
+    },
     "BKP": {
       "name": "BKP",
       "version": "0.3.1",
@@ -2382,6 +2436,12 @@
       "version": "1.0.2",
       "sha256": "09cr8p792379nw525nxmbfnca4r54azl5030vwj66cddwzh9j24c",
       "depends": ["kernlab"]
+    },
+    "BKQualit": {
+      "name": "BKQualit",
+      "version": "0.1.1",
+      "sha256": "1shwggqxjpbmfnk5z9qijmq9bqw058sdlkzbnz8if271jrq106c3",
+      "depends": ["ggplot2"]
     },
     "BKTR": {
       "name": "BKTR",
@@ -2511,8 +2571,8 @@
     },
     "BNPmix": {
       "name": "BNPmix",
-      "version": "1.2.1",
-      "sha256": "0z9xlnr57kxmsz4a0256i0mxsrbfx97y9z2shhh5q0a391mvhn82",
+      "version": "1.2.3",
+      "sha256": "0r0kdnsdgavpswgav824i6l6fcgbjaszcglnqz1szbkh4vndcgnv",
       "depends": ["Rcpp", "RcppArmadillo", "RcppDist", "coda", "ggplot2", "ggpubr"]
     },
     "BNSP": {
@@ -3223,6 +3283,12 @@
       "sha256": "1p337a5pnii3kan5540gv570bcjhmn89fjrnfdn7w1qvb4hd7mlp",
       "depends": []
     },
+    "BayesPanelUR": {
+      "name": "BayesPanelUR",
+      "version": "0.1.0",
+      "sha256": "1d6q142pvv25d02qy7dn8cq0vzyzwywv7y1gv4r6dkzd17b7swyp",
+      "depends": []
+    },
     "BayesPieceHazSelect": {
       "name": "BayesPieceHazSelect",
       "version": "1.1.0",
@@ -3252,6 +3318,12 @@
       "version": "1.0",
       "sha256": "0b1xqw7f9kfbmr8m6fl9d2fpwr364s4a5vdw57l6i5rm6lszyfh5",
       "depends": ["Rcpp", "RcppEigen", "Rdpack"]
+    },
+    "BayesQRCount": {
+      "name": "BayesQRCount",
+      "version": "0.1.0",
+      "sha256": "1ghxnvx7j6saprdpgmdvfzkpa1jghlk6rm53pkp9awj6b37s6agq",
+      "depends": []
     },
     "BayesRS": {
       "name": "BayesRS",
@@ -3313,6 +3385,12 @@
       "sha256": "16949bcakx4a77md1rm6364mzsjxr7gpmz2rxnslhz2szx4cnnaj",
       "depends": ["BH", "Rcpp", "RcppEigen", "RcppParallel", "StanHeaders", "dplyr", "ggplot2", "lme4", "rstan", "rstantools"]
     },
+    "BayesSplineUR": {
+      "name": "BayesSplineUR",
+      "version": "0.1.0",
+      "sha256": "0k9afky48rz12i5zgxx2xlqiyilsinvsw2llh3zbryrpm56w69yx",
+      "depends": []
+    },
     "BayesSurveillance": {
       "name": "BayesSurveillance",
       "version": "0.0.2",
@@ -3361,6 +3439,12 @@
       "sha256": "026blnhihbx9bpd63mxhbp0kpvj0lwbj7mg72alyfr2jnrh1n3lp",
       "depends": ["coda", "foreign", "matrixStats", "rjags"]
     },
+    "BayesURTrend": {
+      "name": "BayesURTrend",
+      "version": "0.1.0",
+      "sha256": "1a56xindkhdkqba6gmw8is3src4kwwj0rr8bdbamc4kbfna1832n",
+      "depends": []
+    },
     "BayesVarSel": {
       "name": "BayesVarSel",
       "version": "2.4.5",
@@ -3405,9 +3489,9 @@
     },
     "BayesianFitForecast": {
       "name": "BayesianFitForecast",
-      "version": "1.1.0",
-      "sha256": "0sfilnyf7cgpr21rlng1w698z73x9sgp5cwdrbzbdwdc2f1vwxpw",
-      "depends": ["bayesplot", "dplyr", "ggplot2", "gridExtra", "loo", "openxlsx", "readxl", "rstan", "stringr", "xlsx"]
+      "version": "1.1.1",
+      "sha256": "0iqfc5xrljrsbxv65hhilywfr1w1jvbcjkrf9fzb5qx3yc4pdc1d",
+      "depends": ["bayesplot", "dplyr", "ggplot2", "loo", "openxlsx", "readxl", "rstan"]
     },
     "BayesianInference": {
       "name": "BayesianInference",
@@ -3631,6 +3715,12 @@
       "sha256": "00zcvk5v8rn3dp02sivs5z7cch9y8csp5cjhhs4ragdgcry0c3i5",
       "depends": ["Formula"]
     },
+    "BiMaUmisc": {
+      "name": "BiMaUmisc",
+      "version": "0.1.0",
+      "sha256": "1zqafns63a7hkkm8syidrlb6h52gxd9zc0zbr82bg0480wdls3sr",
+      "depends": ["exams", "latex2exp", "plotfunctions", "survival"]
+    },
     "BiObjClass": {
       "name": "BiObjClass",
       "version": "0.1.0",
@@ -3813,8 +3903,8 @@
     },
     "BioMonTools": {
       "name": "BioMonTools",
-      "version": "1.3.1",
-      "sha256": "0z7g5afy2575c5y7xlx3j31ca72jsxvi1pqshyp17410hgyic2g6",
+      "version": "1.3.2",
+      "sha256": "1m6chvjgmy2iackh639p35l6rx6yz55b5wgxa181dzqgqr1b16p5",
       "depends": ["dplyr", "maps", "rlang", "tidyr", "tidyselect"]
     },
     "BioPET": {
@@ -4164,6 +4254,12 @@
       "version": "1.0.7",
       "sha256": "0xcypcd0ja2zldvpv860kygpzd92vvgj720svlcsnifaims8zh3w",
       "depends": ["MASS", "Matrix", "igraph"]
+    },
+    "BorderEffect": {
+      "name": "BorderEffect",
+      "version": "0.1.0",
+      "sha256": "031ghq6vm0agdpm9zvzkljpj0hzhn1xrdwj3s4pf1p06mp0a8s7p",
+      "depends": []
     },
     "Boruta": {
       "name": "Boruta",
@@ -5065,6 +5161,12 @@
       "sha256": "10g07jdnmbjk5k5xy4c8jh45aw16bjdwik91djiml82ysnbqiq9y",
       "depends": []
     },
+    "CLDedgelister": {
+      "name": "CLDedgelister",
+      "version": "1.0.2",
+      "sha256": "1cjhdgif73vg9mp49c63wk4h9vmvzfrcb00l7d1w1bi3bp2wfgk7",
+      "depends": ["xml2"]
+    },
     "CLIC": {
       "name": "CLIC",
       "version": "0.1",
@@ -5442,6 +5544,12 @@
       "version": "1.2.0",
       "sha256": "062nxmidji9qcp1v5hdh1806r99hkxqq5d9cay7xwby0h5qzl75x",
       "depends": ["ape", "colorspace", "deSolve", "dplyr", "ggplot2", "latex2exp", "magrittr", "patchwork", "pracma", "tibble", "tidyr"]
+    },
+    "CRAFT": {
+      "name": "CRAFT",
+      "version": "0.1.0",
+      "sha256": "1wv9kvyjgzl9d88ami8fnn2g5rv4cfi8pijs4xk1ax8sp265p5v0",
+      "depends": ["changepoint"]
     },
     "CRANsearcher": {
       "name": "CRANsearcher",
@@ -5904,6 +6012,12 @@
       "version": "1.0.2",
       "sha256": "16zqbgc1c8y59jy1sbpnrjacnl41pnym0g76hhnzj6bly84wn6gn",
       "depends": ["cli", "dplyr", "httr2", "lifecycle", "mapSpain", "rappdirs", "sf", "terra", "tibble", "xml2"]
+    },
+    "CauMedi": {
+      "name": "CauMedi",
+      "version": "0.1.1",
+      "sha256": "04zv7sm9h8ivmjjw2qixzad13cw0x4wvnp3b0zbv8cfr49y8dfx1",
+      "depends": ["glmnet"]
     },
     "CausCor": {
       "name": "CausCor",
@@ -6937,6 +7051,12 @@
       "sha256": "1k4q0yanvhdh3ksia7d42lxky19yci5vxhmi6h716g9sxzfsjk6b",
       "depends": ["MASS"]
     },
+    "CompRiskRel": {
+      "name": "CompRiskRel",
+      "version": "0.1.0",
+      "sha256": "0flipq11mi54yimf12n80ykinv801v025w7qcpwvv0lgchab0rai",
+      "depends": []
+    },
     "CompareMultipleModels": {
       "name": "CompareMultipleModels",
       "version": "0.1.0",
@@ -7014,6 +7134,12 @@
       "version": "1.4",
       "sha256": "02llx92m6x2ndk0glrgwg6cgp6r44k18yp64hxv992nz01pfh9ik",
       "depends": ["Compositional", "Rfast", "blockCV", "doParallel", "foreach", "gslnls", "minpack_lm", "rangen", "sf", "spmoran"]
+    },
+    "Compositionalzerocens": {
+      "name": "Compositionalzerocens",
+      "version": "1.0",
+      "sha256": "1qc6vm7b2fz278q81n31063c6xd5wlgxamz5w0rsdibzg39ip2xg",
+      "depends": ["Compositional", "Rfast", "far"]
     },
     "CompoundEvents": {
       "name": "CompoundEvents",
@@ -7701,8 +7827,8 @@
     },
     "D4TAlink_light": {
       "name": "D4TAlink.light",
-      "version": "2.1.22",
-      "sha256": "1ngzhsn0dab3b79p2rl6yyl8wlv226ilvyvxm6d5rwz865dngzwj",
+      "version": "2.1.23",
+      "sha256": "001xbgfi74gg995mmwa54k3r87fhg0wizzyvjw5jdcy76g15skbp",
       "depends": ["Biobase", "DBI", "RSQLite", "feather", "getPass", "officedown", "openssl", "openxlsx", "quarto", "reticulate", "rjson", "rmarkdown"]
     },
     "DA": {
@@ -8365,6 +8491,12 @@
       "sha256": "0xdygf6h89d9z4kqb46iqfxgdzq9dmkrxf9ypw78l4d8n9xx2gaa",
       "depends": ["MASS"]
     },
+    "DLCA": {
+      "name": "DLCA",
+      "version": "1.0",
+      "sha256": "1bw29vhqbh78w00m5h60mfv7hph6f0r34z6bs3vvpmxpybav3vbp",
+      "depends": ["Rcpp"]
+    },
     "DLEGFM": {
       "name": "DLEGFM",
       "version": "0.4.0",
@@ -8484,6 +8616,12 @@
       "version": "0.0.0.1",
       "sha256": "0xfc4wzbh7gp4c8y7141kyycjxy5avjc8wwxzqyvf70l2if7x4id",
       "depends": []
+    },
+    "DOEpro": {
+      "name": "DOEpro",
+      "version": "2.0.1",
+      "sha256": "1r4w6qmg7vqydc2zdd8c1rk696pm3va2qdwdmq8gr5bkfvcwmp36",
+      "depends": ["DT", "ggplot2", "rlang", "shiny"]
     },
     "DOIcreator": {
       "name": "DOIcreator",
@@ -9021,14 +9159,20 @@
     },
     "DasGuptR": {
       "name": "DasGuptR",
-      "version": "2.1.0",
-      "sha256": "0hl6mgyvkndwl3xlnp9600mn3109wgg3gk8l63zmbfkgix7d4nfv",
+      "version": "2.2.0",
+      "sha256": "0p803iq889z8vmd346ksrnpykqh8p5zrc59jkxlr9kranjwhslka",
       "depends": []
     },
     "Dasst": {
       "name": "Dasst",
       "version": "0.3.4",
       "sha256": "1q18wss5bla3hvhnvmwxpd8lbs6fpdkqf5bfiqva050hsdfq1fk7",
+      "depends": []
+    },
+    "DataAudit": {
+      "name": "DataAudit",
+      "version": "0.1.0",
+      "sha256": "1hkpf3fv2vibpp59qs4d94wh0lfnfnsnn71m3pfhy4jaxv0bjr89",
       "depends": []
     },
     "DataClean": {
@@ -9117,8 +9261,8 @@
     },
     "DataSpaceR": {
       "name": "DataSpaceR",
-      "version": "1.0.0",
-      "sha256": "17q19i83f0lp8wipn8r1m8hfjk8p5ag2qzgpq54d4cf93w76jkm2",
+      "version": "1.0.1",
+      "sha256": "158a7a3xxnh7bcg664bnipa72zlmn38nxrfcw0cyrahzs5xa275d",
       "depends": ["R6", "Rlabkey", "assertthat", "curl", "data_table", "digest", "httr", "jsonlite"]
     },
     "DataSum": {
@@ -9319,6 +9463,12 @@
       "sha256": "1nknr71wxzx6i5284v3w892qm8cqhzhm7ya3fjbijvr3zd9p3f5z",
       "depends": ["gclus", "seriation"]
     },
+    "DendroFlux": {
+      "name": "DendroFlux",
+      "version": "1.0.3",
+      "sha256": "1ldj3vhr3kwzk46ag1d9cfndh5rks9ygqbjba8bdsimzxw6wa2sv",
+      "depends": ["forecast", "ggplot2", "readxl", "rlang", "zoo"]
+    },
     "DendroSync": {
       "name": "DendroSync",
       "version": "0.1.5",
@@ -9336,6 +9486,12 @@
       "version": "0.2.3",
       "sha256": "0sz7bj6pqwj6appyymajav0q5g1hrpaa8m75rx4drfjdp0lv7ihq",
       "depends": ["Formula", "dlm", "matrixStats", "rootSolve", "survival"]
+    },
+    "DepDoubleTruncKS": {
+      "name": "DepDoubleTruncKS",
+      "version": "0.1.0",
+      "sha256": "0pnwj910aznzjz82wmj7wpivwfbyvl7hmpxxxihcvsaawqbsiwrl",
+      "depends": []
     },
     "DepLogo": {
       "name": "DepLogo",
@@ -9919,6 +10075,12 @@
       "sha256": "0ijd6nm32mlf3xm6nmypvp5l22i8vjmry81v9qxnbis3hg0bjmmr",
       "depends": ["crosstalk", "dplyr", "ggplot2", "htmltools", "leaflet", "plotly", "rlang", "viridisLite"]
     },
+    "DropCens": {
+      "name": "DropCens",
+      "version": "0.1.0",
+      "sha256": "0zjli2dzjmaaiwc6xbqra58gpggi60w7cr93d4gvdcd3my3fbcr8",
+      "depends": []
+    },
     "DrugExposureDiagnostics": {
       "name": "DrugExposureDiagnostics",
       "version": "1.1.10",
@@ -10063,6 +10225,12 @@
       "sha256": "0g9hhkbld6f5iasj56d539q9px6s6pb2mwhzl337bbvxcd7pf59w",
       "depends": ["R2jags", "doParallel", "dplyr", "foreach", "ggplot2", "lubridate", "rjags", "tidyr", "truncnorm", "zoo"]
     },
+    "EBASS": {
+      "name": "EBASS",
+      "version": "0.1.1",
+      "sha256": "05anccwkk29vw8l7pkgrdxp6yfm36bgf85yapfrdn5m4s5qp784p",
+      "depends": []
+    },
     "EBCHS": {
       "name": "EBCHS",
       "version": "0.1.1",
@@ -10153,11 +10321,23 @@
       "sha256": "1984a0g03xy90qc2fc7bx7pblqk34x2yslqqqi1j2f4c222hfpad",
       "depends": ["FNN", "MASS", "cluster", "e1071", "igraph"]
     },
+    "EDAForge": {
+      "name": "EDAForge",
+      "version": "0.1.1",
+      "sha256": "0szavx6wlyhxfwlm6llypc80jx3y14hcl84jag49x53ai9rri49p",
+      "depends": ["GGally", "dplyr", "e1071", "factoextra", "ggplot2", "igraph", "openxlsx", "psych", "rlang", "tidyr", "visdat"]
+    },
     "EDCimport": {
       "name": "EDCimport",
       "version": "0.7.0",
       "sha256": "16l43c9g9qzlv5sq6n51p1b3qh0fgiia08g85bnpyaicqjpqv2c6",
       "depends": ["cli", "dplyr", "forcats", "fs", "ggplot2", "glue", "haven", "lifecycle", "lubridate", "purrr", "readr", "rlang", "scales", "stringr", "tibble", "tidyr", "tidyselect"]
+    },
+    "EDE": {
+      "name": "EDE",
+      "version": "0.1.0",
+      "sha256": "1ab7xhp99pkvmq18j4c33j3h50zkhgzh6cr6z3zrzd1891xchadr",
+      "depends": []
     },
     "EDISON": {
       "name": "EDISON",
@@ -10759,6 +10939,12 @@
       "sha256": "1xwyclfaq50805n3h052vxlyhmiayy9338gqmx6vgj77s8fw3ds1",
       "depends": ["cowplot", "ggplot2"]
     },
+    "EWAScaller": {
+      "name": "EWAScaller",
+      "version": "0.1.0",
+      "sha256": "09gjv6j2jvswys8av03a73za0s08bhr3gsfj3qz2jvmijsph582r",
+      "depends": ["digest", "ggplot2", "ggwordcloud", "httr", "jsonlite"]
+    },
     "EWGoF": {
       "name": "EWGoF",
       "version": "2.2.2",
@@ -11163,8 +11349,8 @@
     },
     "Epi": {
       "name": "Epi",
-      "version": "2.65",
-      "sha256": "09pjgnni2br1bwnlj63x3337hjy2gbf7dvh1n6fvmsmxl2jacgr7",
+      "version": "2.66",
+      "sha256": "08awykm8sg2c1wc3v1sb5p91hjlr2i0vn43djqwxism5j2jpx0xs",
       "depends": ["MASS", "Matrix", "cmprsk", "data_table", "dplyr", "etm", "magrittr", "mgcv", "numDeriv", "plyr", "survival", "zoo"]
     },
     "EpiContactTrace": {
@@ -11550,6 +11736,12 @@
       "version": "0.1.3",
       "sha256": "13qzrb33rkahi24an1pkj4si3xqzfsyrk8xdz4473znnaq5x5xf4",
       "depends": ["Rcpp"]
+    },
+    "ExactTree": {
+      "name": "ExactTree",
+      "version": "0.1.1",
+      "sha256": "1ym3pwzpsh8aj845ywlskk45ji5b9nvhwv5613kwlr7mhvh2drai",
+      "depends": ["DescTools", "formula_tools", "gridtext", "partykit", "pracma", "rpart"]
     },
     "ExactVaRTest": {
       "name": "ExactVaRTest",
@@ -12049,6 +12241,12 @@
       "sha256": "0zr9k702hk934anh1pqnw1a0pi9j6z27lg4m5j79hhvf7ip5gdm9",
       "depends": ["dplyr", "ggplot2", "gridExtra", "gtable", "rlang"]
     },
+    "FINN": {
+      "name": "FINN",
+      "version": "0.1.0",
+      "sha256": "1zgad09jw5flkjimbd2wpyfbmh9p2hr2d381c5jnb0rbpj58m1x6",
+      "depends": ["Rcpp", "abind", "cli", "coro", "data_table", "ggplot2", "glue", "torch"]
+    },
     "FIRM": {
       "name": "FIRM",
       "version": "0.1.2",
@@ -12228,6 +12426,12 @@
       "version": "0.1.0",
       "sha256": "0f5j6h4v0a9jk798m02mdq57v8rlkhrpgcrnj1rna34lrz83m51q",
       "depends": ["dplyr", "readr"]
+    },
+    "FPScausal": {
+      "name": "FPScausal",
+      "version": "0.1.0",
+      "sha256": "0apgp2s65qd3wq95n4fjql0avan9mfs6s36bh03hbablb7id2hbf",
+      "depends": ["MASS", "fda", "ggplot2", "patchwork", "progress", "tidyr", "wCorr"]
     },
     "FRACTION": {
       "name": "FRACTION",
@@ -12727,6 +12931,12 @@
       "sha256": "078xpq2w916jxiy2y3yh2c8fjlgykdrqin0a587hwvyjpmgkljsm",
       "depends": ["RegimeChange", "broom", "cpm", "data_table", "dplyr", "dygraphs", "forcats", "ggiraph", "ggplot2", "ggrepel", "ggtext", "knitr", "lubridate", "purrr", "qlcal", "scales", "stringr", "tibble", "tidyr", "usethis", "xts"]
     },
+    "FinancialInstrument": {
+      "name": "FinancialInstrument",
+      "version": "1.4.1",
+      "sha256": "19f5mci04mxzhh20207zqv4sg9ba1xgfqkz4dk5169jkjiy8m9s0",
+      "depends": ["TTR", "quantmod", "xts", "zoo"]
+    },
     "FinancialMath": {
       "name": "FinancialMath",
       "version": "0.1.1",
@@ -13188,6 +13398,12 @@
       "version": "0.6.0",
       "sha256": "1gj7x3dbnjz0v2h9vbdjgxvca0wvr8q5v37qnnxwvfpmgll1dc4l",
       "depends": ["dplyr", "ggplot2", "ggrepel", "rlang", "scales"]
+    },
+    "FusionForests": {
+      "name": "FusionForests",
+      "version": "1.0.1",
+      "sha256": "0yzxs72b7662zn2x9jj1mb5r5if549ggz0mji4mh6bqj8m9cl4j4",
+      "depends": ["Rcpp", "ShrinkageTrees"]
     },
     "FusionLearn": {
       "name": "FusionLearn",
@@ -13908,6 +14124,12 @@
       "version": "1.1.2",
       "sha256": "04219j32dqf6n6hwxxxw3qmq0dkf754y9j6vvkz86gwwvkry0915",
       "depends": ["GLDEX", "ddst"]
+    },
+    "GLHD": {
+      "name": "GLHD",
+      "version": "1.1-1",
+      "sha256": "030hi18ggwcf4sfdlwnz0blph17rh469lpf8pa301caa05x96z3m",
+      "depends": []
     },
     "GLMBasedRaschEstimation": {
       "name": "GLMBasedRaschEstimation",
@@ -14652,6 +14874,12 @@
       "version": "0.1.0",
       "sha256": "17nm8cij6s6035s59a9pxfd54dm1yj23nkdmykfy2vswhlmb2irp",
       "depends": ["MASS", "maxLik", "numDeriv", "survival"]
+    },
+    "GammaFrailtySPC": {
+      "name": "GammaFrailtySPC",
+      "version": "0.1.0",
+      "sha256": "0yk86p9wk0fmrag7xfhajmbqvcxmz0lcx5l8a3fa3d206k20cz3p",
+      "depends": ["maxLik", "survival"]
     },
     "Gammareg": {
       "name": "Gammareg",
@@ -16105,6 +16333,12 @@
       "sha256": "0n5fgbiqag3w07dszwc23cc02kbcc1x3xcrpsjzcyagdfkbfd8r9",
       "depends": ["Rdpack", "dplyr", "rlang", "tibble", "vctrs"]
     },
+    "HeatStressR": {
+      "name": "HeatStressR",
+      "version": "2.2.1",
+      "sha256": "199l7w017a278qmd86cprpq625jrzm1xliffknha757i53z4qbx0",
+      "depends": ["assertthat", "doParallel", "foreach"]
+    },
     "HeatmapR": {
       "name": "HeatmapR",
       "version": "1.1.0",
@@ -16557,9 +16791,9 @@
     },
     "ICEHmeasures": {
       "name": "ICEHmeasures",
-      "version": "1.1.0",
-      "sha256": "1a1738lvv9pxmcmkpaqcj7hvj613jl18gpf1vvhlv75z4lh42pl9",
-      "depends": ["car", "dplyr", "ggplot2", "rlang", "survey", "tibble", "tidyr"]
+      "version": "2.0.0",
+      "sha256": "0l9xwrqbzmphg8r57pw44xj2kzqz4azz57dwqdpx9jcj9fzj4lly",
+      "depends": ["car", "dplyr", "ggplot2", "rlang", "survey", "tibble", "tidyr", "tidyselect"]
     },
     "ICEbox": {
       "name": "ICEbox",
@@ -17401,6 +17635,12 @@
       "sha256": "0d6d7v4n38hkclrwqavbnwr75phw4h07jk5a8qs0kham6nhcifm9",
       "depends": ["MLmetrics", "ggplot2", "neuralnet"]
     },
+    "ImpAdaptType2Censor": {
+      "name": "ImpAdaptType2Censor",
+      "version": "0.1.0",
+      "sha256": "1aq9mya7kj62mj6saa3r3zlcmy3rwpcmf6hskni7w2xp9bnla3l7",
+      "depends": []
+    },
     "ImpShrinkage": {
       "name": "ImpShrinkage",
       "version": "1.0.0",
@@ -17471,6 +17711,12 @@
       "name": "IncomPair",
       "version": "0.1.0",
       "sha256": "156mc4csbxz976md7ikjd6sqamzsfc8ik9xf1qbhrfl8y7957kbb",
+      "depends": []
+    },
+    "IncrementalityTEST": {
+      "name": "IncrementalityTEST",
+      "version": "0.1.1",
+      "sha256": "087wgdiwrm3ak2h22nm9aaxk482p6fz9mkzp3cf3i5w3q3nvi6h7",
       "depends": []
     },
     "IndGenErrors": {
@@ -17647,6 +17893,12 @@
       "sha256": "1cfkcaa96i2hq5rw9i1gx6r0xy3p21k3rgc99qjj35q7nj8pr4l2",
       "depends": ["InterSIM", "MASS", "NMF", "cluster", "mclust"]
     },
+    "IntegMultiReg": {
+      "name": "IntegMultiReg",
+      "version": "0.1.0",
+      "sha256": "1amgi7j9vqkzil8imfb60jwacgajhyvvvxwr7nlw75wwx48gnm39",
+      "depends": []
+    },
     "IntegratedJM": {
       "name": "IntegratedJM",
       "version": "1.6",
@@ -17706,6 +17958,12 @@
       "version": "1.5.3",
       "sha256": "0vj8338gs5wkywbzr0lsfibk4cw0aypgr7habri364qc0f6qiqcm",
       "depends": ["enviPat", "plyr", "rcdk"]
+    },
+    "IntervalCensoredMultistateR2": {
+      "name": "IntervalCensoredMultistateR2",
+      "version": "1.0.0",
+      "sha256": "13nydayll1y2lsj4vv0nz6a1q25prd4nhb502gsh81vwyrkbny81",
+      "depends": ["Rcpp", "RcppArmadillo"]
     },
     "IntervalQuestionStat": {
       "name": "IntervalQuestionStat",
@@ -18151,10 +18409,22 @@
       "sha256": "0ixqplla4978laiymv62sl87c2gvbayv5qppi1kfyljkgp1sz342",
       "depends": []
     },
+    "K4Rumah": {
+      "name": "K4Rumah",
+      "version": "0.1.0",
+      "sha256": "05a1hn98pylkz6habwyr3h0ivnfhdr4dpwmgwd86h8ai8wajm50q",
+      "depends": []
+    },
     "K4Sekolah": {
       "name": "K4Sekolah",
       "version": "0.1.0",
       "sha256": "0cm72r4rzgg5rlalc9gn46avs169wa2rmsfcwym2qsw347awrggb",
+      "depends": []
+    },
+    "K4Siswa": {
+      "name": "K4Siswa",
+      "version": "0.1.0",
+      "sha256": "06y5xydd9labrlbzzkpln6ml8w8yyrxslyvbsm3qf1sr1r0f2lh6",
       "depends": []
     },
     "KCSKNNShiny": {
@@ -18219,9 +18489,9 @@
     },
     "KLINK": {
       "name": "KLINK",
-      "version": "1.2.0",
-      "sha256": "1mzalxng6jqf9iy2gaamr1blpi5vhd9i08jrvxip9gzmpzldx46h",
-      "depends": ["forrel", "gt", "norSTR", "openxlsx", "pedFamilias", "pedmut", "pedprobr", "pedtools", "shiny", "shinyBS", "shinydashboard", "shinyjs", "verbalisr", "xml2"]
+      "version": "1.2.2",
+      "sha256": "0qh841c4fy02y0qhxx0np1bbbpvjywr44b06aqc0v88phjaj57kl",
+      "depends": ["forrel", "gt", "norSTR", "openxlsx", "pedFamilias", "pedmut", "pedprobr", "pedtools", "scales", "shiny", "shinyBS", "shinydashboard", "shinyjs", "verbalisr", "xml2"]
     },
     "KLexp": {
       "name": "KLexp",
@@ -18444,6 +18714,12 @@
       "version": "6.6",
       "sha256": "199fibpbdyxgg9qpgahmlbm6avabmrk4gj1gf0zxb9rry5m43gjg",
       "depends": ["Rcpp", "plotrix", "rgl"]
+    },
+    "KernelICA": {
+      "name": "KernelICA",
+      "version": "2.0.0",
+      "sha256": "1wz9yvjl00kgzp4s7gpfr5xjk8py6x9c0qzs2gqhyz0xwwgcl7bi",
+      "depends": ["ICtest", "JADE", "ManifoldOptim", "Rcpp", "RcppArmadillo", "RcppEigen"]
     },
     "KernelKnn": {
       "name": "KernelKnn",
@@ -18951,8 +19227,8 @@
     },
     "LLMR_shiny": {
       "name": "LLMR.shiny",
-      "version": "0.1.1",
-      "sha256": "0lslzwmx19gzqf2n6kqx2w6cibay5k4anj4ngxfy908r6f9qikhj",
+      "version": "0.1.2",
+      "sha256": "0h9y52ckr4cbnbyl0ih1sr683nwynr0cl7dbfhiahajawcgxvx4q",
       "depends": ["bslib", "shiny"]
     },
     "LLMRagent": {
@@ -19135,6 +19411,12 @@
       "sha256": "1dh6f12zvm8ff7vkl118bygyly68rdw6bqf2isjd01ji7d4w70cj",
       "depends": []
     },
+    "LRErdd": {
+      "name": "LRErdd",
+      "version": "0.1.0",
+      "sha256": "1kw79haqdk14pwi94jzc9k5zz2jjs6anvh55p91sjy8jrblvr3qy",
+      "depends": ["R6", "cowplot", "ggplot2", "gtools", "shiny"]
+    },
     "LRMF3": {
       "name": "LRMF3",
       "version": "0.1.0",
@@ -19224,6 +19506,12 @@
       "version": "0.1.0",
       "sha256": "11ckfrlhz4zgz5bzbvbrx5j8dcxs2ka4xv8f2b2mlpv6jr9f5h1y",
       "depends": ["LSTS", "doParallel", "doRNG", "foreach", "iterators", "rlecuyer", "tibble"]
+    },
+    "LSJM": {
+      "name": "LSJM",
+      "version": "0.1.0",
+      "sha256": "1l0nkkmmyixbqzzhy5x49bbggp0p44jjmq019vki7yjx3l7gi6xw",
+      "depends": ["Rcpp", "RcppArmadillo", "SmoothHazard", "doParallel", "dplyr", "flexsurv", "foreach", "ggplot2", "marqLevAlg", "mvtnorm", "spacefillr", "survival", "survminer"]
     },
     "LSMjml": {
       "name": "LSMjml",
@@ -19915,6 +20203,12 @@
       "sha256": "1dx7f4qsckj9jbfd25bbfzcl33287iwfiak92y39nyd9znrm5fli",
       "depends": ["copula", "corpcor", "ggplot2", "patchwork", "tidyr"]
     },
+    "LongitudinalEvalue": {
+      "name": "LongitudinalEvalue",
+      "version": "0.1.0",
+      "sha256": "1rzxr6yaj56lvf4g9dv6022fqdd0z1a6xffmw7haq6ifk7c1avc9",
+      "depends": ["ggplot2", "matrixStats", "np", "rlang", "yuima", "zoo"]
+    },
     "LoopAnalyst": {
       "name": "LoopAnalyst",
       "version": "1.2-7",
@@ -19955,6 +20249,12 @@
       "name": "LqG",
       "version": "0.1.0",
       "sha256": "08v6qyvg96jn096xvayivywllcja782mg4zi4gcaaq12hhwdhl1m",
+      "depends": []
+    },
+    "LugsailGR": {
+      "name": "LugsailGR",
+      "version": "0.1.0",
+      "sha256": "10fylg46l5jbdwg30r06nn29sz4x0ans9g4044zjrzky5v9wklsy",
       "depends": []
     },
     "Luminescence": {
@@ -20070,6 +20370,12 @@
       "version": "1.0.1",
       "sha256": "0xljmnwl8v3y68xmfm5vbycsa5y5yi0p0n207hg7zjvfaf6gbfhj",
       "depends": ["AUC", "grplasso"]
+    },
+    "MALDIassist": {
+      "name": "MALDIassist",
+      "version": "1.0.2",
+      "sha256": "0cb34bda6il5gc25fl7pgcdf5vsx2g4js51zmhb73l4v75x439mc",
+      "depends": ["Rcpp", "gtools"]
     },
     "MALDIquant": {
       "name": "MALDIquant",
@@ -20475,8 +20781,8 @@
     },
     "MD2sample": {
       "name": "MD2sample",
-      "version": "1.2.2",
-      "sha256": "0zf6yzk6dy53spsr728xmmp6v0v80wsj23s7cw87nzki5ybkb174",
+      "version": "1.3.0",
+      "sha256": "0arf1s99jl0cq4qpp0mahdq609q6lj86m8v3ws7p8l0fdh4281qc",
       "depends": ["Ball", "FNN", "Rcpp", "ade4", "copula", "gTests", "igraph", "lsa", "microbenchmark", "mvtnorm"]
     },
     "MDCcure": {
@@ -20553,8 +20859,8 @@
     },
     "MDgof": {
       "name": "MDgof",
-      "version": "1.0.2",
-      "sha256": "0d39sp3w2is5ygwni6gilxnpaips1hhkf3nds23kr9xnc49fsxi4",
+      "version": "1.1.0",
+      "sha256": "0db8lkl799snhqbqshwgl6dlixi00jqiaxkm3xkn1m041v73jp7n",
       "depends": ["FNN", "MD2sample", "Rcpp", "copula", "ggplot2", "microbenchmark", "mvtnorm", "spatstat_explore", "spatstat_geom"]
     },
     "MDimNormn": {
@@ -20610,6 +20916,12 @@
       "version": "0.9-4",
       "sha256": "0r8x3a950d7vyxbm5i82vva7iw75576456dvkp4xhyz08wy3y2bv",
       "depends": ["lme4"]
+    },
+    "MEMWAS": {
+      "name": "MEMWAS",
+      "version": "0.9.3",
+      "sha256": "1k7lm0yrbg15yhiwlnm4drbwdswy3hcgs61p9ang5wg69q0a62jl",
+      "depends": []
     },
     "MERO": {
       "name": "MERO",
@@ -21883,6 +22195,12 @@
       "sha256": "1c57f0wnlhl4gqy17vi93r4fknycvv67b9bifgcvabws390jpx7q",
       "depends": ["cubature"]
     },
+    "MYIS": {
+      "name": "MYIS",
+      "version": "0.1.0",
+      "sha256": "0hqhi7504r1crrh1wha9n6sq4hawc8zk47xb6kyfslwmawy7l1sd",
+      "depends": []
+    },
     "MaOEA": {
       "name": "MaOEA",
       "version": "0.6.2",
@@ -22591,6 +22909,12 @@
       "sha256": "0zb42nxc1zbd99arx9fsbmdbxdwk4gbhc0ssp8r49086adbd47n0",
       "depends": ["Rcpp"]
     },
+    "MiCT": {
+      "name": "MiCT",
+      "version": "2.0.0",
+      "sha256": "1vjx84qgl0jqmsw99xksmv7w1mx5yni3kqz8jamc2lydzsrb3bjh",
+      "depends": ["MASS", "lavaan", "mirt", "pROC"]
+    },
     "MiRKAT": {
       "name": "MiRKAT",
       "version": "1.2.3",
@@ -22698,6 +23022,12 @@
       "version": "0.11",
       "sha256": "13995v4n0hfb53w02jk81pl7nazkvqwwv87y1sr99jr9ppzc08mz",
       "depends": []
+    },
+    "MineSDG": {
+      "name": "MineSDG",
+      "version": "0.4.0",
+      "sha256": "0wr2zbid01rpipwjaqhvi7whdfr9dkg78zd1f5y46jh6rj3mjkdw",
+      "depends": ["data_table", "dplyr", "ggplot2", "httr2"]
     },
     "Minirand": {
       "name": "Minirand",
@@ -22956,6 +23286,12 @@
       "version": "0.9.13",
       "sha256": "0xp2kzfp1vqly18md52a0bhk43ds3b8yfi3bxj08vibcfg1jp78r",
       "depends": ["AER", "C50", "DescTools", "MASS", "NeuralNetTools", "boot", "car", "class", "e1071", "lattice", "lmtest", "naivebayes", "nnet", "pROC", "pscl", "randomForest", "relaimpo", "robustbase", "rpart", "rpart_plot", "sandwich", "survival"]
+    },
+    "ModToppLeone": {
+      "name": "ModToppLeone",
+      "version": "0.1.0",
+      "sha256": "04dq53kgnhwsff0025ddxii8nr1mrinmdpdw4s3q0pddhgh3q758",
+      "depends": []
     },
     "ModalCens": {
       "name": "ModalCens",
@@ -23253,8 +23589,8 @@
     },
     "MultiEFM": {
       "name": "MultiEFM",
-      "version": "0.1.3",
-      "sha256": "0ahbbfjnzajwd9x4l62l3v2ccc9m65v8wy3lawwcfsb7m0vj43sq",
+      "version": "0.1.4",
+      "sha256": "1isa38cfbmggvq0ji8d0zy60ky5yrxv2ri7n04j1c873dvgsv3c4",
       "depends": ["MASS", "Rcpp", "RcppArmadillo", "irlba", "mvtnorm"]
     },
     "MultiFit": {
@@ -23262,6 +23598,12 @@
       "version": "1.1.1",
       "sha256": "086bnqp61mfanrhi7dqaq5j2ddg3rfiyms0f5wj34svcjal9wjvc",
       "depends": ["Rcpp", "RcppArmadillo", "data_table"]
+    },
+    "MultiFrailty": {
+      "name": "MultiFrailty",
+      "version": "0.1.0",
+      "sha256": "125isvji40i3zbyp89p5fw1rpz4bgpmfaz6q021cz106xxvphvsh",
+      "depends": ["maxLik", "numDeriv", "survival"]
     },
     "MultiGlarmaVarSel": {
       "name": "MultiGlarmaVarSel",
@@ -23382,6 +23724,12 @@
       "version": "2.1.0",
       "sha256": "07xqwav5197g94mwmggxgiz9ymk1f0fmra13lp0ggbdip7y8h5p7",
       "depends": ["EQL", "Matrix", "Rcpp", "arrangements", "mvtnorm"]
+    },
+    "MultiStepSSAD": {
+      "name": "MultiStepSSAD",
+      "version": "0.1.0",
+      "sha256": "1wm3kpl3i3ssmiwglxw1i2qnyh21sdg9b3fa0vq5xf5jx7dqq4vj",
+      "depends": []
     },
     "MultiTraits": {
       "name": "MultiTraits",
@@ -23919,8 +24267,8 @@
     },
     "NNS": {
       "name": "NNS",
-      "version": "13.1",
-      "sha256": "14kjr055vzc7in932hb5jcb01syawmzgg7d4s0id2k2gngyglxbb",
+      "version": "13.2",
+      "sha256": "0yisv7p6cz1d2m27ifydqhysa4f73sj4acd2pppfcg72cyaw2fm5",
       "depends": ["Rcpp", "RcppParallel"]
     },
     "NO_PING_PONG": {
@@ -24084,6 +24432,12 @@
       "version": "3.1.10",
       "sha256": "1ycpccg7hcg84ygjzksbi0fcrkisvis5165bbnj64h52gjifgxh7",
       "depends": ["DirichletReg", "ape", "bigmemory", "iCAMP", "permute", "vegan"]
+    },
+    "NSTempRFA": {
+      "name": "NSTempRFA",
+      "version": "0.2.0",
+      "sha256": "19sry41vmism3iik6rn2pspdhksya2vy9ig3ak6c3dh4h0dfbkg3",
+      "depends": ["MASS", "Matrix", "extRemes", "ismev", "lmom", "lmomRFA", "rrcov", "spsUtil"]
     },
     "NScluster": {
       "name": "NScluster",
@@ -24432,6 +24786,12 @@
       "version": "0.2.0",
       "sha256": "1jylaw35q8c72j7r9mk2a03r0k46csm9qav00dd1axxifc9y7wyf",
       "depends": ["R_matlab", "doSNOW", "dplyr", "e1071", "forcats", "foreach", "ggplot2", "gridExtra", "magrittr", "purrr", "scales", "stringr", "tibble", "tictoc", "tidyr"]
+    },
+    "NeutroBasicDesignsAnalysis": {
+      "name": "NeutroBasicDesignsAnalysis",
+      "version": "0.0.1",
+      "sha256": "0532lzwqm8cax9kv6y3n7ylcm8zlqbgqdvk188d7lcmp0vrdqxws",
+      "depends": ["MASS"]
     },
     "NeutroCODsAnalysis": {
       "name": "NeutroCODsAnalysis",
@@ -25083,8 +25443,8 @@
     },
     "OhdsiReportGenerator": {
       "name": "OhdsiReportGenerator",
-      "version": "2.2.0",
-      "sha256": "0idclxqxnblm2ql1p17d2i01cbpyzixl1nkq5k3mnvsrihihi4ln",
+      "version": "2.3.1",
+      "sha256": "0w291l7ahz1s4cks0w1233y0zzfzjrgb33as6f850p7ng61nbb60",
       "depends": ["CirceR", "DatabaseConnector", "ParallelLogger", "SqlRender", "dplyr", "forestploter", "ggplot2", "gt", "gtExtras", "kableExtra", "quarto", "rlang", "rmarkdown", "tidyr"]
     },
     "OhdsiShinyAppBuilder": {
@@ -25227,9 +25587,9 @@
     },
     "OncoBayes2": {
       "name": "OncoBayes2",
-      "version": "0.9-4",
-      "sha256": "1xh020kh90qfwwwa8qk1fr7p87ng90657nqpb4mc80lgcfwxxsav",
-      "depends": ["BH", "Formula", "RBesT", "Rcpp", "RcppEigen", "RcppParallel", "StanHeaders", "abind", "assertthat", "bayesplot", "brms", "checkmate", "dplyr", "ggplot2", "lifecycle", "matrixStats", "posterior", "rlang", "rstan", "rstantools", "scales", "tibble", "tidyr", "tidyselect"]
+      "version": "0.10-0",
+      "sha256": "1amawjxl8z90n8lbljcz2kmakyrqhpwh3dir852ffr8s0g775pqh",
+      "depends": ["BH", "Formula", "RBesT", "Rcpp", "RcppEigen", "RcppParallel", "Rdpack", "StanHeaders", "abind", "assertthat", "bayesplot", "checkmate", "dplyr", "lifecycle", "matrixStats", "posterior", "rlang", "rstan", "rstantools", "tibble", "tidyr", "tidyselect"]
     },
     "OncoDataSets": {
       "name": "OncoDataSets",
@@ -25656,6 +26016,12 @@
       "version": "1.1.0",
       "sha256": "0p271pwvwyi56azgh5br1akq5aw5cskygwvqznq44k9rkkgn9kf1",
       "depends": ["future", "future_apply", "lsa", "mclust", "truncnorm"]
+    },
+    "OutbreakR": {
+      "name": "OutbreakR",
+      "version": "0.1.0",
+      "sha256": "1lsglwq256438fbykbbhrr82dqdpf67cridgqxinvmayxnbcxs3h",
+      "depends": []
     },
     "OutcomeWeights": {
       "name": "OutcomeWeights",
@@ -26257,6 +26623,12 @@
       "sha256": "18sm4j2srwkf1yp487d0hbmmy8max5h9966mq43pf9f2fwa0j4mc",
       "depends": ["MASS", "metafor"]
     },
+    "PINNProgCens": {
+      "name": "PINNProgCens",
+      "version": "0.1.0",
+      "sha256": "1m28ixgpkxzjkcra1yaqknrwgljhkgiibz9l8bw58qmvwlp0i7nb",
+      "depends": ["deSolve"]
+    },
     "PINSPlus": {
       "name": "PINSPlus",
       "version": "2.0.9",
@@ -26375,6 +26747,12 @@
       "name": "PLRModels",
       "version": "1.4",
       "sha256": "1jpnxsjj3gj72my1q4mswqxpil7vbqfv5gwd51fvx1z8vbdvkwa8",
+      "depends": []
+    },
+    "PLSsemEngine": {
+      "name": "PLSsemEngine",
+      "version": "1.3.0",
+      "sha256": "1m5lxs34lgqsj4x3xnnvlxglpghbc7ddyyhlrzizqkgmfjfx3lny",
       "depends": []
     },
     "PLUCR": {
@@ -26985,8 +27363,8 @@
     },
     "PTSDdiag": {
       "name": "PTSDdiag",
-      "version": "0.4.1",
-      "sha256": "0wwfqbmvchdnkh4cnhr9mwbknwz362py9br9lajxfimqlbjd71gg",
+      "version": "0.5.0",
+      "sha256": "194gxyifkda15b3wxmaarpgki1m4lvjfpg809fnlfnhl40rg66a7",
       "depends": ["cli", "dplyr", "jsonlite", "lifecycle", "magrittr", "rlang", "rsample"]
     },
     "PTSR": {
@@ -27625,6 +28003,12 @@
       "sha256": "0ww9gcni9f0mwya1d3v45wazrss7lq8b75xcp4fb4kxwbh9s35kw",
       "depends": ["chron", "lubridate", "stringr"]
     },
+    "PhysMove": {
+      "name": "PhysMove",
+      "version": "1.2.4",
+      "sha256": "0bkrr5jyj9jnkzbz82g27xrb305nryxrfdzahp7r542lqfh0jsl4",
+      "depends": ["RColorBrewer", "broom", "ggplot2", "poweRlaw", "rlang", "rootSolve", "scales", "sf"]
+    },
     "PhysicalActivity": {
       "name": "PhysicalActivity",
       "version": "0.2-4",
@@ -28081,6 +28465,12 @@
       "sha256": "1wszkvc3h72g1b8962749bg0gjh3nhcf6ydfd7471srkh9qhg4a0",
       "depends": ["miscF"]
     },
+    "PoultryEconR": {
+      "name": "PoultryEconR",
+      "version": "0.1.0",
+      "sha256": "1cmcdgjynxfv3140m299avd6fdii367965mwzpvka69h8z7vjivg",
+      "depends": ["writexl"]
+    },
     "PowRPriori": {
       "name": "PowRPriori",
       "version": "0.2.0",
@@ -28345,6 +28735,12 @@
       "sha256": "0rxh135gs9gq9sag1cmvywdgnax7n989gmffbxil71fy49kxpwdg",
       "depends": ["MASS", "Matrix", "Rdpack", "foreach", "permute"]
     },
+    "ProcessCapabilityR": {
+      "name": "ProcessCapabilityR",
+      "version": "0.1.0",
+      "sha256": "063pibcm87jcyazs8qa83knsqizlq4j88b9cwdzdxx89hhba7qad",
+      "depends": []
+    },
     "ProduceR": {
       "name": "ProduceR",
       "version": "1.3",
@@ -28374,6 +28770,12 @@
       "version": "1.3",
       "sha256": "0yxcrxw3jb8bnwqh5f5d8bmm5jlkyxfld12zfyw3b1031zj1vh6i",
       "depends": ["MASS", "nlme"]
+    },
+    "ProgVine": {
+      "name": "ProgVine",
+      "version": "0.1.0",
+      "sha256": "19xcyhpz2imrgksw5shyy17glp2c3ap8mmvddcmw5q4xxynhh5n5",
+      "depends": []
     },
     "ProjectManagement": {
       "name": "ProjectManagement",
@@ -28464,6 +28866,12 @@
       "version": "1.0.0.0",
       "sha256": "1c5ml6s3c8kzf7p0mig84bmq40b0491ah713bm6jpy2s3nwnmafs",
       "depends": ["irtoys", "ltm"]
+    },
+    "PsyMetricTools": {
+      "name": "PsyMetricTools",
+      "version": "1.2.2",
+      "sha256": "10r19fram9d2v27vv1x6brgyl4wp1nb5s9893dg4qjdiizg91rx1",
+      "depends": ["dplyr", "ggplot2", "gridExtra", "gtable", "lavaan", "pbapply", "psych", "purrr", "rlang", "scales", "semTools", "stringr", "tibble", "tidyr", "tidyselect"]
     },
     "PsyToolkit": {
       "name": "PsyToolkit",
@@ -29427,9 +29835,9 @@
     },
     "RBesT": {
       "name": "RBesT",
-      "version": "1.10-0",
-      "sha256": "0iwmma96cc1n9mjzrwq0mpc8089xxb8ywgmql3fiz3asmqnr3iwl",
-      "depends": ["BH", "Formula", "Rcpp", "RcppEigen", "RcppParallel", "StanHeaders", "abind", "assertthat", "bayesplot", "checkmate", "dplyr", "ggplot2", "jsonlite", "lifecycle", "matrixStats", "mvtnorm", "posterior", "rlang", "rstan", "rstantools", "statmod"]
+      "version": "1.11-0",
+      "sha256": "0nf0i27yv1qyqbhipji7c2wfc8fn35s5cqb9hyhm1y6cb8lnlq5r",
+      "depends": ["BH", "Formula", "Rcpp", "RcppEigen", "RcppParallel", "Rdpack", "StanHeaders", "abind", "assertthat", "bayesplot", "checkmate", "dplyr", "ggplot2", "jsonlite", "lifecycle", "matrixStats", "mvtnorm", "posterior", "rlang", "rstan", "rstantools", "statmod"]
     },
     "RBtest": {
       "name": "RBtest",
@@ -29627,6 +30035,12 @@
       "name": "RConics",
       "version": "1.1.2",
       "sha256": "11zalkmfna0i2n510g16jlsijdi3bg6lbma7djki54w9ki0rpp4y",
+      "depends": []
+    },
+    "RCppAD": {
+      "name": "RCppAD",
+      "version": "1.20260000.0",
+      "sha256": "1rz8x8kq2m9ybi416p9xhrzv20ksqpq4qdw8f5mw3gk31jr9xffz",
       "depends": []
     },
     "RCriteo": {
@@ -30019,6 +30433,12 @@
       "sha256": "1hz363pqlx0l3wi4di69fmrv4awl37lz8fzl4g070zchwzbffcpc",
       "depends": ["RNetCDF", "Rdpack", "colorRamps", "ptw"]
     },
+    "RGDrivers": {
+      "name": "RGDrivers",
+      "version": "0.1.0",
+      "sha256": "1cpflh9kfsl345c7kbda8kdqik2kfvyf3s9svha1flf8qcd6p5h2",
+      "depends": ["dplyr", "igraph", "rlang", "sf", "terra"]
+    },
     "RGE": {
       "name": "RGE",
       "version": "1.0",
@@ -30192,6 +30612,12 @@
       "version": "0.1.6",
       "sha256": "0cbz2vg8adqjkbn9r8cikqxlzhk01ba3nlnh8rqbwdcpiz90l1ip",
       "depends": []
+    },
+    "RIFanalysis": {
+      "name": "RIFanalysis",
+      "version": "0.9.1",
+      "sha256": "1x4kqfl4r49xn9gpxmwwcwbj88z1svvch5pxl7nb8jhd282f4r8h",
+      "depends": ["checkmate", "cowplot", "dplyr", "ggplot2", "ggraph", "ggrepel", "igraph", "openxlsx", "poweRlaw", "rlang", "stringr"]
     },
     "RISCA": {
       "name": "RISCA",
@@ -30669,8 +31095,8 @@
     },
     "RNetCDF": {
       "name": "RNetCDF",
-      "version": "2.11-1",
-      "sha256": "0n3zc7i59cr3qms2x2spn948wl9imd7yiajwwyn6mac0q0wrbb18",
+      "version": "2.11-2",
+      "sha256": "0kvhpgf8m2nlm5xn31j97jliw0n6a9dfxjjg5bl28nvlb3vjd2j5",
       "depends": []
     },
     "RNetLogo": {
@@ -31095,8 +31521,8 @@
     },
     "RPesto": {
       "name": "RPesto",
-      "version": "0.1.4",
-      "sha256": "0h4lilnk6b5h5brkxllyfxcv05fxfsjyyyic5g9zpkd8jixwyanl",
+      "version": "0.1.5",
+      "sha256": "16m5a3fg344359gi6kqmn83phlc6kfx4nmz4vfwj7x801hf6pri1",
       "depends": ["ape", "tidytree", "treeio"]
     },
     "RPhosFate": {
@@ -31323,9 +31749,9 @@
     },
     "RSDC": {
       "name": "RSDC",
-      "version": "1.1-2",
-      "sha256": "1p6nsis2mzccpg0dnpcgydifph12h1yfh5c7c97ly9bbnzm9ijra",
-      "depends": ["DEoptim", "Rdpack", "mvtnorm"]
+      "version": "1.7-0",
+      "sha256": "0nx0mccgi3lr4n0wrxhvbzqmj7ckiaw18x0rb6xl9dympxcrvfhj",
+      "depends": ["DEoptim", "Rcpp", "RcppArmadillo", "Rdpack", "generics", "mvtnorm", "numDeriv"]
     },
     "RSDK": {
       "name": "RSDK",
@@ -31707,8 +32133,8 @@
     },
     "RaCE_NMA": {
       "name": "RaCE.NMA",
-      "version": "1.1.0",
-      "sha256": "1z3c38l6wg7019jr43v97w8fbi8fq0vshpghkzdaz4r3lqwlh96s",
+      "version": "1.2.0",
+      "sha256": "0lq96f2g559ksvgy8kciiskc4jdp85cs0shj3j9dlpxy1swwr70x",
       "depends": ["coda", "dplyr", "ggplot2", "invgamma", "magrittr", "mvtnorm", "reshape2"]
     },
     "RaJIVE": {
@@ -32923,6 +33349,12 @@
       "sha256": "0rmi5w46qyjq70id2s5ia1sviqk618d0n1a6hfiv6a95m4135xpc",
       "depends": ["sandwich"]
     },
+    "RegCalib": {
+      "name": "RegCalib",
+      "version": "0.1.0",
+      "sha256": "1f80hl0rad7y3scvk57mx4zkvajvnl27v69m90si1zpp1zgxj76x",
+      "depends": ["Matrix", "dplyr", "matrixcalc"]
+    },
     "RegCombin": {
       "name": "RegCombin",
       "version": "0.4.1",
@@ -33313,10 +33745,16 @@
       "sha256": "0r6wig86pfsrafl3c0qwi0ym25f89z3q93fsvncskl8y9a8hhd6h",
       "depends": ["png"]
     },
+    "Rhobots": {
+      "name": "Rhobots",
+      "version": "0.1.10",
+      "sha256": "1898nbdpfzprwdm77c3993zl0p8qby1pkfmkbbykr989ykirgs12",
+      "depends": ["Matrix", "Rcpp", "dbscan", "hfhub", "jsonlite", "safetensors", "tok", "torch", "uwot", "wordpiece"]
+    },
     "Rhpc": {
       "name": "Rhpc",
-      "version": "0.26.4",
-      "sha256": "18np93hnaxnbdw52gksf05x0z026z214gfh56hy8qd7fs48a3i5m",
+      "version": "0.26.5",
+      "sha256": "0ic2vbixm455dk55s4k49md3h99gvlg5vc070f5bzr3d8a14qqxc",
       "depends": []
     },
     "RhpcBLASctl": {
@@ -33876,6 +34314,12 @@
       "version": "0.3-6",
       "sha256": "16bidaw9slc6dv6x40ig3g5n6y2rdaccg20llr7j4mm33i0byiz1",
       "depends": ["Rcpp"]
+    },
+    "RougeLM": {
+      "name": "RougeLM",
+      "version": "1.0.0",
+      "sha256": "0cc67zgwzxhnlfp1nqpihq820k7j7zk04331s7qc79k73ydv2m2m",
+      "depends": ["ggplot2", "patchwork"]
     },
     "RoughSets": {
       "name": "RoughSets",
@@ -35395,6 +35839,12 @@
       "sha256": "0djp5dw1pq33p92sg4cqpvdvhv3m98kh3zf3fk9k7s5vq03i1acp",
       "depends": ["LaplacesDemon", "MASS", "StanHeaders", "TruncatedNormal", "mnormt", "mvtnorm", "numDeriv", "rstan", "tmvtnorm"]
     },
+    "SMOARIMA": {
+      "name": "SMOARIMA",
+      "version": "0.1.1",
+      "sha256": "0587d78yhnm2i7rz9px3f6j0l4nk1kxvpvyhl1z7bck2wnxaq24n",
+      "depends": ["forecast"]
+    },
     "SMOTEWB": {
       "name": "SMOTEWB",
       "version": "1.2.5",
@@ -36223,6 +36673,12 @@
       "sha256": "1gjmzh0saba1akv2yg47y034j7cwr0g8h9w38cqcxmcclxvnvg27",
       "depends": []
     },
+    "SampleSizeR": {
+      "name": "SampleSizeR",
+      "version": "0.1.0",
+      "sha256": "1myz8ki7fwdm4fcv3xwqhdx1km25g00sc7hn3im0h2rwlb9n0iax",
+      "depends": ["ggplot2", "rlang"]
+    },
     "SampleSizeSingleArmSurvival": {
       "name": "SampleSizeSingleArmSurvival",
       "version": "0.1.0",
@@ -36373,6 +36829,12 @@
       "sha256": "0lndawdvny440q9sdds6hql79rfipfiap37974zz0hj49bhbh792",
       "depends": ["MASS", "mvtnorm", "ngspatial"]
     },
+    "SeattleOpenData": {
+      "name": "SeattleOpenData",
+      "version": "0.1.0",
+      "sha256": "07lqs3vyk7dq3fgknz6pz4m2rbd5m1y15xml897yyszfb9n540af",
+      "depends": ["curl", "dplyr", "httr", "janitor", "jsonlite", "rlang", "tibble"]
+    },
     "SecretsProvider": {
       "name": "SecretsProvider",
       "version": "1.0.1",
@@ -36522,6 +36984,12 @@
       "version": "0.1.3",
       "sha256": "0ig7w36by5970p02859p8z9licmw1myy5r84hfd31ndkymv3hca7",
       "depends": ["copula", "doParallel", "foreach", "pbivnorm", "survival"]
+    },
+    "SemiParamBernsteinDepCS": {
+      "name": "SemiParamBernsteinDepCS",
+      "version": "0.1.0",
+      "sha256": "0c6zr8pky5s7fsf7j46p1iqnmfmwczsay6zcpn47cb71a1sgfv3j",
+      "depends": []
     },
     "SemiparMF": {
       "name": "SemiparMF",
@@ -37074,6 +37542,12 @@
       "version": "0.2.0",
       "sha256": "0jdmwymk39r0w8k5y168kn95ddj5bmbl05qqz0zvhvlkazp8wcaw",
       "depends": ["MASS", "cluster", "dplyr", "fastDummies", "forcats", "ggplot2", "jsonlite", "lhs", "philentropy", "ppcor", "purrr", "readr", "recipes", "rlang", "rxode2", "scales", "sensitivity", "stringr", "synthpop", "sys", "tibble", "tidyr", "uwot", "withr", "zoo"]
+    },
+    "SingRegKrig": {
+      "name": "SingRegKrig",
+      "version": "0.1.0",
+      "sha256": "1yrbxi08v5cw4008n7xb43zwaml0ck00hkdj2idmi0asx7424jb7",
+      "depends": ["gstat", "randomForest", "sp"]
     },
     "SingleArmMRCT": {
       "name": "SingleArmMRCT",
@@ -37807,6 +38281,12 @@
       "sha256": "04blzpqhcbyv89hgka4yw1c9iahnc82km0k7iiwaylk3dj09l0hc",
       "depends": ["dplyr", "tibble", "tidyr"]
     },
+    "SporeLag": {
+      "name": "SporeLag",
+      "version": "0.1.1",
+      "sha256": "18p0hq1wjp8fi07j71cmg2vndykildxdv5gsjiiqy5cfpmm9svh9",
+      "depends": ["cli", "rlang"]
+    },
     "SportMiner": {
       "name": "SportMiner",
       "version": "0.1.0",
@@ -38208,6 +38688,12 @@
       "version": "1.1.3",
       "sha256": "13f5z4d04pq5jb8gpk8rh79i2f5b6bqma1p3a3zqcw74wxdhk8hg",
       "depends": ["chron", "suntools", "zoo"]
+    },
+    "StressCensoR": {
+      "name": "StressCensoR",
+      "version": "0.1.0",
+      "sha256": "05i9p6a2gm1dqv77ymlx3g52a1f9w7w4ip9jlcsscifz6hzl0mrl",
+      "depends": []
     },
     "StressStrength": {
       "name": "StressStrength",
@@ -38965,6 +39451,12 @@
       "sha256": "1xnb41ksggdi57gnkjaab98c4nfdkxqx53rv9pyh3j0cg0kbkk9v",
       "depends": ["ggplot2", "knitr"]
     },
+    "TH": {
+      "name": "TH",
+      "version": "1.0.0",
+      "sha256": "1vsi3k4dnnlpg5m4vfbfabcc61dbs6icbvwzb6ra0ynh1lg6130g",
+      "depends": []
+    },
     "TH_data": {
       "name": "TH.data",
       "version": "1.1-5",
@@ -39012,6 +39504,12 @@
       "version": "0.4.0",
       "sha256": "1g2ida9yiawdfcn6q7ilk2fwgr106dyjnldd9cdnicymdij0knks",
       "depends": []
+    },
+    "TKApprox": {
+      "name": "TKApprox",
+      "version": "0.1.0",
+      "sha256": "0cjhffph96iv78i6dcnggk75nlv6vkffazmq33m7vw6z0mncy2jp",
+      "depends": ["MASS", "checkmate", "maxLik", "numDeriv", "rlang"]
     },
     "TKCat": {
       "name": "TKCat",
@@ -40759,6 +41257,18 @@
       "sha256": "00416fnqsyq7qzhafw5g2h77wliz657a76vdik1il0qnj7s6hynk",
       "depends": ["Rcpp"]
     },
+    "UniIS": {
+      "name": "UniIS",
+      "version": "0.1.0",
+      "sha256": "1xq2k0mqah7rsn4pg84c96940hdshixk328da7ssw8mb95hkdfx8",
+      "depends": []
+    },
+    "UniLindleyApprox": {
+      "name": "UniLindleyApprox",
+      "version": "0.1.0",
+      "sha256": "1pvi8npmyl79h1b61hhajw2nix3fibgihlpq2yjj7cdbks8rszb2",
+      "depends": ["MASS", "numDeriv"]
+    },
     "Unico": {
       "name": "Unico",
       "version": "0.1.0",
@@ -40860,6 +41370,12 @@
       "version": "2.0-8",
       "sha256": "0z2k263rpwqrjpl7vj4qjkmmyp8mklr67qrrj46r43qynl2f958h",
       "depends": ["HistData", "Hmisc", "MASS"]
+    },
+    "Usmile": {
+      "name": "Usmile",
+      "version": "0.2.0",
+      "sha256": "12ihpi78drhq1jvghmv582cdm6spbhmgqmmdbvd3fvyvlpfxdyl3",
+      "depends": ["ggplot2", "pROC"]
     },
     "V8": {
       "name": "V8",
@@ -41575,6 +42091,12 @@
       "sha256": "17g4cgx0ajgj7lgxzi467cjbmbc47skyarcm88vqjc3i1j55dw12",
       "depends": ["raster", "sf", "sp"]
     },
+    "WFC": {
+      "name": "WFC",
+      "version": "2.0.1",
+      "sha256": "1qnzjhvchvxmq1ahcpljqbxp644kw9bpg09zk09y8nf910j2khkf",
+      "depends": ["digest"]
+    },
     "WGCNA": {
       "name": "WGCNA",
       "version": "1.74",
@@ -41877,8 +42399,8 @@
     },
     "WebGestaltR": {
       "name": "WebGestaltR",
-      "version": "1.0.0",
-      "sha256": "1a17gra3zs40hl227wfk2ln4zynd49lykcxsc63dfsmgs8vlz1z7",
+      "version": "1.0.1",
+      "sha256": "1lwd59wrwzbv7imdbv7br6758p7md6nyy0cn2y801zzmplfzxfif",
       "depends": ["Rcpp", "apcluster", "cluster", "doParallel", "doRNG", "dplyr", "foreach", "httr", "jsonlite", "poolr", "readr", "rlang", "svglite", "whisker"]
     },
     "WebPower": {
@@ -41919,8 +42441,8 @@
     },
     "WeightIt": {
       "name": "WeightIt",
-      "version": "1.7.0",
-      "sha256": "0rg911ga1i7hmdsvxx9r892r0x8rp7dg531sa5lyqqls2lhhmcqn",
+      "version": "2.0.0",
+      "sha256": "1ma7zhpz6r21q4qppnhrsin9h72yhgwbjg8q63x2zw3950mhmfw0",
       "depends": ["arg", "cli", "cobalt", "generics", "ggplot2", "rlang", "sandwich"]
     },
     "WeightMyItems": {
@@ -42715,6 +43237,12 @@
       "sha256": "0l14zxcyv09zv9v1kmcbipxjblhkyb71skcshsy7y2kb3adamv1m",
       "depends": []
     },
+    "acR": {
+      "name": "acR",
+      "version": "0.3.2",
+      "sha256": "05h9ms6jf4863n2mfq3lfizirjfss4qbmshzlyxzb9lfki5pd394",
+      "depends": ["cli", "dplyr", "httr2", "irr", "jsonlite", "purrr", "rlang", "stringr", "tibble", "tidyr", "tidyselect", "withr", "yaml"]
+    },
     "academictwitteR": {
       "name": "academictwitteR",
       "version": "0.3.1",
@@ -42984,6 +43512,12 @@
       "version": "1.1.1",
       "sha256": "0p65j7l8d8503nil34faz7jashv5rw327xlpphwhwa4x5wga5z01",
       "depends": ["GGIRread", "gsignal", "pracma"]
+    },
+    "actinet": {
+      "name": "actinet",
+      "version": "0.2.0",
+      "sha256": "03w9sxzqbg0jd278961xm983yr8grd6y55gg0z86c80mh296hbxr",
+      "depends": ["assertthat", "curl", "magrittr", "readr", "reticulate"]
     },
     "actiread": {
       "name": "actiread",
@@ -43825,6 +44359,12 @@
       "sha256": "0lz35b06a6rp673w98lf28gzbwid9plxxr8a2m0hshfximxh00xp",
       "depends": ["DBI", "GGIR", "RSQLite", "Rcpp", "RcppArmadillo", "bslib", "data_table", "dplyr", "ggplot2", "gsignal", "lubridate", "magrittr", "reactable", "read_gt3x", "reticulate", "shiny", "stringr", "zoo"]
     },
+    "agecrypt": {
+      "name": "agecrypt",
+      "version": "0.1.0",
+      "sha256": "0z1xc6nfxl58zj9zqy3mzg8sg54w9qxdm5vvvx9rmklf6nnk7519",
+      "depends": []
+    },
     "ageg": {
       "name": "ageg",
       "version": "1.0.0",
@@ -43955,6 +44495,12 @@
       "name": "agridat",
       "version": "1.26",
       "sha256": "0r7041izld4b12hypns44f96j5wjcvpasw2jl35rjy0mlp27pw75",
+      "depends": []
+    },
+    "agridatasets": {
+      "name": "agridatasets",
+      "version": "0.1.0",
+      "sha256": "0rw7a97p4wdnzk6zd2fwc8fw46922ax58jmc4hyfi3yga6cjv49v",
       "depends": []
     },
     "agrifeature": {
@@ -44727,9 +45273,9 @@
     },
     "amregtest": {
       "name": "amregtest",
-      "version": "1.2.0",
-      "sha256": "1h5msr108x7xhj29b83dbhqdw3czyrv9y9b80k66w0mkgrijba19",
-      "depends": ["R6", "allelematch", "digest", "remotes", "testthat", "withr"]
+      "version": "1.3.2",
+      "sha256": "1z03l1w6g94lfb85mj5ab7qiqn65ydks4rgic5c8arg8v9sfrh07",
+      "depends": ["R6", "digest", "remotes", "testthat", "withr"]
     },
     "amsSim": {
       "name": "amsSim",
@@ -45135,8 +45681,8 @@
     },
     "apache_sedona": {
       "name": "apache.sedona",
-      "version": "1.9.0",
-      "sha256": "067pxx8irshmhbsy4gpaf9fl4p34ar3xcw7f61jy3dgyzxnq1d0q",
+      "version": "1.9.1",
+      "sha256": "136249ysxs12nf2g0nxinyvzfhrm8az6x2wwfc8fvify1pp5b7dw",
       "depends": ["cli", "dbplyr", "lifecycle", "rlang", "sparklyr"]
     },
     "apathe": {
@@ -45243,8 +45789,8 @@
     },
     "aplotExtra": {
       "name": "aplotExtra",
-      "version": "0.0.5",
-      "sha256": "1phxw1mx57dz5g4j1ikddig1ga1cml27llk7x5839ixypiqjjlr7",
+      "version": "0.0.6",
+      "sha256": "1ggcm2xhpynr5sgwmzbra4zvmhr66d4ixyck7aqsgiznm6lv2hdp",
       "depends": ["aplot", "dplyr", "forcats", "ggfun", "ggplot2", "ggstar", "maftools", "purrr", "rlang", "tibble", "tidyr", "yulab_utils"]
     },
     "aplpack": {
@@ -45985,6 +46531,12 @@
       "sha256": "0h7q49pdchw0apyrm813qrl4sp6hym31awh1bjlk06fd76ynj72y",
       "depends": ["circular", "data_table", "lubridate", "lutz", "purrr", "sf", "terra"]
     },
+    "ascribe": {
+      "name": "ascribe",
+      "version": "0.1.1",
+      "sha256": "0dxk6l10nbimbnrkiz8nnn4rfzrwsvaqfpfk34n7y28r85642lg7",
+      "depends": ["cli", "fastmatch"]
+    },
     "asd": {
       "name": "asd",
       "version": "2.2",
@@ -46032,6 +46584,12 @@
       "version": "1.2.1",
       "sha256": "1pf7q2p0caxnb22zvg6yj250b817drldk5d7rvr4i9s49jkhc8bc",
       "depends": ["sys"]
+    },
+    "asleep": {
+      "name": "asleep",
+      "version": "0.1.0",
+      "sha256": "0xj3cmh76waglanrqa19k3wa944qnpp5cm52vs74gz34x7rgfh54",
+      "depends": ["assertthat", "curl", "lubridate", "magrittr", "readr", "reticulate"]
     },
     "aslib": {
       "name": "aslib",
@@ -46185,8 +46743,8 @@
     },
     "astgrepr": {
       "name": "astgrepr",
-      "version": "0.1.1",
-      "sha256": "14sn968syzflxlcyk3886z2a0hpbhscc5jwaxj8k6fv5qmsafs8r",
+      "version": "0.1.2",
+      "sha256": "1k5hfpbhmlpdkwz4c0xw1r3rvlyddwlwfachsf4n17a8zpqwqjjf",
       "depends": ["checkmate", "rrapply", "yaml"]
     },
     "astroFns": {
@@ -46551,8 +47109,8 @@
     },
     "autodb": {
       "name": "autodb",
-      "version": "3.2.4",
-      "sha256": "1l83kn3dajmalp155vpvyph5fzzvld5w7qjplmnlpra04iija5n4",
+      "version": "3.3.0",
+      "sha256": "1si201ss5zcd5zcna0rrcch4l3y7n8l7vc5p4awpzn9vmspma11a",
       "depends": []
     },
     "autogam": {
@@ -47487,8 +48045,8 @@
     },
     "bases": {
       "name": "bases",
-      "version": "0.2.0",
-      "sha256": "06wi6kpaidbz7m26jz0sy4lwsnh01l326319x6lk47ywv3xayl54",
+      "version": "0.2.1",
+      "sha256": "0c24wsg9jmlhkiqjfxzs9pdm7fzrd25i0jds3cm1ffnwlaw1d2nf",
       "depends": ["cpp11", "rlang"]
     },
     "basetheme": {
@@ -48825,9 +49383,9 @@
     },
     "bgms": {
       "name": "bgms",
-      "version": "0.1.6.3",
-      "sha256": "1wmlkl50kh32aqz74xk8g04ss2wiryq4z71b04lc48yj6p0yzwmk",
-      "depends": ["BH", "Rcpp", "RcppArmadillo", "RcppParallel", "Rdpack", "coda", "dqrng", "lifecycle"]
+      "version": "0.2.0.0",
+      "sha256": "1ljpl8nsz92lck8rcx002g6vbk1vnp5a8zkhmdmrbxgbbyc3gla3",
+      "depends": ["BH", "Rcpp", "RcppArmadillo", "RcppParallel", "Rdpack", "S7", "dqrng", "lifecycle"]
     },
     "bgumbel": {
       "name": "bgumbel",
@@ -49062,6 +49620,12 @@
       "version": "0.2.0",
       "sha256": "037shjim8syqfc563i6fs0slkdrmfp3pjfy15kfxr5jdk8yvyka3",
       "depends": []
+    },
+    "bigbang": {
+      "name": "bigbang",
+      "version": "0.1.0",
+      "sha256": "1zy04jqj2mbgp1qnm3ax6cgs68xjcnnfi5ajx48018q9pharf8xp",
+      "depends": ["brio", "glue", "whisker"]
     },
     "bigdatadist": {
       "name": "bigdatadist",
@@ -49506,12 +50070,6 @@
       "version": "1.1.1",
       "sha256": "102n8y83z8568lwil2fb28wrjkymwmw9rzvk0a4zgsx5a3l7wl01",
       "depends": ["cli", "crayon", "curl", "digest", "httr", "jsonlite", "jsonvalidate", "magrittr", "rmarkdown", "stringr", "uuid", "yaml"]
-    },
-    "biodosetools": {
-      "name": "biodosetools",
-      "version": "3.7.2",
-      "sha256": "1sk9psc3mw7frn4piwq6x7d1s8mbric0b79g1md04dr5lz3nrx4p",
-      "depends": ["MASS", "bsplus", "cli", "config", "dplyr", "ggplot2", "golem", "gridExtra", "magrittr", "maxLik", "mixtools", "msm", "openxlsx", "pdftools", "readr", "rhandsontable", "rlang", "rmarkdown", "shiny", "shinyWidgets", "shinydashboard", "tidyr"]
     },
     "biofetchR": {
       "name": "biofetchR",
@@ -50125,6 +50683,12 @@
       "sha256": "02s24b629chafhyvw6qpqrlhdcvjl3v8xvf3pw0bmr9dd34xiqbp",
       "depends": ["arrow", "blockr_core", "bslib", "rappdirs", "readr", "readxl", "rio", "shiny", "shinyFiles", "shinyjs", "writexl", "zip"]
     },
+    "blockr_session": {
+      "name": "blockr.session",
+      "version": "0.1.0",
+      "sha256": "1b62bk779mj0k0fgapqbp7w1lnqi2hrxy7hvzlkcp279sd4wap2m",
+      "depends": ["blockr_core", "bsicons", "glue", "htmltools", "httr2", "jsonlite", "pins", "rlang", "shiny", "zip"]
+    },
     "blockrand": {
       "name": "blockrand",
       "version": "1.5",
@@ -50202,6 +50766,12 @@
       "version": "0.0.3",
       "sha256": "1nlxgq145igvf22ar7fpi1a7caw64jhi44fjvqsimpcqxpjycy38",
       "depends": ["dplyr", "janitor", "leaflet", "lubridate", "magrittr", "readr", "sf", "stringr", "tidyselect"]
+    },
+    "bluertopo": {
+      "name": "bluertopo",
+      "version": "0.0.1",
+      "sha256": "1lhliygma4jg7l95a9xpd4827fml759yh43rxynl24r4f73id3mn",
+      "depends": ["cli", "curl", "digest", "jsonlite", "terra", "xml2"]
     },
     "blueterra": {
       "name": "blueterra",
@@ -51049,6 +51619,12 @@
       "sha256": "0ra7n1vzmka6b7fspbh8wrkf2zwizdd8dh0jf9pyinzxc5jw54wx",
       "depends": ["Matrix", "Rcpp", "bslib", "doParallel", "dplyr", "foreach", "memuse", "shiny", "shinyjs"]
     },
+    "brazilmaps": {
+      "name": "brazilmaps",
+      "version": "1.0.0",
+      "sha256": "04b2ndlfvqb7mk0l82lf08pkl5c6l3spkf2sa3xi5h3lznlxzfsp",
+      "depends": ["dplyr", "ggplot2", "rlang", "sf"]
+    },
     "brclimr": {
       "name": "brclimr",
       "version": "0.2.0",
@@ -51355,6 +51931,12 @@
       "sha256": "0vhg6ra951nd9wh0y9qp9fn4cxgllx5lrwrv8qnahblnigyfzff3",
       "depends": ["MASS", "ggplot2", "gridExtra"]
     },
+    "bscm": {
+      "name": "bscm",
+      "version": "1.0.1",
+      "sha256": "1sr4mz7cdw2zk28y60pgjyxvcw7dhj3dg98nxkpdapymnykhm2ra",
+      "depends": ["BH", "Rcpp", "RcppEigen", "RcppParallel", "StanHeaders", "checkmate", "cli", "dplyr", "ggplot2", "loo", "posterior", "progressr", "projpred", "quadprog", "rlang", "rstan", "rstantools", "tidyr"]
+    },
     "bscui": {
       "name": "bscui",
       "version": "0.1.6",
@@ -51399,8 +51981,8 @@
     },
     "bslib": {
       "name": "bslib",
-      "version": "0.11.0",
-      "sha256": "1frh4cf900j695dh3rc85ms3k3d459gpxssmplwlr0nbb62lgpz4",
+      "version": "0.12.0",
+      "sha256": "1la6ajgq3wsslg3avjz5qah7mi19iiiivz6jv3bcrzf17mwi3z16",
       "depends": ["base64enc", "cachem", "fastmap", "htmltools", "jquerylib", "jsonlite", "lifecycle", "memoise", "mime", "rlang", "sass"]
     },
     "bsnsing": {
@@ -51531,8 +52113,8 @@
     },
     "btw": {
       "name": "btw",
-      "version": "1.3.0",
-      "sha256": "1k7nicij3lfhcjxl601hr8im9wl9xk8g58i08sd78i3ckgi4jhn5",
+      "version": "1.4.0",
+      "sha256": "09lib8zcf8zpnypkaq8cy2f386dbs4pmwh2vvjagbfs1z7zj546a",
       "depends": ["S7", "brio", "cli", "clipr", "dplyr", "ellmer", "frontmatter", "fs", "jsonlite", "lifecycle", "mcptools", "pkgsearch", "rlang", "rmarkdown", "rstudioapi", "sessioninfo", "skimr", "withr", "xml2"]
     },
     "bubbleHeatmap": {
@@ -51552,6 +52134,12 @@
       "version": "0.1.2",
       "sha256": "1a53xypqil3w6ynih542j44p6dpzbr8z5dqwqy02djdrvbh2rl6z",
       "depends": ["MASS", "Rglpk", "arrangements", "data_table"]
+    },
+    "bufferscape": {
+      "name": "bufferscape",
+      "version": "1.0.3",
+      "sha256": "0cz3waggsjx2xi4pwcb78hrcigfp8n1kzrppiiadjyvccx8zn7mi",
+      "depends": ["dplyr", "purrr", "sf", "stringr", "tibble", "tidyr"]
     },
     "buildmer": {
       "name": "buildmer",
@@ -52173,9 +52761,9 @@
     },
     "campsis": {
       "name": "campsis",
-      "version": "1.8.2",
-      "sha256": "06yrdzw5n5ng7i5gs2549kckaj421yfhjih5j42j0zlb4lvij6rv",
-      "depends": ["MASS", "assertthat", "campsismod", "digest", "dplyr", "furrr", "future", "ggplot2", "jsonlite", "jsonvalidate", "progressr", "purrr", "rlang", "tibble", "tidyr"]
+      "version": "1.9.0",
+      "sha256": "006irh34hq7dkm5nmx40lw9c789wn8n0crshjsp52qd1ha65w6j6",
+      "depends": ["MASS", "assertthat", "campsismod", "digest", "dplyr", "furrr", "future", "ggplot2", "jsonlite", "jsonvalidate", "lifecycle", "progressr", "purrr", "rlang", "tibble", "tidyr", "vctrs"]
     },
     "campsismod": {
       "name": "campsismod",
@@ -52435,6 +53023,12 @@
       "sha256": "1n9304zsj8bhyxy3bdr9xfckk1sf90kgvpdb0aq4c04z7vcf12li",
       "depends": ["MASS", "cli", "dplyr", "geozoo", "gtools", "mvtnorm", "purrr", "tibble", "tidyr"]
     },
+    "cardinalfda": {
+      "name": "cardinalfda",
+      "version": "0.2.0",
+      "sha256": "0q70p5lv581np9wcyjbfs24x0x1yambpx2f2llh93scafya5b18m",
+      "depends": ["cards", "cardx", "dplyr", "gtsummary"]
+    },
     "cards": {
       "name": "cards",
       "version": "0.8.1",
@@ -52653,8 +53247,8 @@
     },
     "castor": {
       "name": "castor",
-      "version": "1.8.6",
-      "sha256": "1k1xx47s9q4sg7miqxbmq5n0afb7zg0a4kcsfdwmg3vd2ginws0k",
+      "version": "1.8.7",
+      "sha256": "1fbfs53xznx3da07y92qkg8fizjpf4llzdnbn6jbrp4fvg5564d8",
       "depends": ["Matrix", "RSpectra", "Rcpp", "jsonlite", "naturalsort"]
     },
     "cat": {
@@ -52932,6 +53526,12 @@
       "version": "0.1.1",
       "sha256": "0qc9xdz0y4zj9vqa3mzmdx2aj674k5nkn6kbjvq67s2a1ml9n4yd",
       "depends": ["cli", "glue", "jsonlite", "rlang"]
+    },
+    "causalgenerics": {
+      "name": "causalgenerics",
+      "version": "0.1.0",
+      "sha256": "1isqbc8rdn4w9v23dqy14ykxq1v2yd7rbm047dg5flanzryx2ynk",
+      "depends": ["vctrs"]
     },
     "causalnet": {
       "name": "causalnet",
@@ -53485,6 +54085,12 @@
       "sha256": "18n51j3zw586p4k7x26q0y6k83w87p43233pi36vmb2llyaq8zbq",
       "depends": ["Matrix", "matrixcalc", "mnormt", "mvtnorm"]
     },
+    "censosbo": {
+      "name": "censosbo",
+      "version": "2.0.0",
+      "sha256": "18wn41858niaamdv1cxllyvj4hzzq6mvrhpdsq2nrn6azvndig75",
+      "depends": ["arrow", "cli", "curl", "dplyr", "fs", "rlang", "sf"]
+    },
     "censusapi": {
       "name": "censusapi",
       "version": "0.10.0",
@@ -53760,6 +54366,12 @@
       "version": "4.1",
       "sha256": "0nw9zmbx3d7jqvw0yjqnqxnk16fay5pg4hws6qk341ipixwfmcbf",
       "depends": ["gmp"]
+    },
+    "chaidr": {
+      "name": "chaidr",
+      "version": "0.1.0",
+      "sha256": "03kv3q2ab0v7fdks6v11frsma3ri1c8in3knidb96nrc122p5d5i",
+      "depends": []
     },
     "chainbinomial": {
       "name": "chainbinomial",
@@ -54499,6 +55111,12 @@
       "sha256": "0pz3iw559d8rsxmnwd1cqcpv8qnnh9bfvc9ydzwznx8jczbldls8",
       "depends": []
     },
+    "cincinnatiOpenData": {
+      "name": "cincinnatiOpenData",
+      "version": "0.1.0",
+      "sha256": "1ih69n6kaqhy3pnycl88d0zqfhvn92lx59i7df1c69a61rhxwh7b",
+      "depends": ["curl", "dplyr", "httr", "janitor", "jsonlite", "rlang", "tibble"]
+    },
     "cinterpolate": {
       "name": "cinterpolate",
       "version": "1.0.2",
@@ -55033,6 +55651,12 @@
       "sha256": "0c8s8q7icxpmhr2sc3hh0zr1pkpgna2nysbij3zz8g2m4a38kz9b",
       "depends": ["R6", "archive", "curl", "data_table", "httr", "stringi"]
     },
+    "climateBR": {
+      "name": "climateBR",
+      "version": "0.1.0",
+      "sha256": "1f7si7qvfqm9jnpkk84v65x98skjqq6v8qs7qq4jn3iig49z3d67",
+      "depends": ["arrow", "data_table", "dplyr", "glue", "gstat", "janitor", "rlang", "sf", "tidyr"]
+    },
     "climateStability": {
       "name": "climateStability",
       "version": "0.1.4",
@@ -55429,12 +56053,6 @@
       "sha256": "1zgj7nq0rba51xkm88vj9w70glk8z8g3y1awlfv38kf37s2yrs5c",
       "depends": ["cluster", "fda", "ggplot2", "ggpubr", "qrcm"]
     },
-    "clustGLMM": {
-      "name": "clustGLMM",
-      "version": "1.0",
-      "sha256": "1gh13sfhvkz5w0srrdhqk8bjs1bip3cj90mgkqxpn5vimkz37kc9",
-      "depends": ["HDInterval", "MASS", "RcppHungarian", "coda", "colorspace", "gaussquad", "mvtnorm", "nnet"]
-    },
     "clustMD": {
       "name": "clustMD",
       "version": "1.2.2",
@@ -55759,6 +56377,12 @@
       "sha256": "1qkdv86v0pk9knl97lfz28w8vgn71j7fv9aw8afq8qflfgvda284",
       "depends": ["assertthat", "dplyr", "ggplot2", "rlang"]
     },
+    "cmrdesign": {
+      "name": "cmrdesign",
+      "version": "0.1.0",
+      "sha256": "1xax61mk7fpih36jn0mfmv3cr3rsca1gzmm0zbcm8z7m3lpkshza",
+      "depends": []
+    },
     "cms": {
       "name": "cms",
       "version": "0.1.0",
@@ -55932,6 +56556,12 @@
       "version": "1.3-9-1",
       "sha256": "1sik2m1qzv24h9difhsfqsjb03krxhq7nd9pcn7fzxd3xn9m0qgk",
       "depends": ["SparseM", "quantreg"]
+    },
+    "cochranSize": {
+      "name": "cochranSize",
+      "version": "0.1.0",
+      "sha256": "11s1afvms49sp0wj5ja020yg09v426cybjb9limnsmqmvfkvgrg8",
+      "depends": []
     },
     "cocktailApp": {
       "name": "cocktailApp",
@@ -56142,6 +56772,12 @@
       "version": "0.4.0",
       "sha256": "0554jbwy2hzdqy4vf4y26jniw8pp8j7a7ybq9s7120zfkxihccag",
       "depends": ["Matrix", "fractional"]
+    },
+    "codriver": {
+      "name": "codriver",
+      "version": "1.0.0",
+      "sha256": "0bc3n87n2i7j4z1px0q6m48j5xj0sv7k8yy6mm28b28frx4x1jww",
+      "depends": ["cli", "ellmer", "jsonlite", "rlang", "rstudio_prefs", "rstudioapi"]
     },
     "codyn": {
       "name": "codyn",
@@ -56749,6 +57385,12 @@
       "sha256": "0139jfaal03099kdykcljypaznrd7linx7x6fcm1wpgzykwxfivz",
       "depends": []
     },
+    "commons": {
+      "name": "commons",
+      "version": "0.0.1",
+      "sha256": "1nk7dg31jn5dsjpb4zhqf31sad9l7v8kpapksh8804bq7ggf55r9",
+      "depends": ["DBI", "S7", "cli", "ellmer", "jsonlite", "knitr", "rlang", "roxygen2"]
+    },
     "commonsMath": {
       "name": "commonsMath",
       "version": "1.2.8",
@@ -56935,6 +57577,12 @@
       "sha256": "1zwpw85fvnsixqmfzkg6id04yymqbp23s7l8aks3s3d23hyg59gd",
       "depends": ["MASS", "bayesm", "robustbase", "tensorA"]
     },
+    "compost": {
+      "name": "compost",
+      "version": "0.2.0",
+      "sha256": "16hivk9wbx61gs1gc71jqq3nw5g372swrdx64d0i0wybmy628w8g",
+      "depends": ["rotio"]
+    },
     "compound_Cox": {
       "name": "compound.Cox",
       "version": "3.33",
@@ -56946,6 +57594,12 @@
       "version": "0.6.10",
       "sha256": "1wlc06swm45nxg9hgik3wj832sr074i3p0j5kxm0i2r74klfy22w",
       "depends": []
+    },
+    "compstatslib": {
+      "name": "compstatslib",
+      "version": "0.8.0",
+      "sha256": "0jgr40x8kn131dzdr21fkvd6clmc2gpjvwp4snspd801mgkfk7x1",
+      "depends": ["lattice", "miniUI", "plotly", "shiny"]
     },
     "compute_es": {
       "name": "compute.es",
@@ -57607,6 +58261,12 @@
       "sha256": "19r8nvi35ldzgayifskjj706fv76hv6sj68yvggybp27rgyqbjfl",
       "depends": ["survival"]
     },
+    "controlcharts": {
+      "name": "controlcharts",
+      "version": "0.0.19",
+      "sha256": "1mabmhlmlb18dr47c7jj7zix77p78a6bwqk2j1776y4gz82l8a2i",
+      "depends": ["QuickJSR", "crosstalk", "htmltools", "htmlwidgets", "jsutils"]
+    },
     "controlfunctionIV": {
       "name": "controlfunctionIV",
       "version": "0.1.1",
@@ -58161,9 +58821,9 @@
     },
     "corteza": {
       "name": "corteza",
-      "version": "0.7.0",
-      "sha256": "12m2hxyrpw8fmywnvnvrmgmay78b9gsm7s5s1ng0vbmj133zvv21",
-      "depends": ["callr", "codetools", "curl", "jsonlite", "llm_api", "printify", "processx", "saber"]
+      "version": "0.7.1",
+      "sha256": "1nlw9g69mm02b2y3xyad7y23npsblxxpklcdizy1wmvc7gby41ff",
+      "depends": ["callr", "codetools", "curl", "digest", "jsonlite", "llm_api", "printify", "processx", "saber"]
     },
     "corto": {
       "name": "corto",
@@ -58699,6 +59359,12 @@
       "sha256": "028aq946xyf41xwn8a1y0ff22c92v62mchwp4xwxpzg7zjliaw37",
       "depends": ["clue", "doParallel", "doRNG", "e1071", "foreach", "glmnet", "multiway", "nnet", "randomForest", "rda", "xgboost"]
     },
+    "cpge": {
+      "name": "cpge",
+      "version": "1.0.1",
+      "sha256": "0pp6g64bkygwpq0lrdk6swhfmyj4np6b0lrfm3jml6pywxwadkhx",
+      "depends": ["dplyr", "quarto", "shiny", "stringr", "tidyr", "visNetwork"]
+    },
     "cpgfR": {
       "name": "cpgfR",
       "version": "0.0.1.0",
@@ -58968,6 +59634,12 @@
       "version": "0.0.4",
       "sha256": "1w8a3468aq0bi6nn765fgd9g5pc1rf4xaknwm9d1qj59m73xcdnd",
       "depends": ["ggplot2", "palette"]
+    },
+    "crbcc": {
+      "name": "crbcc",
+      "version": "0.1.0",
+      "sha256": "0715bnahbbbc6wdnw4lg22g8fxvwasvmg44n71fhbwgchln7s66n",
+      "depends": []
     },
     "crc32c": {
       "name": "crc32c",
@@ -60643,6 +61315,12 @@
       "sha256": "160kkjwxm0a2r2xf5dxzm7gkjql4rcdj01p8akaziwc0znsymrk1",
       "depends": ["RCurl", "cli", "devtools", "httr", "rlang"]
     },
+    "dashboardapi": {
+      "name": "dashboardapi",
+      "version": "0.1.0",
+      "sha256": "0cjvb6g2l433kcqv0yxg2y6k7y8zp1g8vxhrm0zh4l1vgyqrggdh",
+      "depends": ["httr2", "tibble"]
+    },
     "dashboardthemes": {
       "name": "dashboardthemes",
       "version": "1.1.6",
@@ -62161,6 +62839,12 @@
       "sha256": "0kqawfkgpngkfnz5dhwsgznvpcvs3lq22mlh4f9sqsq5qxd4jaqg",
       "depends": ["MASS", "Matrix", "mgcv", "mvtnorm"]
     },
+    "densemlp": {
+      "name": "densemlp",
+      "version": "0.5.0",
+      "sha256": "0mr0llyj4065klxsyg30in69gjyfff0l6xskdv6ba4arcbzcxy5l",
+      "depends": ["ggplot2", "torch"]
+    },
     "densitr": {
       "name": "densitr",
       "version": "0.2",
@@ -62280,6 +62964,12 @@
       "version": "0.7",
       "sha256": "00pn4ccsg1hjv83xqk4g0g24cz2a87shlbg8kd2dri4dcagzifg0",
       "depends": []
+    },
+    "deriva": {
+      "name": "deriva",
+      "version": "0.1.0",
+      "sha256": "1ifrnvxpdmmyc16im1203hz5s9ll4xcwnnz9lqy68r01nadpqyxx",
+      "depends": ["cli", "generics", "rlang", "tibble", "vctrs"]
     },
     "derivmkts": {
       "name": "derivmkts",
@@ -63061,6 +63751,12 @@
       "sha256": "06mkid7iiwj56jh1flrmyg4n3d70834g2kckrn5z9s5lcag91jk0",
       "depends": ["htmlwidgets"]
     },
+    "diffuseR": {
+      "name": "diffuseR",
+      "version": "0.2.2",
+      "sha256": "0kmf0lyqbq8kgcjb5ghdsnxf4bk9rks1vrs551sd0vr0dk6l52zg",
+      "depends": ["jpeg", "jsonlite", "png", "torch"]
+    },
     "diffusion": {
       "name": "diffusion",
       "version": "0.4.0",
@@ -63709,6 +64405,12 @@
       "sha256": "04lhrc92y6dqnfpqlmynjvn2dndzkknnvwsr5pf73dfpgv7n3s1f",
       "depends": ["dplyr", "magrittr", "rlang", "tidyr"]
     },
+    "distspec": {
+      "name": "distspec",
+      "version": "0.1.0",
+      "sha256": "1lh1wqd2dzp8cdqw3cdywibp022ag9k9w1nrp414j2as4m85d2wf",
+      "depends": ["cli", "lifecycle", "primarycensored", "rlang", "truncnorm"]
+    },
     "disttools": {
       "name": "disttools",
       "version": "0.1.8",
@@ -63855,8 +64557,8 @@
     },
     "dlmtree": {
       "name": "dlmtree",
-      "version": "1.1.1",
-      "sha256": "13cpslfg69cfvp2qd93m66977i164lpl9ai5pq29pvz7ljldqkh4",
+      "version": "1.2.0",
+      "sha256": "1ip4hnnz7ws796mdnmzpq58ggxr0mx4p7cghyhlcbxx0mlpa7yqk",
       "depends": ["Rcpp", "RcppArmadillo", "RcppEigen", "coda", "dplyr", "ggplot2", "ggridges", "mgcv", "shiny", "shinythemes", "tidyr"]
     },
     "dlmwwbe": {
@@ -65269,6 +65971,12 @@
       "sha256": "0kw90g9gc8knq5and8xkifpnbin2viiklq1zl3qs2x6y4fc2fzki",
       "depends": []
     },
+    "dwg2geo": {
+      "name": "dwg2geo",
+      "version": "0.2.4",
+      "sha256": "0ga649lrnnv741183z0fgv6sip2j8di5vybyi1hi7jfjw3mq46hb",
+      "depends": ["cli", "jsonlite", "rlang", "tibble"]
+    },
     "dwlm": {
       "name": "dwlm",
       "version": "0.1.0",
@@ -65400,6 +66108,12 @@
       "version": "1.63-1",
       "sha256": "1fadbql7g5r2vvlkr89nlrjxwp4yx4xrdqmv077qvmnx9vv0f4w3",
       "depends": []
+    },
+    "dynamicmultiplex": {
+      "name": "dynamicmultiplex",
+      "version": "1.1.0",
+      "sha256": "03a4wf9cpzq84p43mi94jw8ifgaq7dhf83pdwmsqhni4yprh7jiq",
+      "depends": ["clue", "igraph", "rlang"]
     },
     "dynamicpv": {
       "name": "dynamicpv",
@@ -65805,8 +66519,8 @@
     },
     "easyPSID": {
       "name": "easyPSID",
-      "version": "0.1.2",
-      "sha256": "0npih5xpf2a5xw2iz68z9ckm8d4cpradzzdn50rdpg4gqvaq7azp",
+      "version": "0.1.3",
+      "sha256": "1cm530i3gr2pr0qp2z8ay3l6lpvi3g502ll437wkvc3dard35zra",
       "depends": ["LaF", "foreign", "stringr"]
     },
     "easyPubMed": {
@@ -65817,8 +66531,8 @@
     },
     "easyRasch2": {
       "name": "easyRasch2",
-      "version": "1.1.0",
-      "sha256": "13qfg45vp22ycj972bglrhbrpgp7l99wx4yazmcj6149kfqavyld",
+      "version": "1.1.1",
+      "sha256": "0xnwf63bxkflcnkfr29sxzjklvwsl8pkmb1c7lxj2l6g5bfk2nmn",
       "depends": ["knitr", "mirt", "psychotools", "rlang"]
     },
     "easyRaschBayes": {
@@ -66357,8 +67071,8 @@
     },
     "ecoregime": {
       "name": "ecoregime",
-      "version": "0.3.1",
-      "sha256": "0abg1md8512g7c88gm90h4lzfd38g4yg8yiq9svdg4xphnwj7vig",
+      "version": "0.4.1",
+      "sha256": "0730c08lwim1iv9cnzbfddigkxj6cqg2wcqqp6r05n83q1znjfq3",
       "depends": ["ape", "data_table", "ecotraj", "shape", "smacof", "stringr"]
     },
     "ecorest": {
@@ -67425,8 +68139,8 @@
     },
     "encharter": {
       "name": "encharter",
-      "version": "0.9.1",
-      "sha256": "1mmx64hklzd0sd990821fggh1v4p1jb5i7f0jgs06rgl9y25x78x",
+      "version": "0.10",
+      "sha256": "0czr7pzx5nxc95wkdm39c6zb1n0c73r057h06wvcx186v4q0dld3",
       "depends": ["R6", "openxlsx2"]
     },
     "encode": {
@@ -67557,8 +68271,8 @@
     },
     "enrichit": {
       "name": "enrichit",
-      "version": "0.2.0",
-      "sha256": "01s14fwkwhb0v9w50fib7awsvi7cl4l1xh4ac447xagc7g6948gv",
+      "version": "0.2.1",
+      "sha256": "0s38i2x1hpjvgjzrfskdj445dg2366ihbkvhzixkxpbbg2g2nwxm",
       "depends": ["Matrix", "Rcpp", "RcppEigen", "rlang", "yulab_utils"]
     },
     "enrichwith": {
@@ -67803,14 +68517,20 @@
     },
     "epiR": {
       "name": "epiR",
-      "version": "2.0.95",
-      "sha256": "139rqa1rl7z0vlsf17gly0rbf9x4v0jkz3zfms5g18sm2mk8zsf9",
-      "depends": ["BiasedUrn", "flextable", "lubridate", "officer", "pander", "sf", "survival", "zoo"]
+      "version": "2.0.96",
+      "sha256": "0x96202jv32x8sfi74scp1mbpx64cc56f0v2yf2g056b9h892k63",
+      "depends": ["BiasedUrn", "DFBA", "flextable", "lubridate", "officer", "pander", "sf", "survival", "zoo"]
     },
     "epibasix": {
       "name": "epibasix",
       "version": "1.5",
       "sha256": "0ivr51x37cbdryli9b4p4iq9v2c90zwmywrwdmg7ryq5vprvvbp0",
+      "depends": []
+    },
+    "epibyhand": {
+      "name": "epibyhand",
+      "version": "0.1.0",
+      "sha256": "1vn8ifra8v5ph9xinnn9wbpdh1xp9mmp7mvfr480434li2azz8hm",
       "depends": []
     },
     "epicR": {
@@ -67854,6 +68574,12 @@
       "version": "1.2.4",
       "sha256": "0ings9z18n2j9k3w0wkv7abfgv56rz9x09z8i63dr84bl40h9qby",
       "depends": ["MMWRweek", "cachem", "checkmate", "cli", "glue", "httr2", "jsonlite", "lifecycle", "magrittr", "openssl", "purrr", "rappdirs", "readr", "rlang", "tibble", "usethis", "xml2"]
+    },
+    "epidesc": {
+      "name": "epidesc",
+      "version": "0.1.0",
+      "sha256": "0jfayysbssgbdspcqxhyjp6527w4kh85hp53y7q0bf0nfkg4zzsi",
+      "depends": ["lubridate", "nseq"]
     },
     "epidict": {
       "name": "epidict",
@@ -68238,6 +68964,12 @@
       "version": "1.6.2",
       "sha256": "166ksyza1kxaa3sh3kqwz4spqi09d40br58xyr1yv4lanswdzz2n",
       "depends": ["Matrix", "btergm", "dplyr", "ergm", "network", "numDeriv", "sampling", "sna"]
+    },
+    "erglm": {
+      "name": "erglm",
+      "version": "0.1.1",
+      "sha256": "07kjmaqiz4ns7h7wcbbjx7amn7chlv8d8iinmgz4r2wx3m1rhx6g",
+      "depends": ["dplyr", "mvtnorm", "rlang", "tibble", "withr"]
     },
     "ergm": {
       "name": "ergm",
@@ -69019,6 +69751,12 @@
       "sha256": "0n2hn183a4srzn328x7xlmcbfizgkic2zjr37rm39nkvsbj02p6k",
       "depends": ["exactci", "ssanv"]
     },
+    "exactGMH": {
+      "name": "exactGMH",
+      "version": "0.1.0",
+      "sha256": "1a6xkc25wj1nfsccvdkppkjwpxi6242rc5pdksb0vvz2z467mgfn",
+      "depends": []
+    },
     "exactLTRE": {
       "name": "exactLTRE",
       "version": "0.1.2",
@@ -69318,6 +70056,12 @@
       "version": "1.0-0",
       "sha256": "0m5jm92mjn83zvh4jz7rdf04jdaad7lv2l0a44rb2mdgyvw3di82",
       "depends": ["Matrix"]
+    },
+    "expoquimR": {
+      "name": "expoquimR",
+      "version": "0.1.0",
+      "sha256": "1zkwkni96xhvb9g2pgy0lm5ygn36ji3z4c5j0n989418m6ppbfhd",
+      "depends": []
     },
     "export": {
       "name": "export",
@@ -70141,6 +70885,12 @@
       "sha256": "0648mvbc7ga7vr2xqzyln3dgd11h5s4bqhv3p55mj7smr4qv7hv9",
       "depends": []
     },
+    "falsifyr": {
+      "name": "falsifyr",
+      "version": "1.0.0",
+      "sha256": "1p36nv144flmbn4gkjd3mvcy6iqc7l8k7r42srbw2hzfaa3vdk0l",
+      "depends": ["cli", "ggplot2", "rlang", "tibble", "vctrs"]
+    },
     "fam_recrisk": {
       "name": "fam.recrisk",
       "version": "0.1",
@@ -70656,6 +71406,12 @@
       "version": "0.0.2",
       "sha256": "133xbkx6jkn05vskmdpzknq81nk2z8f0kf1spnjziial454kdv7x",
       "depends": ["Rcpp"]
+    },
+    "fastrda": {
+      "name": "fastrda",
+      "version": "0.1.2",
+      "sha256": "0dvhb18ws8cc9w2pi353fafml3gpa371n5j8jwspldgnh853m667",
+      "depends": ["Rcpp", "RcppArmadillo", "ggplot2"]
     },
     "fastreg": {
       "name": "fastreg",
@@ -71761,6 +72517,12 @@
       "sha256": "1zvfjq3bxgayimic03z6gwnxgxbl2lz1ln4am1m2rc0g7llwmsbx",
       "depends": []
     },
+    "fipp": {
+      "name": "fipp",
+      "version": "1.0.1",
+      "sha256": "0lirhjan13vcy5v8xwjwbn9d9ndnzwg97888xcyfnlrf7yra4q2r",
+      "depends": ["Rcpp", "RcppArmadillo", "matrixStats"]
+    },
     "firebase": {
       "name": "firebase",
       "version": "1.0.2",
@@ -71958,6 +72720,12 @@
       "version": "0.2.3",
       "sha256": "0h4bvacnz3i1lqp3rfvhapf56mdc2ac4k9mvawmy5swcz5xisvvr",
       "depends": ["actuar", "extraDistr", "fExtremes", "fdrtool", "gnorm", "mev", "pracma", "rust"]
+    },
+    "fitdistrBayes": {
+      "name": "fitdistrBayes",
+      "version": "0.2.0",
+      "sha256": "0ni5v759dq3p8ialnv1av6z6n881vbhs8m9zr5msk7rrb28j8h8r",
+      "depends": []
     },
     "fitdistrplus": {
       "name": "fitdistrplus",
@@ -73375,6 +74143,12 @@
       "sha256": "124p5x59smqf8ba0xwhlq69w77zga2bv9plzwkadf700lzvaj2wx",
       "depends": ["emg", "numDeriv"]
     },
+    "fracreg": {
+      "name": "fracreg",
+      "version": "1.0.1",
+      "sha256": "11cc9ry1s6hj81rq5dxiy555xl6dlf9a9c1snklcbigs4v8izkbc",
+      "depends": ["MASS", "ggplot2", "maxLik"]
+    },
     "fractD": {
       "name": "fractD",
       "version": "0.1.0",
@@ -73902,6 +74676,12 @@
       "version": "6.7",
       "sha256": "15qr28qhhhbj5dylf1iimsxqjnir0amkvzvykljzm856i5rsj3h7",
       "depends": ["KernSmooth", "LaplacesDemon", "MASS", "ROOPSD", "boot", "colorspace", "e1071", "ecp", "evgam", "fGarch", "fda", "fdapace", "forecast", "glue", "pcaPP", "pdfCluster", "psych", "rainbow", "sde", "strucchange", "vars"]
+    },
+    "ftsspec": {
+      "name": "ftsspec",
+      "version": "1.0.1",
+      "sha256": "00px27gi3mzbqh4qpq6c4wx5lyvnl6hrx2q06kqsj7jq5r9h9f89",
+      "depends": ["sna"]
     },
     "fucom": {
       "name": "fucom",
@@ -75036,6 +75816,12 @@
       "version": "1.3.10",
       "sha256": "0hqz96gzflwbljk1g1kgh44i4mjr3na9adpixrv7czc3c9qns00z",
       "depends": ["curl", "dplyr", "httr", "jsonlite", "lubridate", "purrr", "readr", "stringr"]
+    },
+    "gbif_range": {
+      "name": "gbif.range",
+      "version": "1.9.1",
+      "sha256": "1781yk3r43ph9kcs3g713wdrjzlz6b0l566z1nml0vx11gba5mp1",
+      "depends": ["ClusterR", "CoordinateCleaner", "FNN", "NMOF", "class", "cluster", "geometry", "mclust", "rgbif", "sf", "terra", "zip"]
     },
     "gbifdb": {
       "name": "gbifdb",
@@ -76635,8 +77421,8 @@
     },
     "ggRandomForests": {
       "name": "ggRandomForests",
-      "version": "3.4.0",
-      "sha256": "1bfci6qbw5nhvcr35vm8w0jsajs36r4nyw724gszfh34j2sx8byi",
+      "version": "3.5.0",
+      "sha256": "1ha9x63p8va4kl51nlb9p8wfiv36d8pxnr01h812b97w46ixl306",
       "depends": ["dplyr", "ggplot2", "igraph", "patchwork", "randomForest", "randomForestSRC", "stringr", "survival", "tidyr", "varPro"]
     },
     "ggRtsy": {
@@ -77049,8 +77835,8 @@
     },
     "ggforestplotR": {
       "name": "ggforestplotR",
-      "version": "0.3.0",
-      "sha256": "1iqw8rm7mb8clkv6d3icapvnykqr15zjiz3fa7g98c9vs4m04ahw",
+      "version": "0.3.1",
+      "sha256": "0bjpwl1yd2637abw68128x0k1ssscccc2q54cl5lp5ji3477af00",
       "depends": ["ggplot2", "patchwork", "rlang"]
     },
     "ggformula": {
@@ -77173,6 +77959,12 @@
       "sha256": "0ncxx2ckc78gaa9dyddyli1wca7kkz33v13mplhnxd33gkk9pxmz",
       "depends": ["ggplot2"]
     },
+    "gghotelling": {
+      "name": "gghotelling",
+      "version": "0.2.1",
+      "sha256": "06a5xc60b3yrw67fmpi5zh3rh4pv4lfk9h0azkv82s84ggxbkdn0",
+      "depends": ["MASS", "ggplot2", "mrfDepth", "robustbase"]
+    },
     "gghourglass": {
       "name": "gghourglass",
       "version": "0.0.3",
@@ -77289,8 +78081,8 @@
     },
     "ggm": {
       "name": "ggm",
-      "version": "2.5.2",
-      "sha256": "0nv5m7f2kbjr0abfpcb18g1291ghphpzx0ixf7fpk23ia6xqwvyy",
+      "version": "2.5.4",
+      "sha256": "13ynxs7qvxdv2vrxmyvrha6cfm8rxk6im70vmya90lfz5ca84r9i",
       "depends": ["BiocManager", "graph", "igraph"]
     },
     "ggmRSCU": {
@@ -77383,6 +78175,12 @@
       "sha256": "14ffjrn18mqxg5c3j853pg0bkh85grpd8pasfpmz0x1vz6hp33p5",
       "depends": ["cli", "dplyr", "ggplot2", "tidyr"]
     },
+    "ggmultiglyph": {
+      "name": "ggmultiglyph",
+      "version": "0.1.0",
+      "sha256": "11l7gv4m1mlirmljciqz91zdhq4sklvzxnizkccsvvxayq3hglqj",
+      "depends": ["Rcpp", "Rdpack", "cli", "ggplot2", "packcircles", "rlang", "scales"]
+    },
     "ggnetwork": {
       "name": "ggnetwork",
       "version": "0.5.14",
@@ -77430,6 +78228,12 @@
       "version": "0.11.1",
       "sha256": "17xpkz8jm045aylwxxsya0x0xda13xp6p8ksahqp1cdkq4hb2rw5",
       "depends": ["assertthat", "cli", "ggplot2", "htmltools", "rlang", "shiny", "shinyWidgets"]
+    },
+    "ggpalettes": {
+      "name": "ggpalettes",
+      "version": "0.2.0",
+      "sha256": "13my7m82nc2ca36ycjg6lzlff06aqm4cwj2b8kbgd16vn541vj4c",
+      "depends": ["ggplot2", "rlang"]
     },
     "ggparty": {
       "name": "ggparty",
@@ -78133,6 +78937,12 @@
       "sha256": "18m4kzz3vhkqbsdgj3k0cywsl7lvf6r6whwsaww480fazx7vwfk5",
       "depends": ["gh", "jose", "openssl"]
     },
+    "ghcclm": {
+      "name": "ghcclm",
+      "version": "0.1.0",
+      "sha256": "0zk7rgyasq68lfa2yfkx0749j1l9jq2309rc53a44pxpwdfdbzmb",
+      "depends": []
+    },
     "ghclass": {
       "name": "ghclass",
       "version": "0.4.1",
@@ -78457,6 +79267,12 @@
       "sha256": "0vvd8m015g5rabpmkmfp20kh15d7ck8aamr9l9mbs2vapqs5k9c7",
       "depends": ["MASS", "Rcpp"]
     },
+    "glcdp": {
+      "name": "glcdp",
+      "version": "1.0.0",
+      "sha256": "1z49l46811faxyzq2w15s2ikcg8g9r83ll0dpm4jll37wpa8w3jn",
+      "depends": ["cli", "digest", "dplyr", "httr2", "jsonlite", "lubridate", "readr", "tibble"]
+    },
     "glcm": {
       "name": "glcm",
       "version": "1.6.6",
@@ -78546,6 +79362,18 @@
       "version": "1.1.0",
       "sha256": "1myi3zqb8sjg961gb4gxid01zdc968jb452v8c4rwyygvnvc9vim",
       "depends": ["Rcpp", "RcppArmadillo", "copula", "nloptr", "roptim"]
+    },
+    "glmbayes": {
+      "name": "glmbayes",
+      "version": "0.9.75",
+      "sha256": "1gippkdmgmai4aivc33hq8rzagi0b21c3ylxcb5r43r9gxzcplmi",
+      "depends": ["MASS", "Rcpp", "RcppArmadillo", "RcppParallel", "Rdpack", "bayestestR", "coda", "insight", "nmathopencl", "opencltools"]
+    },
+    "glmbayesCore": {
+      "name": "glmbayesCore",
+      "version": "0.5.3",
+      "sha256": "0a157pk59y5grnxb28ybad0csz0mk8f6phy29rphgbd0p37g630g",
+      "depends": ["MASS", "Rcpp", "RcppArmadillo", "RcppParallel", "Rdpack", "nmathopencl", "opencltools"]
     },
     "glmbb": {
       "name": "glmbb",
@@ -78937,6 +79765,12 @@
       "sha256": "0glpbvv2sk3zrd08mqzsy2knc0dp98hrm2ww6gc2mka3ff45xbfr",
       "depends": ["RCurl", "XML"]
     },
+    "gmeans": {
+      "name": "gmeans",
+      "version": "0.1.0",
+      "sha256": "05rj519cqm86w8r77443jdiia0h7j0gdxm1mbs70arzl4na4f30q",
+      "depends": []
+    },
     "gmfamm": {
       "name": "gmfamm",
       "version": "0.1.1",
@@ -79029,8 +79863,8 @@
     },
     "gmvarkit": {
       "name": "gmvarkit",
-      "version": "2.2.1",
-      "sha256": "0yca11bckazjyzkhvsb9w3p1v2wn3xqwnj1p9kskv9bz9cp06kj0",
+      "version": "2.2.2",
+      "sha256": "125jbqj5jlzwxvj8ag0lcbnwbbv67yac2nhlfihh7b9i0fb2bwdi",
       "depends": ["Brobdingnag", "gsl", "mvnfast", "pbapply"]
     },
     "gmvjoint": {
@@ -79146,6 +79980,18 @@
       "version": "1.0",
       "sha256": "0243pag8ky7ja78dmcxnkjl5ijkxp4ga3zfiq1aq8zi0w097hkxv",
       "depends": ["pracma", "rmutil"]
+    },
+    "gofLorenz": {
+      "name": "gofLorenz",
+      "version": "0.1.0",
+      "sha256": "0r9h3xbxz3ibh8jdzq1ij5dywypb0nsv1n7lf73zgj6iadzzh1mz",
+      "depends": []
+    },
+    "gofPHCS": {
+      "name": "gofPHCS",
+      "version": "0.1.0",
+      "sha256": "12abjvay4s44ck82l504wb1d694xshqixqqy0vi911a5j36fs2mf",
+      "depends": ["withr"]
     },
     "gofar": {
       "name": "gofar",
@@ -79459,6 +80305,12 @@
       "sha256": "0w5wcjzgjajfx29whqkn3xv3v9bn4q0almmmsb7qw79dnbv5c16s",
       "depends": ["RNGforGPD", "Rfast"]
     },
+    "gp3bayes": {
+      "name": "gp3bayes",
+      "version": "0.1.1",
+      "sha256": "0kla9v8q8vnzh11s9whzqbgihdgcflrbmk6qmik3bf85rl31g4y7",
+      "depends": ["withr"]
+    },
     "gp3ml": {
       "name": "gp3ml",
       "version": "0.1.0",
@@ -79500,6 +80352,36 @@
       "version": "1.7.1.1",
       "sha256": "0yyjb4xpdxcgz9k3mrwv7jylq2n6cpzxms7myrqssa92ps3v0r9w",
       "depends": ["Matrix", "R6", "RJSONIO", "data_table"]
+    },
+    "gpciEMprogII": {
+      "name": "gpciEMprogII",
+      "version": "0.1.0",
+      "sha256": "03l2h4zmdhrwpb49pfb9vij35y3xlgyr5hzl2grkmpkjwh2bdyfc",
+      "depends": ["UniCensorEM"]
+    },
+    "gpciImpSam": {
+      "name": "gpciImpSam",
+      "version": "0.1.0",
+      "sha256": "0mg4icqi3i2zh0k5rx7xxfdpyciw2cyn8gki72aqaka0mq7j6gj4",
+      "depends": ["boot", "numDeriv"]
+    },
+    "gpciIntCensor": {
+      "name": "gpciIntCensor",
+      "version": "0.1.0",
+      "sha256": "0jxsqacm52zjq2w3rmkzjsah0hp7rcwl5q2ry1nzf663kxbnfz2w",
+      "depends": ["MleCensoR", "boot", "numDeriv"]
+    },
+    "gpciProgTyII": {
+      "name": "gpciProgTyII",
+      "version": "0.1.0",
+      "sha256": "06xnlw3andh1lmcgw0kavydnipzl8jn64gwc6z49zh6hc5am7gfz",
+      "depends": ["MleCensoR", "boot", "numDeriv"]
+    },
+    "gpciProgTyIIImpSam": {
+      "name": "gpciProgTyIIImpSam",
+      "version": "0.1.0",
+      "sha256": "1h0drina94fvjfdxz3i581fqdvs4q7i7yh33p4g1hdjjk824hcp1",
+      "depends": []
     },
     "gpcp": {
       "name": "gpcp",
@@ -79695,8 +80577,8 @@
     },
     "grangers": {
       "name": "grangers",
-      "version": "0.1.0",
-      "sha256": "15q8hv7p5g5m7v6lx6nq5394fa6p05xgawnsrn1v5aslmmbbzyvl",
+      "version": "0.1.1",
+      "sha256": "12mfrjniclqki9gmrg60jqxfc04mcssahbyy56gd88h4zpkjali3",
       "depends": ["tseries", "vars"]
     },
     "grangersearch": {
@@ -80143,6 +81025,12 @@
       "sha256": "1pl1xrcdi3fk83dd7sfpg9fdj2dhw2q591xnrcvjwn0r6w9hwf1b",
       "depends": ["Rcpp", "curl", "jpeg", "markdown", "png", "rlang", "stringr", "xml2"]
     },
+    "grip": {
+      "name": "grip",
+      "version": "0.1.2",
+      "sha256": "103a71c260z7cw8snqg25mllkn8pj5pi9girlqq394m6w9h88mbg",
+      "depends": ["Rcpp"]
+    },
     "grizbayr": {
       "name": "grizbayr",
       "version": "1.3.5",
@@ -80523,9 +81411,9 @@
     },
     "gson": {
       "name": "gson",
-      "version": "0.2.0",
-      "sha256": "0242v1j5zp9mgyg0597sgcrxj13x4zdhbwsmlgh3lvr294pv3jaw",
-      "depends": ["jsonlite", "rlang", "tidyr", "yulab_utils"]
+      "version": "0.2.1",
+      "sha256": "0lfl8diiml4gjrg8b3q9c4vd03w6rdnp450vq11rd0y9v1v19irk",
+      "depends": ["jsonlite", "rlang", "yulab_utils"]
     },
     "gspcr": {
       "name": "gspcr",
@@ -80763,9 +81651,9 @@
     },
     "guideR": {
       "name": "guideR",
-      "version": "0.10.0",
-      "sha256": "05yyhkzj5mnf184kvhkywj8j2k1his6512b1wh6d7cdlg24fbl85",
-      "depends": ["cli", "dplyr", "forcats", "ggplot2", "labelled", "lifecycle", "pak", "patchwork", "purrr", "renv", "rlang", "rstudioapi", "scales", "srvyr", "stringr", "tidyr", "tidyselect"]
+      "version": "0.11.0",
+      "sha256": "0s7q4bm67p7db53yl3g3696p1cbl9c573m4rpgmzvw8mmc6wfrr2",
+      "depends": ["broom_helpers", "cli", "dplyr", "forcats", "ggplot2", "labelled", "lifecycle", "pak", "patchwork", "purrr", "renv", "rlang", "rstudioapi", "scales", "srvyr", "stringr", "tidyr", "tidyselect"]
     },
     "guidedPLS": {
       "name": "guidedPLS",
@@ -81369,8 +82257,8 @@
     },
     "hcinfer": {
       "name": "hcinfer",
-      "version": "0.1.1",
-      "sha256": "192q4f7rjdl7hkfchy5yaa1qlqa748qr27pvzdc51spg5bnhqipj",
+      "version": "0.2.0",
+      "sha256": "1ir2i210g9vrhja83rnvr964hg4hpzh49v1y51n00cfns10cppyy",
       "depends": ["cli", "ggplot2", "purrr", "rlang", "tibble"]
     },
     "hclust1d": {
@@ -83133,8 +84021,8 @@
     },
     "huge": {
       "name": "huge",
-      "version": "2.0.0",
-      "sha256": "09d7m85fqszi22x37m1s77phz1ng0i20245bvy66gli7bd9pr665",
+      "version": "2.0.1",
+      "sha256": "0czifvn8135870llmm47ng0zf21wvk968vfkc84m563a60ymylna",
       "depends": ["MASS", "Matrix", "Rcpp", "igraph"]
     },
     "huggingfaceR": {
@@ -83379,8 +84267,8 @@
     },
     "hydroloom": {
       "name": "hydroloom",
-      "version": "1.2.0",
-      "sha256": "0ziaxa1cpwvfqknhnhfylpy5wf44lxmwx2l3gmbm3b7bhdc0z8pm",
+      "version": "1.2.1",
+      "sha256": "0cwhsa4j253q5qszrd558vfl4ynkdbdk8dbclbhf6zdwsibrqf9g",
       "depends": ["RANN", "data_table", "dplyr", "fastmap", "pbapply", "rlang", "sf", "tidyr", "units"]
     },
     "hydromeso": {
@@ -83595,8 +84483,8 @@
     },
     "iC10": {
       "name": "iC10",
-      "version": "2.0.2",
-      "sha256": "0chvkh84qmw0c1m8z1ayl03dq43rj4qglkbammm5fx2vfsbp0hcc",
+      "version": "2.0.3",
+      "sha256": "1jb86qapz2hnz86i747hf6rzf66abg74gvzxms5584zsazjv0i71",
       "depends": ["iC10TrainingData", "impute", "pamr"]
     },
     "iC10TrainingData": {
@@ -83895,8 +84783,8 @@
     },
     "ibdsim2": {
       "name": "ibdsim2",
-      "version": "2.3.2",
-      "sha256": "12zpwpm6y5idm197akhgj3ldchrx958xwdrph6zf9hdjcppy7pmm",
+      "version": "2.3.3",
+      "sha256": "1yar5f3xqj2scyi1ddjs3s4c2m9cdr1q1ply1s4vrpd3pbkl4lr7",
       "depends": ["Rcpp", "ggplot2", "glue", "pedtools", "ribd"]
     },
     "ibelief": {
@@ -84288,6 +85176,12 @@
       "version": "2.0.13",
       "sha256": "0d4jf219x1l5978yx1k2ynkcx1b5xwbbba2lcd67s80y6s1q1jhv",
       "depends": ["crayon", "dplyr", "plyr", "rlang", "scales", "tidyr"]
+    },
+    "idiographic": {
+      "name": "idiographic",
+      "version": "0.3.2",
+      "sha256": "1n2y7x35ggf0y97hfh0fj1ldm0i52878dl9h4cizf7425vbcx91k",
+      "depends": []
     },
     "idiolect": {
       "name": "idiolect",
@@ -85233,8 +86127,8 @@
     },
     "inferencer": {
       "name": "inferencer",
-      "version": "0.1.4.5",
-      "sha256": "1jysqk36mji60hj4d7lnknxv4zs1k7g7gsa4y3md8x0p0yn1gli1",
+      "version": "0.2.0",
+      "sha256": "1dm621myjhs6bf2zfh0w62bj1lxy8bjkldj39269xj8id93k8nld",
       "depends": ["data_table", "httr2", "jsonlite"]
     },
     "inferference": {
@@ -85248,6 +86142,12 @@
       "version": "0.3.2",
       "sha256": "05rxccfa420dllj4kgb68gvpigcy9h14fsfvyxwyqaddn3016m4q",
       "depends": ["Rcpp", "data_table", "magrittr"]
+    },
+    "inferstat": {
+      "name": "inferstat",
+      "version": "0.1.1",
+      "sha256": "1acsnr2h14mrxcym65pjir0hhnis72iviyqp67xp0jxxsnzh47gg",
+      "depends": ["car", "dplyr", "ggplot2", "rlang"]
     },
     "infiltrodiscR": {
       "name": "infiltrodiscR",
@@ -85899,8 +86799,8 @@
     },
     "invasible": {
       "name": "invasible",
-      "version": "0.1.0",
-      "sha256": "0phn0qfp9zn4fcnja5lw0aw8fmsjzv7nxbn307n44j4lapwgklaj",
+      "version": "0.1.1",
+      "sha256": "01mqxlnx1hfljkcyxi8g2l6xc0250w0rimfkqyq3pmw0kms53kls",
       "depends": ["ape", "caper", "ggplot2", "pROC", "phylolm", "phyr", "phytools", "rotl"]
     },
     "invctr": {
@@ -86007,8 +86907,8 @@
     },
     "ip2location": {
       "name": "ip2location",
-      "version": "8.1.3",
-      "sha256": "1nbqg4nnhxwcwi9kgbyjkikdwh8djglxkrw0lcqfvaqn4n7qf1i5",
+      "version": "8.1.4",
+      "sha256": "1qiql946k2ivczdf8mb82clh0w0lxpvk0x5h4ph0lpbpxfrsgjbz",
       "depends": ["ggplot2", "jsonlite", "maps", "reticulate", "scales"]
     },
     "ip2location_io": {
@@ -87162,6 +88062,12 @@
       "version": "1.0.8",
       "sha256": "13rqxrlk3fw7f7dlacr4ap9smysxqzv344mjs2m622grfbmld6j7",
       "depends": ["curl", "httr", "jsonlite", "statip"]
+    },
+    "jiebaRS": {
+      "name": "jiebaRS",
+      "version": "0.2.0",
+      "sha256": "0gjv35hb4gjx4ylzkxsk39nwgzbcgnkb7fkp979mm5kf21fz73bc",
+      "depends": ["cli", "rlang"]
     },
     "jinjar": {
       "name": "jinjar",
@@ -88773,8 +89679,8 @@
     },
     "ks": {
       "name": "ks",
-      "version": "1.15.2",
-      "sha256": "0ankcsp79r5xb8mm2wsh3cz2012bsz7c6brj0gwddc7mbjjb620d",
+      "version": "1.15.3",
+      "sha256": "0bdqrjnvmgyyyxgchndzj6x79v9y8wa2j7cwr8pav1fkbzdl1dcm",
       "depends": ["FNN", "KernSmooth", "Matrix", "kernlab", "mclust", "mgcv", "multicool", "mvtnorm", "pracma"]
     },
     "ksNN": {
@@ -89167,6 +90073,12 @@
       "sha256": "1vbaxy15a925lmc9a6d0b9yxivw0gd6pw4a89acg797y84fgmyl4",
       "depends": ["httr", "jsonlite", "logger"]
     },
+    "lame": {
+      "name": "lame",
+      "version": "1.3.4",
+      "sha256": "1g0v5vs1d5d7yy8x9qgyf5jw5ixv9wjspdjxcvkbv33jlvf6p3ap",
+      "depends": ["MASS", "Matrix", "Rcpp", "RcppArmadillo", "abind", "cli", "coda", "ggforce", "ggplot2", "ggrepel", "gridExtra", "netify", "patchwork"]
+    },
     "laminr": {
       "name": "laminr",
       "version": "1.3.1",
@@ -89301,8 +90213,8 @@
     },
     "lapop": {
       "name": "lapop",
-      "version": "2.1.5",
-      "sha256": "0dqxj8mpw7vy25dq1kayixj4127mig5qqyj5zqmrbylg4dd571pj",
+      "version": "2.1.7",
+      "sha256": "1r1f6bxy97pvxzp7yzlx5nwdbp0gzxqh65qhz75zmf3dhknycpj7",
       "depends": ["dplyr", "ggplot2", "ggrepel", "ggtext", "gridExtra", "gridtext", "haven", "marginaleffects", "purrr", "sf", "showtext", "srvyr", "stringr", "survey", "svglite", "sysfonts", "systemfonts", "tibble", "zoo"]
     },
     "lares": {
@@ -90261,8 +91173,8 @@
     },
     "lgspline": {
       "name": "lgspline",
-      "version": "1.1.0",
-      "sha256": "07qqylh7aiyh21jl7qli6xvhc6mj31xmic9dvcdv0dg0b6mfh12m",
+      "version": "1.2.1",
+      "sha256": "063z7mf1dwia2fs7nssbmlckqymy6j8x1r1v1azx69v7y8v08rza",
       "depends": ["FNN", "RColorBrewer", "Rcpp", "RcppArmadillo", "plotly", "quadprog"]
     },
     "lgtdl": {
@@ -90288,6 +91200,12 @@
       "version": "1.6.4",
       "sha256": "1jcdsvg5xgc7yzdc00k2brsiviyzflsdgiyk77icw08bwlbxh9mk",
       "depends": ["curl", "data_table", "pbapply", "stringr", "xml2"]
+    },
+    "libcmaesr": {
+      "name": "libcmaesr",
+      "version": "0.1.0",
+      "sha256": "12wig2sisbclpf861q0zfrgvdzarl25z6xls4x1xdf3ms2a0j055",
+      "depends": ["RcppEigen", "checkmate", "mlr3misc"]
     },
     "libcoin": {
       "name": "libcoin",
@@ -90327,8 +91245,8 @@
     },
     "libr": {
       "name": "libr",
-      "version": "1.4.1",
-      "sha256": "10nwkf43plismninv502gq4x1f9md8ljild5idg5pqja5m73fx5c",
+      "version": "1.4.2",
+      "sha256": "0g25zsdiw0api8svq2cskn27nl4bhxpdnq8yvwyjrl48l0s9nqhs",
       "depends": ["Rcpp", "common", "crayon", "data_table", "dplyr", "haven", "openxlsx", "readr", "readxl", "tibble"]
     },
     "librarian": {
@@ -90631,6 +91549,12 @@
       "sha256": "1dysg3q967njf1l7mm2bbk2cmhjz3aran12fkndmmi2qg3ca9xr8",
       "depends": ["crosstalk", "htmlwidgets", "jsonlite", "magrittr", "rmarkdown", "shiny"]
     },
+    "linf": {
+      "name": "linf",
+      "version": "0.1.0",
+      "sha256": "141s32h942b3xylfkxxzxzy1md77if9xa09xa57z6sfggra8i38v",
+      "depends": ["Matrix"]
+    },
     "lingamr": {
       "name": "lingamr",
       "version": "0.1.2",
@@ -90859,6 +91783,12 @@
       "sha256": "0d148s09cd6d4pqn9yg98x9nm1dr8i6yjsh7mf9a6jnnyx8z6z45",
       "depends": ["CompQuadForm", "Rcpp", "RcppArmadillo", "RcppEigen", "genio"]
     },
+    "litReview": {
+      "name": "litReview",
+      "version": "1.0.0",
+      "sha256": "16d1ks2nxcrrgbjrbj8p9kga1wdiply7v4wy3h6xbkcpnji3f7nv",
+      "depends": ["cli", "dplyr", "ggplot2", "ggtext", "gt", "rlang", "tidyr"]
+    },
     "litRiddle": {
       "name": "litRiddle",
       "version": "1.0.0",
@@ -90876,6 +91806,12 @@
       "version": "0.10",
       "sha256": "1fjg9zf2x6sf2r79w3w2gb2a4rr00hnhiq1fq0hcx7lq0nr37gv7",
       "depends": ["commonmark", "xfun"]
+    },
+    "liteformats": {
+      "name": "liteformats",
+      "version": "0.1.0",
+      "sha256": "16zp7wv9k27jswvf7h7a54ghp4xv441rw5256wzknbp2hscn8bdq",
+      "depends": ["litedown", "xfun"]
     },
     "liteq": {
       "name": "liteq",
@@ -90951,8 +91887,8 @@
     },
     "llm_api": {
       "name": "llm.api",
-      "version": "0.1.8",
-      "sha256": "15pnn1ghg31082rliqb6il0wzj6kiac08yp3arak2d1p7qy086hc",
+      "version": "0.1.9",
+      "sha256": "1334v32kml2djzyz6cxlpdbsis7b7ni28lla217l7i9dn4vszgnn",
       "depends": ["curl", "jsonlite", "tinyoauth"]
     },
     "llmclean": {
@@ -91417,6 +92353,12 @@
       "sha256": "07pl34c6mgjym8358kypxlkbnzk16ci5b05lz27194qrbphlhy2h",
       "depends": ["igraph", "wavethresh"]
     },
+    "loclm": {
+      "name": "loclm",
+      "version": "1.0.0",
+      "sha256": "01zddwrz8s1ay4gpv7vx84nrgcs7vx8wnb4p9fc2sxkd9j5qzcc6",
+      "depends": []
+    },
     "locpol": {
       "name": "locpol",
       "version": "0.9.0",
@@ -91464,6 +92406,12 @@
       "version": "1.1.1",
       "sha256": "1vzssrg2qqxd27b9d36v3mmkhgkx8n724ql9yhl5p8dy28zgsdxd",
       "depends": ["R6", "cli", "crayon"]
+    },
+    "log4r": {
+      "name": "log4r",
+      "version": "0.5.0",
+      "sha256": "1s7mv94da5j0gj8yp2slkk6vq9bwv4wq67nfyx6wzmib8kd4564s",
+      "depends": ["cli", "lifecycle", "rlang"]
     },
     "logKDE": {
       "name": "logKDE",
@@ -91663,6 +92611,12 @@
       "sha256": "00pdcfj1hmafxzs7gqw3n072p6pxp9hvsdm062n0xkiby6igffkp",
       "depends": []
     },
+    "logtree": {
+      "name": "logtree",
+      "version": "0.1.0",
+      "sha256": "1hihs2y6fg2nndrkqqndxkrz4cnl5j5h8wxs7crj4avahcf5i1f4",
+      "depends": ["cli", "rlang", "withr"]
+    },
     "lokern": {
       "name": "lokern",
       "version": "1.1-12",
@@ -91686,6 +92640,12 @@
       "version": "2.5.0",
       "sha256": "1jlmdbxlxk2a1sbkzn3x18z82i0mwhjhy72j1l02qcnyxp3clbh4",
       "depends": ["ggplot2", "gridExtra", "knitr", "plotly", "pracma"]
+    },
+    "lonelyr": {
+      "name": "lonelyr",
+      "version": "0.1.0",
+      "sha256": "0nyjr3agw5zqgzclmxdz4rhpywx41y4v75wqa36bapzkc8skdnq1",
+      "depends": []
     },
     "long2lstmarray": {
       "name": "long2lstmarray",
@@ -92139,8 +93099,8 @@
     },
     "lstar": {
       "name": "lstar",
-      "version": "0.2.1",
-      "sha256": "09rvzkxxc88afh6im5kyn8y94awqpszbslxpqgnq89x6fp2gdxyf",
+      "version": "0.2.2",
+      "sha256": "030b0akpcikgxllazs4sn4fxwqdpjk26a4n2b6vj4awvz1ycw8lv",
       "depends": ["Matrix", "cpp11"]
     },
     "lt": {
@@ -92887,6 +93847,12 @@
       "sha256": "1g54nq01qgmi25lgdpsw044nyschcj7wnaaqhj72hax8yl4s8vqi",
       "depends": ["checkmate", "rJava"]
     },
+    "malp": {
+      "name": "malp",
+      "version": "1.1-0",
+      "sha256": "0bhvrcn9fqvhniz7i625kfyykg4dqc81vxirfjgpsabiksggyiy0",
+      "depends": ["boot", "sandwich"]
+    },
     "malvinas": {
       "name": "malvinas",
       "version": "0.1.0",
@@ -93267,8 +94233,8 @@
     },
     "maq": {
       "name": "maq",
-      "version": "0.6.0",
-      "sha256": "1by8j2l1yk3pn3hfv0az8567zik3i6hil77bkisj92l5kvhhanvs",
+      "version": "0.6.1",
+      "sha256": "0kqp9psykwsx3ygmdq4x1fjm0kk1gs3pwyq0wqpy3dgda69sr6dj",
       "depends": ["Rcpp"]
     },
     "maraca": {
@@ -94279,6 +95245,12 @@
       "sha256": "1ivh0d4f7ks6xwcjywk62h1zhr7h5bbhzpisky7973wi4g8vipbn",
       "depends": ["R6", "R_utils", "checkmate"]
     },
+    "mcplite": {
+      "name": "mcplite",
+      "version": "0.1.0",
+      "sha256": "05fzs2c0zsc0hmaiymmvbds2rbhih1a9bls63qx6w1v56laszmv8",
+      "depends": ["jsonlite", "nanonext", "otel"]
+    },
     "mcprofile": {
       "name": "mcprofile",
       "version": "1.0-1",
@@ -95112,6 +96084,12 @@
       "version": "1.6.2",
       "sha256": "0anxsyyrwv5qr1md4js0jbiryq98g45ar0n469gv9245r3zp4v2v",
       "depends": ["data_table", "mathjaxr", "readJDX", "speaq", "toscutil", "withr"]
+    },
+    "metabodeconplus": {
+      "name": "metabodeconplus",
+      "version": "0.22.0",
+      "sha256": "0vf92fhs7j16n2j1zcvyirvimvqmjcsbsgnc7kkps1a7pip8hqln",
+      "depends": ["mathjaxr", "ranger", "readJDX", "toscutil", "withr"]
     },
     "metabolic": {
       "name": "metabolic",
@@ -96445,12 +97423,6 @@
       "sha256": "1shyy51mxwk3bqvmr54bgjlhap25alr5d6digjq1p9dqbxhck7wa",
       "depends": ["glue"]
     },
-    "minired": {
-      "name": "minired",
-      "version": "1.0.1",
-      "sha256": "068jwb37d7dpqx9xxp6c56rk20aks89063hbx0gwxivc6rrsvyja",
-      "depends": ["cpp11"]
-    },
     "minorparties": {
       "name": "minorparties",
       "version": "1.0.0",
@@ -96861,8 +97833,8 @@
     },
     "mixedBayes": {
       "name": "mixedBayes",
-      "version": "0.2.5",
-      "sha256": "1rxbrm24pzhiarggv3s5bn7wa1pypwlnkzj7varfb044hx2g746a",
+      "version": "0.2.6",
+      "sha256": "1hh0v2xhmai099fnfzpixmgvxzl4vvb6yxg2gma709xpghibpg67",
       "depends": ["Rcpp", "RcppArmadillo"]
     },
     "mixedCCA": {
@@ -97053,8 +98025,8 @@
     },
     "mizer": {
       "name": "mizer",
-      "version": "3.2.0",
-      "sha256": "11jd3bz32hhxjp6l1v31vmcz2hb9d3l3jqhkmgwscwdh77v2fcc5",
+      "version": "3.2.1",
+      "sha256": "0m7xndyz94qpmfmba2lb32zzk5mlr9p4437xpz67l53mvnyj056f",
       "depends": ["Rcpp", "assertthat", "deSolve", "dplyr", "ggplot2", "ggrepel", "lifecycle", "lubridate", "pak", "plotly", "plyr", "progress", "reshape2", "rlang"]
     },
     "mkde": {
@@ -97825,6 +98797,12 @@
       "sha256": "1mv0bsik3bdkmnggy2fv0482fqv2yck1ycw49wd45p2dyfzzwcsd",
       "depends": ["Rborist", "gbm"]
     },
+    "mobdb": {
+      "name": "mobdb",
+      "version": "1.0.1",
+      "sha256": "0ggg35kqpc7lp6zbfz5ci13162bgfks6yr913calhvazi9vnn5gw",
+      "depends": ["cli", "curl", "digest", "dplyr", "httr2", "lifecycle", "rlang", "tibble"]
+    },
     "mobsim": {
       "name": "mobsim",
       "version": "0.3.2",
@@ -97836,6 +98814,12 @@
       "version": "0.2.1",
       "sha256": "00rvd2izb20i08kcmqf2k958z6xk6pxr6p83cg92941z8xfr1hdk",
       "depends": ["doParallel", "foreach", "nsga2R"]
+    },
+    "mochita": {
+      "name": "mochita",
+      "version": "1.0.0",
+      "sha256": "1avp3bman090pdyvvclkb7kmdwvj06kg7r1gc6v0xg6h0jflw0ls",
+      "depends": ["R6", "httpuv", "nanonext", "testthat"]
     },
     "mockery": {
       "name": "mockery",
@@ -98115,9 +99099,9 @@
     },
     "moderndive": {
       "name": "moderndive",
-      "version": "0.7.0",
-      "sha256": "0pvmqkgxnjj5sw8bj0m7d6k9imcyrfndn3g09qwk83k8jsbwg85d",
-      "depends": ["broom", "dplyr", "formula_tools", "ggplot2", "glue", "infer", "janitor", "knitr", "magrittr", "purrr", "rlang", "stringr", "tibble", "tidyr"]
+      "version": "0.8.0",
+      "sha256": "1sqialbgfip8hd3wp2bjqy21k9rpzzf2b21axlvc3l5b24pjpd5d",
+      "depends": ["DT", "broom", "dplyr", "formula_tools", "ggplot2", "glue", "infer", "janitor", "knitr", "magrittr", "purrr", "rlang", "stringr", "tibble", "tidyr"]
     },
     "modest": {
       "name": "modest",
@@ -98454,6 +99438,12 @@
       "version": "0.1.0",
       "sha256": "07ljy6rwicyrv20l7zyxq2lb7qqfpl5mpv834m2n5c4air7sy23m",
       "depends": []
+    },
+    "moranajp": {
+      "name": "moranajp",
+      "version": "0.9.8",
+      "sha256": "15mi7vz5inw1f76712587kqvalp29bfy87xasxk5sbdsax29hafi",
+      "depends": ["dplyr", "ggplot2", "ggraph", "igraph", "purrr", "rlang", "rvest", "stringi", "stringr", "tibble", "tidyr"]
     },
     "morepls": {
       "name": "morepls",
@@ -99033,8 +100023,8 @@
     },
     "mritc": {
       "name": "mritc",
-      "version": "0.6.0",
-      "sha256": "0rv8yjil8zhqqd6wzfmv88z9x5q0cbxvnxn7460pa86skbbzdv1k",
+      "version": "0.6.1",
+      "sha256": "0vqhhqzrraiaxf36yhajq49hadnkkbp5qjxbkb0g74hg3616xb5q",
       "depends": ["oro_nifti"]
     },
     "mro": {
@@ -99666,6 +100656,12 @@
       "version": "2.0.0",
       "sha256": "0zxv3kxk8gh2fgllzzg7k625n3p4q5pr465ja0mhvs48m4n262l9",
       "depends": []
+    },
+    "multichainr": {
+      "name": "multichainr",
+      "version": "0.1.0",
+      "sha256": "1bdapp1j4zmkiap3w94mgwbkwiz69p626l76y2kgzzl2hwj1956y",
+      "depends": ["httr2", "jsonlite", "magrittr"]
     },
     "multichull": {
       "name": "multichull",
@@ -100617,14 +101613,14 @@
     },
     "mx_client": {
       "name": "mx.client",
-      "version": "0.1.1",
-      "sha256": "18pv36h60zfmd1pb8i2gxzsln3yz3kyjl3g12v9qzspj2z6l9y4q",
+      "version": "0.2.0",
+      "sha256": "1d93m1kchl5h3s0kncr2racs9jpirq88c0vbscriafyan4ipqxax",
       "depends": ["jsonlite", "mx_api"]
     },
     "mx_crypto": {
       "name": "mx.crypto",
-      "version": "0.2.0",
-      "sha256": "0bzm5qir3rns2w1m2qmpk5cfnmxbf5npxkqm2vzz2sack1h3bh8j",
+      "version": "0.2.1",
+      "sha256": "19q46v8v00m9wlis1db1vdx4ww172b53d14ir7wrwwm3liyvxjrv",
       "depends": []
     },
     "mxcc": {
@@ -100881,14 +101877,14 @@
     },
     "nanoarrow": {
       "name": "nanoarrow",
-      "version": "0.8.0-1",
-      "sha256": "11za8k3mmsla2siddwakvid6p6hbddfqmwrixkxf6i5h2w9clxkn",
+      "version": "0.9.0",
+      "sha256": "0m8sfyk0gz7jxzqzczvl0v6amq930x38ijli97vmgggh0zsbzdn3",
       "depends": []
     },
     "nanonext": {
       "name": "nanonext",
-      "version": "1.10.1",
-      "sha256": "17zdz77fbl97s0kwksrbl3nannldig832jbdw68k3b5asqh5lmza",
+      "version": "1.10.2",
+      "sha256": "0mkq7dfwgvqb1f3whvq98ahp2nv4spfmmwq5j4xcplff8np6pzmw",
       "depends": []
     },
     "nanoparquet": {
@@ -100989,8 +101985,8 @@
     },
     "nat": {
       "name": "nat",
-      "version": "1.8.25",
-      "sha256": "1qwl8ynncn4swa5l1dg8z7qlyhwk05p9s9z9wm6dcmcczmivmdga",
+      "version": "1.8.26",
+      "sha256": "0hl8zn0v9iz6jvrqk414n56xjyz7h0pj55rif90v5md2b8ssj0km",
       "depends": ["digest", "filehash", "igraph", "nabor", "nat_utils", "plyr", "rgl", "yaml"]
     },
     "nat_nblast": {
@@ -101281,6 +102277,12 @@
       "sha256": "1wqn0n3qzjsblwzprhxs99c4z9pwcy11s7iiai0pn7ki7vx2k8g2",
       "depends": ["Rdpack", "classInt", "dplyr", "ggplot2", "ggrepel", "magrittr", "rlang", "sf", "stringi", "stringr", "tibble"]
     },
+    "needenv": {
+      "name": "needenv",
+      "version": "0.1.0",
+      "sha256": "1v772ixfwv0n05czjyqmm6wl2mda1ab71iyjhpb063cn6yl1nfap",
+      "depends": []
+    },
     "needs": {
       "name": "needs",
       "version": "0.0.3",
@@ -101337,8 +102339,8 @@
     },
     "neo2R": {
       "name": "neo2R",
-      "version": "3.0.0",
-      "sha256": "0vyfcrjdplhz9h1ija9mvdpczbprk4hlab6c47a3wnwm4m7w4vyn",
+      "version": "3.1.1",
+      "sha256": "01gy7xr5dbqrqkbdfk9bpg53fyl5w11361bjvh2p1k4cv77wnml0",
       "depends": ["httr2", "jsonlite"]
     },
     "neo4jshell": {
@@ -101617,6 +102619,12 @@
       "sha256": "17q6slmnb6cgssvzsywrs3pkc3ganw0hsx64zyjx5wjfbm8fp1a3",
       "depends": ["igraph"]
     },
+    "netsimhelpers": {
+      "name": "netsimhelpers",
+      "version": "0.1.0",
+      "sha256": "09nmi14frkkv8gdnpk26fgpfmirl343w2px6l5l8zcwm0b8hw67d",
+      "depends": ["bootnet", "mvtnorm", "qgraph"]
+    },
     "netstat": {
       "name": "netstat",
       "version": "0.1.2",
@@ -101730,6 +102738,12 @@
       "version": "0.1.0",
       "sha256": "03l1y751spidyzqbxgbpvfz8skzki0dzrw6ffcfjxrjph59j6kyz",
       "depends": ["Rcpp"]
+    },
+    "neuralsbi": {
+      "name": "neuralsbi",
+      "version": "0.3.2",
+      "sha256": "0n2c0lpfyr1h28acxlh6hcfgr9s1y2zka2ppnsm2i9wlr8pxmm1w",
+      "depends": []
     },
     "neuroSCC": {
       "name": "neuroSCC",
@@ -102043,6 +103057,12 @@
       "sha256": "0lgyi1v940pjqfpwligw5ml6vagiz8wwsxbr9kfd1j70b5i0kjwd",
       "depends": []
     },
+    "nhsbsa": {
+      "name": "nhsbsa",
+      "version": "0.1.0",
+      "sha256": "0bq0yzrliq1gyhnklakwph198isyvq5w3iwfidj5hzawibbkd6d5",
+      "depends": ["cli", "dplyr", "httr2", "jsonlite", "purrr", "rlang", "stringr", "tibble"]
+    },
     "nhscancerwaits": {
       "name": "nhscancerwaits",
       "version": "1.0.2",
@@ -102168,6 +103188,12 @@
       "version": "0.5.0",
       "sha256": "0xnrbkd7q4r6q33vl03i5jzangq05w4q24wrc32f5njlsk10qdbc",
       "depends": ["nimble"]
+    },
+    "nimbleExtra": {
+      "name": "nimbleExtra",
+      "version": "0.1.15",
+      "sha256": "1419cmpg1cl5mk8sapd2lszfb7dpa1x0aswm8v0zzk0rdsid5vxc",
+      "depends": ["coda", "dplyr", "ggplot2", "nimble", "posterior", "purrr", "rlang", "tidyselect"]
     },
     "nimbleHMC": {
       "name": "nimbleHMC",
@@ -102321,9 +103347,9 @@
     },
     "nlmixr2": {
       "name": "nlmixr2",
-      "version": "5.0.0",
-      "sha256": "15wp9fi6zyapf1vdvhvzhz36b7gw67s7kfychhr0kwihipb7wc7f",
-      "depends": ["cli", "crayon", "dplyr", "lotri", "magrittr", "nlmixr2est", "nlmixr2extra", "nlmixr2plot", "purrr", "rstudioapi", "rxode2", "tibble"]
+      "version": "7.0.1",
+      "sha256": "0c7shc68krajg3rbnzzyrdimll5w400mg737xvhfqi3d4wf7r7h3",
+      "depends": ["cli", "clisymbols", "crayon", "dplyr", "lotri", "nlmixr2est", "nlmixr2extra", "nlmixr2plot", "nlmixr2save", "purrr", "rstudioapi", "rxode2", "tibble"]
     },
     "nlmixr2auto": {
       "name": "nlmixr2auto",
@@ -102345,14 +103371,14 @@
     },
     "nlmixr2est": {
       "name": "nlmixr2est",
-      "version": "6.0.1",
-      "sha256": "0676k9i8004hl3i6ldagwfyk1y6g6qjhyykycqfpiqgyy5q9w221",
-      "depends": ["BH", "Matrix", "Rcpp", "RcppArmadillo", "RcppEigen", "backports", "checkmate", "cli", "knitr", "lbfgsb3c", "lotri", "minqa", "n1qn1", "nlme", "nlmixr2data", "rex", "rxode2", "symengine"]
+      "version": "7.0.2",
+      "sha256": "1p8baqsz7jmspg83zf4cdl9aspilp3av7cv1cbb9ik12654qkfss",
+      "depends": ["BH", "L0Learn", "Matrix", "Rcpp", "RcppArmadillo", "RcppEigen", "backports", "checkmate", "cli", "knitr", "lbfgsb3c", "lotri", "minqa", "n1qn1", "nlme", "nlmixr2data", "rex", "rxode2", "symengine"]
     },
     "nlmixr2extra": {
       "name": "nlmixr2extra",
-      "version": "5.1.0",
-      "sha256": "17039zyhijsnx4dzrpl6xany7w951k490ii76jarnykcn79jk0js",
+      "version": "5.2.0",
+      "sha256": "0ijzg9hsy9pddp3hzm0x5cj972l29yxp3i0zfpqk8hpkskrypmgs",
       "depends": ["Rcpp", "RcppArmadillo", "checkmate", "cli", "crayon", "data_table", "digest", "dplyr", "ggplot2", "ggtext", "knitr", "lotri", "magrittr", "nlme", "nlmixr2est", "rxode2", "symengine"]
     },
     "nlmixr2lib": {
@@ -102363,9 +103389,9 @@
     },
     "nlmixr2plot": {
       "name": "nlmixr2plot",
-      "version": "5.0.2",
-      "sha256": "1jb6p42gc5myxzd2w4zr5hjcl68iagnir4xnp94wvf6bjryf3y2d",
-      "depends": ["ggplot2", "nlmixr2est", "nlmixr2extra", "rxode2", "tidyr", "xgxr"]
+      "version": "5.1.0",
+      "sha256": "0y4k1j8dda5v93dglr8pbplnz1qwi4784p18cdlz6c137d14q82w",
+      "depends": ["ggforce", "ggplot2", "ggtibble", "nlmixr2est", "nlmixr2extra", "rxode2", "tidyr", "xgxr"]
     },
     "nlmixr2rpt": {
       "name": "nlmixr2rpt",
@@ -102375,8 +103401,8 @@
     },
     "nlmixr2save": {
       "name": "nlmixr2save",
-      "version": "0.1.0",
-      "sha256": "1lfhjg789xc83d012250np1wrqxdidfml8lv7mjx5sw3hf07m91q",
+      "version": "0.2.0",
+      "sha256": "13wjsgcrz4brj8rprxjilxypb2x7wa3z5yj7jc22z22x8krawiy4",
       "depends": ["Rcpp", "checkmate", "cli", "digest", "rxode2", "zip"]
     },
     "nlmixr2targets": {
@@ -102756,6 +103782,12 @@
       "version": "1.4.4",
       "sha256": "0v1q3sg9is6cczxj591iqh4yvhnmvr3pg01fsf5arr10dzs0h2lv",
       "depends": ["ape", "picante", "raster", "sp", "vegan"]
+    },
+    "nof1kit": {
+      "name": "nof1kit",
+      "version": "0.1.0",
+      "sha256": "00w2q2px0l4vi5w6w63f9khr1iwwsj38jzddirsjgf2awq08z7lg",
+      "depends": ["jsonlite"]
     },
     "nofrills": {
       "name": "nofrills",
@@ -103449,9 +104481,9 @@
     },
     "npwbs": {
       "name": "npwbs",
-      "version": "0.4.0",
-      "sha256": "04c1yk4glx1va371zhb2sp5z1yh16ghlr1zxf9x4sp72m9a4xaja",
-      "depends": ["Rcpp"]
+      "version": "0.5.0",
+      "sha256": "1wnv5jaapsfah2l35xr50hqx0q15ahiv5zgkdwhdv73xwnq5kmmi",
+      "depends": ["Rcpp", "digest"]
     },
     "nrba": {
       "name": "nrba",
@@ -104094,6 +105126,12 @@
       "version": "0.0.3",
       "sha256": "0vjmmbyxsnc40sv053s3jgwssxnn897kf5hkx1vbxrym7zx775k9",
       "depends": ["cli", "data_table", "dplyr", "glue", "httr", "janitor", "jsonlite", "magrittr", "rlang", "rvest", "tidyr"]
+    },
+    "oddsapiio": {
+      "name": "oddsapiio",
+      "version": "0.1.1",
+      "sha256": "1ky8yy61d2w4k09qyqy1s2s6y5nd9rvgrch27dsp8kfsivgs0zz0",
+      "depends": ["httr2", "jsonlite"]
     },
     "oddsratio": {
       "name": "oddsratio",
@@ -104811,8 +105849,8 @@
     },
     "opencltools": {
       "name": "opencltools",
-      "version": "0.8.2",
-      "sha256": "02xhh7xcahb2az7l6mksr3il5wmkms75l78fz4a5w6niaav0qlzr",
+      "version": "0.8.3",
+      "sha256": "193ia2bap7hajbn1xj4kjyw6kz2v37ga42nqx40y8zz0v2j99jrl",
       "depends": ["Rcpp", "RcppArmadillo", "RcppParallel", "Rdpack", "jsonlite"]
     },
     "opencpu": {
@@ -105246,6 +106284,12 @@
       "version": "0.6.8",
       "sha256": "0wvq46dcd1d9614k0p0g17sdnzwb7g8ia4gqzwrv49vcj33gxgi2",
       "depends": []
+    },
+    "orbis": {
+      "name": "orbis",
+      "version": "0.1.0",
+      "sha256": "175snp037hm9dvyzizn8hwqlwxx6w6qngsk9d6is09ag8h536b90",
+      "depends": ["htmltools"]
     },
     "orbital": {
       "name": "orbital",
@@ -106195,6 +107239,12 @@
       "sha256": "0j4fjyqx0wlwxfbiixx9123fadhfdzi97s4mb43imiw2ydp0d5gs",
       "depends": ["ISOcodes", "RCurl", "R_utils", "cachem", "cranlogs", "curl", "data_table", "fasttime", "ggplot2", "memoise", "patchwork", "pkgsearch", "rversions", "sugrrants"]
     },
+    "packageRankWrapperDriver": {
+      "name": "packageRankWrapperDriver",
+      "version": "1.0",
+      "sha256": "0394im4fw11fwr97yc8dfib4ngyd793nfpalf3fdjivya91mb8l5",
+      "depends": ["packageRank", "pkgsearch"]
+    },
     "packagefinder": {
       "name": "packagefinder",
       "version": "0.3.5",
@@ -106339,6 +107389,12 @@
       "sha256": "1qw5725yjymxmfhffqjx4lbmzj437c7qwr8xrzmf52f0m28nl3vk",
       "depends": []
     },
+    "paintr": {
+      "name": "paintr",
+      "version": "0.0.1",
+      "sha256": "1d26z8w4jkqxmz8kf31z90syszlzsayvncjwchsslq1dg44mradq",
+      "depends": []
+    },
     "pairsD3": {
       "name": "pairsD3",
       "version": "0.1.3",
@@ -106465,6 +107521,12 @@
       "sha256": "08cdr8g398zjxahdjzinswma06ndls127kyf4s2nncgli93pixzm",
       "depends": ["cli", "pillar", "vctrs"]
     },
+    "palettecore": {
+      "name": "palettecore",
+      "version": "0.4.1",
+      "sha256": "104n1sc4b4xjlb9vsmr71ah2p0d4jfy73fmr2f2vs1z7wmksvy6c",
+      "depends": []
+    },
     "paletteer": {
       "name": "paletteer",
       "version": "1.7.0",
@@ -106533,8 +107595,8 @@
     },
     "palr": {
       "name": "palr",
-      "version": "0.4.0",
-      "sha256": "1day74mapad08x95vpdd56qg74yizfna6rdap3y7rwbk3yk3spf6",
+      "version": "0.5.0",
+      "sha256": "0c2zy54m7g23fbbyvcfl1y7qnajycl9rafa1p2y4v7b4bmr1gi1l",
       "depends": []
     },
     "pals": {
@@ -106626,6 +107688,12 @@
       "version": "0.1.0",
       "sha256": "025p6dqd7fxa0nh07mwrkbvi5cb6jsfx28kskqvzf8zvar6rbr41",
       "depends": ["MASS", "fastmatrix", "formula_tools", "matlib", "plm"]
+    },
+    "panelTool": {
+      "name": "panelTool",
+      "version": "0.1.0",
+      "sha256": "0b7c45mvkvr9fd1bi0a8xlp52sf8b2h6xdvajf3ns1az9f98y2l0",
+      "depends": []
     },
     "panelView": {
       "name": "panelView",
@@ -107195,6 +108263,12 @@
       "name": "pathfindR.data",
       "version": "2.2.0",
       "sha256": "09czmqrq9aqnxxiwds5hib6plhxpw5fyx3474f39ng9qlxawhghz",
+      "depends": []
+    },
+    "pathintdid": {
+      "name": "pathintdid",
+      "version": "0.1.0",
+      "sha256": "1wlg3qnzvp2jwqnr804lqxbwcf1g806vvaf93qhncgc3897frss6",
       "depends": []
     },
     "pathling": {
@@ -108111,8 +109185,8 @@
     },
     "pensar": {
       "name": "pensar",
-      "version": "0.6.4",
-      "sha256": "08rrc8vzynv5vcqngi8vzfd2v95ynwcswdrsi8xl1bzz95c5dij6",
+      "version": "0.7.0",
+      "sha256": "1nx1fijn0cyg5ii288hpig5npw8k48mq45kbkz5nr5bq4cn2jmij",
       "depends": ["curl", "digest", "stringdist", "yaml"]
     },
     "pense": {
@@ -108384,6 +109458,12 @@
       "version": "0.3.0",
       "sha256": "1sga4p15bcb9cdng6rw9h7bcaznsq93ibmxrcmwznh008v8c5fm3",
       "depends": ["htmltools", "htmlwidgets", "jsonlite"]
+    },
+    "persuasio": {
+      "name": "persuasio",
+      "version": "0.1.0",
+      "sha256": "0740j9z76dzy1plvb7df7qzlz7vs7lcb78rygfb5m4p2z9cjqqky",
+      "depends": []
     },
     "persval": {
       "name": "persval",
@@ -108858,6 +109938,12 @@
       "version": "1.3.10",
       "sha256": "1g4gmfz190xaj800gawl79fzhmgimssa31kqzw8a70scp5psz3fw",
       "depends": ["BH", "Rcpp", "data_table"]
+    },
+    "phontrast": {
+      "name": "phontrast",
+      "version": "2.3.1",
+      "sha256": "0nxrvm508lhb5v1g6ln9fqr6rn3b3x5xf4jg3rgn2ynpbgz7kryj",
+      "depends": ["dplyr", "ks", "purrr", "rlang", "tibble"]
     },
     "phosphoricons": {
       "name": "phosphoricons",
@@ -109626,6 +110712,12 @@
       "version": "0.5.4",
       "sha256": "0k5b32i1l1r2f5klqhqqzr07ydd51j4nvbpinbwjv35047v6s66k",
       "depends": ["Rcpp", "brio", "checkmate", "cli", "curl", "dplyr", "fs", "httr2", "memoise", "piggyback", "rvest", "tibble", "tidyr", "tokenizers", "treesitter", "treesitter_r", "vctrs"]
+    },
+    "pkgmd": {
+      "name": "pkgmd",
+      "version": "0.1",
+      "sha256": "1l0yv2rzpbhg76nia0q59akw6i0cjmbnb62yl66mkv938m78is2c",
+      "depends": ["cli", "fs", "glue", "purrr"]
     },
     "pkgndep": {
       "name": "pkgndep",
@@ -110607,8 +111699,8 @@
     },
     "policytree": {
       "name": "policytree",
-      "version": "1.2.4",
-      "sha256": "1ixwl659cfq1h4x60ysk9bvqp6dbk96kgk8phy1q26lrywp6l991",
+      "version": "1.2.5",
+      "sha256": "17nhi87zvd1cnspbmjlg7zy2h556s2vwnbgca9nkpx8z37qx5zxj",
       "depends": ["BH", "Rcpp", "grf"]
     },
     "polimetrics": {
@@ -110736,6 +111828,12 @@
       "version": "0.8-2",
       "sha256": "0nhzjpv07kwdc234k84kqr2yiixqpawxaqmaln3q8fx6ym49b3k1",
       "depends": ["Matrix", "admisc", "mvtnorm"]
+    },
+    "polyglotSQL": {
+      "name": "polyglotSQL",
+      "version": "0.1.0",
+      "sha256": "1k492v35n08qwx2m3hpcz5p1b8i9s8sjzhf2ff5450vpz5jv68nb",
+      "depends": ["cli", "jsonlite"]
     },
     "polyglotr": {
       "name": "polyglotr",
@@ -111696,6 +112794,12 @@
       "version": "0.1.1",
       "sha256": "04a30q6zv454qs463fyf29xa325lccpyfshgd66981g73mj6wil1",
       "depends": ["arrow", "dplyr", "rlang"]
+    },
+    "predHCS": {
+      "name": "predHCS",
+      "version": "0.1.0",
+      "sha256": "0rbqzp4f7s9z7zrxbcji2qmsr7ks3vp3capcar9dr72aymbvc35x",
+      "depends": []
     },
     "predReliability": {
       "name": "predReliability",
@@ -112821,9 +113925,9 @@
     },
     "proximetricsR": {
       "name": "proximetricsR",
-      "version": "0.6.5",
-      "sha256": "0nhhc3kxs329qfi5q04qrqa16npfl8fq92ncs0cj22pjcd7kjddx",
-      "depends": ["Rcpp", "RcppArmadillo", "callr", "digest", "foreach", "jsonlite", "mathjaxr", "plotly", "prospectr", "quarto", "readxl", "uuid", "withr", "zip"]
+      "version": "0.7.0",
+      "sha256": "1x8h5lr5h88anxfrnwaakzwkmpvzsdphnclgdqksqkl55i4idw19",
+      "depends": ["Rcpp", "RcppArmadillo", "callr", "digest", "foreach", "jsonlite", "mathjaxr", "plotly", "prospectr", "quarto", "readxl", "scales", "uuid", "withr", "zip"]
     },
     "proxirr": {
       "name": "proxirr",
@@ -113101,6 +114205,12 @@
       "sha256": "1gwvk51fmgjnadb9hyb4i0942nqsy0xy9mh34v588x91jvky5rq3",
       "depends": ["MASS", "VizTest", "boot", "car", "cowplot", "dplyr", "fANCOVA", "ggplot2", "ggrepel", "magrittr", "marginaleffects", "mgcv", "multcomp", "nortest", "rlang", "sm", "tibble", "tidyr"]
     },
+    "psreplicate": {
+      "name": "psreplicate",
+      "version": "0.1.0",
+      "sha256": "00j0f6g7mgaqn5g0pbydlib14cdlbshmjk729qlw209c8qy492c1",
+      "depends": ["jsonlite", "tibble"]
+    },
     "psrwe": {
       "name": "psrwe",
       "version": "3.2-1",
@@ -113187,8 +114297,8 @@
     },
     "psychonetrics": {
       "name": "psychonetrics",
-      "version": "0.16.9",
-      "sha256": "02zldwk4lj428l2457wnw1ljcsh4gp0ydg773y5m65alyf7niycl",
+      "version": "0.17.8",
+      "sha256": "096q5m6c61k41kvmass3cq5pwx31qbxhlfq2kqmip7a6var2y0pg",
       "depends": ["IsingSampler", "MASS", "Matrix", "Rcpp", "RcppArmadillo", "RcppEigen", "corpcor", "dplyr", "glasso", "lavaan", "magrittr", "mgcv", "nloptr", "numDeriv", "optimx", "pbapply", "pbv", "psych", "qgraph", "rlang", "roptim", "tidyr"]
     },
     "psychotools": {
@@ -114397,6 +115507,12 @@
       "sha256": "0jdf3hyzas0lyv2v4gqai9mhh7218a1mvm0nlwv9hfdbij0hi84v",
       "depends": ["graph", "igraph", "pcalg", "qtl", "sem"]
     },
+    "qtsa": {
+      "name": "qtsa",
+      "version": "0.1.1",
+      "sha256": "1j98ix9j2v31kq3qrb59qg011gqmgkwak2fihk9xjygcr735lhiz",
+      "depends": []
+    },
     "qtwAcademic": {
       "name": "qtwAcademic",
       "version": "2022.12.13",
@@ -114549,8 +115665,8 @@
     },
     "quanteda": {
       "name": "quanteda",
-      "version": "4.4",
-      "sha256": "12l25xqqb4g3x803jzhasjh9651hcliijcjc3fac58mmx4x6q9wd",
+      "version": "4.5.0",
+      "sha256": "1hpnmky7cziknzpnnpxjyyijcic1an22w4gvjjba3waikm8r5xfa",
       "depends": ["Matrix", "Rcpp", "SnowballC", "fastmatch", "jsonlite", "lifecycle", "magrittr", "stopwords", "stringi", "xml2", "yaml"]
     },
     "quanteda_textmodels": {
@@ -114906,6 +116022,12 @@
       "version": "0.0.6",
       "sha256": "054srazskvdh25s1sp93i2gr8lqcpbrwjpq0ympbfpl6ar5l02l8",
       "depends": ["dplyr", "magrittr"]
+    },
+    "qvivid": {
+      "name": "qvivid",
+      "version": "0.1.2",
+      "sha256": "10k5h3lbz3pawrzavsvxjs5cqrly6c1g9ywbv749q4500zagjq4i",
+      "depends": []
     },
     "qwalkr": {
       "name": "qwalkr",
@@ -115482,6 +116604,12 @@
       "version": "0.3.1",
       "sha256": "09sbvybalj9sniyxbzqc7pqkh0q93xhdnxhrayg6ykc7h47aqml3",
       "depends": ["cli", "dplyr", "httr2", "jsonlite", "purrr", "rlang", "stringr", "tibble", "tidyr"]
+    },
+    "rKraken": {
+      "name": "rKraken",
+      "version": "1.0.0",
+      "sha256": "06dfi9ds48qk6p305zpjn9cbpkyc8b1c8zbbrx8fz71frgz8xxhi",
+      "depends": ["base64enc", "digest", "httr2", "jsonlite", "lubridate", "uuid"]
     },
     "rLDCP": {
       "name": "rLDCP",
@@ -116473,6 +117601,12 @@
       "sha256": "1rn0j4ss95xa78mfdfkccrmds8nvz6wwb2icvw7rlwgc24bmlcms",
       "depends": ["DBI", "RSQLite", "dplyr", "jsonlite", "magrittr", "purrr", "rlang", "tibble", "tidyweather"]
     },
+    "rapsimng_decide_core": {
+      "name": "rapsimng.decide.core",
+      "version": "0.1.0",
+      "sha256": "02zg2qr6dn0w8xa4g9avnpzasvrsrf8arvdji8aanrifrs04pvkc",
+      "depends": []
+    },
     "raptools": {
       "name": "raptools",
       "version": "1.23.0",
@@ -116671,6 +117805,12 @@
       "sha256": "1yl90vkdm6cnv1jh8gx66y5bs54id25zbb33kn7ppwakdcxv0szf",
       "depends": []
     },
+    "ratingtables": {
+      "name": "ratingtables",
+      "version": "0.2.0",
+      "sha256": "1332db9f1z6crf5a4rrhgll0b27y68ljic9z5dzz92xs50cnab82",
+      "depends": []
+    },
     "rationalfun": {
       "name": "rationalfun",
       "version": "0.1-1",
@@ -116826,6 +117966,12 @@
       "version": "0.1-2",
       "sha256": "1zzcjfd5djk790gbdzv7y4zn7sjfr8400awp74qbqz7ismsc63z4",
       "depends": ["gmp", "httr", "openssl", "rjson"]
+    },
+    "rbcmodel": {
+      "name": "rbcmodel",
+      "version": "1.0.1",
+      "sha256": "1kgzyjxj881shb7a1wf9s3rjzck2l97y2a5rg28gyqf9ai6ypw15",
+      "depends": ["plot3D"]
     },
     "rbedrock": {
       "name": "rbedrock",
@@ -117210,6 +118356,12 @@
       "version": "0.3.0",
       "sha256": "1qxm9l0yd4xir6wr31r1v87g7flbpgggy7lh9lbvg307k8li1j2h",
       "depends": ["jsonlite", "yaml"]
+    },
+    "rcontroll": {
+      "name": "rcontroll",
+      "version": "0.1.3",
+      "sha256": "0rl84m9g2s90jg4gxl398xabzrapkwfkv7rfq0qbalq01yj3fq8y",
+      "depends": ["Rcpp", "RcppGSL", "doParallel", "doSNOW", "dplyr", "foreach", "gganimate", "ggplot2", "iterators", "lubridate", "magrittr", "readr", "reshape2", "sys", "terra", "tibble", "tidyr", "viridis", "vroom"]
     },
     "rconvertu": {
       "name": "rconvertu",
@@ -118839,8 +119991,8 @@
     },
     "renv": {
       "name": "renv",
-      "version": "1.2.3",
-      "sha256": "1ysb23d4ww26hmfga1c5mnbc37v4cw9aq0cfs6zbcdjlrrdbaqpl",
+      "version": "1.2.4",
+      "sha256": "132yaw07q1c23wziyz6lxw1kh43qjdcwkinvv545imc5qxyn6g76",
       "depends": []
     },
     "renz": {
@@ -118920,6 +120072,12 @@
       "version": "0.4.11",
       "sha256": "132f392cphi78qjgjcc14310p9f8yfsb1cvkfnb6rs272ksisknk",
       "depends": ["bayestestR", "boot", "flextable", "lme4", "lmerTest", "officer", "xtable"]
+    },
+    "repo": {
+      "name": "repo",
+      "version": "2.1.7",
+      "sha256": "0a1d7wq4cpx9jd5g1b06faixhznpcpbyh72knja1pwaknk2xzqf0",
+      "depends": ["digest"]
     },
     "repo_data": {
       "name": "repo.data",
@@ -119235,8 +120393,8 @@
     },
     "resourcecode": {
       "name": "resourcecode",
-      "version": "0.5.4",
-      "sha256": "05q9gzv1a7cdp04via225102pg60pivhdmlwhf6yawismx0zxzfd",
+      "version": "0.5.5",
+      "sha256": "12hsvqlaq4iij3xrgjw4xq7fl400rfk7z3i3n7sd5j6pc5pgv59s",
       "depends": ["Rcpp", "RcppArmadillo", "abind", "geosphere", "ggplot2", "gridtext", "httr2", "lubridate", "ncdf4", "patchwork", "pracma", "resourcecodedata", "rlang", "sf", "tibble", "tidyr"]
     },
     "resourcecodedata": {
@@ -119973,8 +121131,8 @@
     },
     "ribd": {
       "name": "ribd",
-      "version": "1.7.1",
-      "sha256": "0p5qh2s3hcbxgs1sqg5h00cq35nvxhw54xqr4jphl7bkwpbf89sz",
+      "version": "1.7.2",
+      "sha256": "1hshcjxrg886h3h1144bc1v5r5ym28yavxg5dpzvqar0r1cx695h",
       "depends": ["glue", "kinship2", "pedtools", "slam"]
     },
     "ribiosArg": {
@@ -120445,6 +121603,12 @@
       "sha256": "1k1jwnrr6w50k8lg0pvfm01dpqcnkabs52kdxb270jmf9v9v771h",
       "depends": ["rJava", "rjd3jars", "rjd3toolkit"]
     },
+    "rjd3qr": {
+      "name": "rjd3qr",
+      "version": "0.4.2",
+      "sha256": "0kxnmwjsbk7aflzfk8zz1s3ba2wss45vf6vkv7pr1r7k36cqv31b",
+      "depends": ["openxlsx"]
+    },
     "rjd3toolkit": {
       "name": "rjd3toolkit",
       "version": "3.8.0",
@@ -120901,6 +122065,12 @@
       "sha256": "1rp7z8iv3h7c61c7h617n5x88kk1y1kzqf1nyzixmyia724yy9mn",
       "depends": ["BBmisc", "GA", "foreach", "ggplot2", "plotly"]
     },
+    "rmoriebricklayer": {
+      "name": "rmoriebricklayer",
+      "version": "0.3.7",
+      "sha256": "1nxjd20hxk51mxxyld5q9gyvhj6j0qa1js1q0z1zpd1p4yfir30x",
+      "depends": ["digest", "jsonlite"]
+    },
     "rmp": {
       "name": "rmp",
       "version": "2.2",
@@ -121029,8 +122199,8 @@
     },
     "rncl": {
       "name": "rncl",
-      "version": "0.8.9",
-      "sha256": "0297042xmg3n1bdxf3pz1qpawhw1n7qmia577a74j400wv5a0r4f",
+      "version": "0.8.10",
+      "sha256": "11fv2qp6bx78wr45sys2q555mvxpfzf8jyp2hx5vp846ax9yx04c",
       "depends": ["Rcpp", "progress"]
     },
     "rneos": {
@@ -121953,9 +123123,9 @@
     },
     "roxygen2": {
       "name": "roxygen2",
-      "version": "8.0.0",
-      "sha256": "1s1lp8hbhh636nisv9b8pvxb14144jvqbfal49szam2mlbrnp0bm",
-      "depends": ["R6", "brew", "cli", "commonmark", "cpp11", "desc", "knitr", "lifecycle", "pkgload", "rlang", "withr", "xml2"]
+      "version": "8.1.0",
+      "sha256": "14dn3ya51z9ipivsl3larmx6lgph997rwhcwmfqdpkx8bdamvqvf",
+      "depends": ["R6", "brew", "cli", "commonmark", "cpp11", "desc", "knitr", "lifecycle", "pkgload", "rdtools", "rlang", "withr", "xml2"]
     },
     "roxygen2md": {
       "name": "roxygen2md",
@@ -122009,6 +123179,12 @@
       "name": "rpanel",
       "version": "1.1-6.3",
       "sha256": "1p5xw6sh7li9qmhckzisk760nqpvmqvxhn3yrn0b967z8nz6dywf",
+      "depends": []
+    },
+    "rpanelauto": {
+      "name": "rpanelauto",
+      "version": "1.0.0",
+      "sha256": "0gnnhrkj63spl3b038s68zcr9x4xa7plspgvcaw9rycwrqkzridm",
       "depends": []
     },
     "rpanelrev": {
@@ -123115,6 +124291,12 @@
       "sha256": "02xbmnscsdjb7gfmgx23bq15z1arj8hmaz990gqc6l06d737d37f",
       "depends": ["dplyr", "magrittr", "purrr", "readr", "rlang", "stringr", "tibble", "tidyselect", "utf8", "xml2"]
     },
+    "rtreeoflife": {
+      "name": "rtreeoflife",
+      "version": "0.1.0",
+      "sha256": "1l5i83aky6hn0qc481il9d9lgwjw2n4x5g01d8sl4l9j50yx7crz",
+      "depends": ["cli", "dplyr", "ggplot2", "tibble"]
+    },
     "rtrees": {
       "name": "rtrees",
       "version": "2.0.2",
@@ -123555,8 +124737,8 @@
     },
     "rxode2": {
       "name": "rxode2",
-      "version": "5.1.5",
-      "sha256": "0k8k3j749xfsbx6y9f3r4j0nhjnpq4zg2092c65ylvan7hdp59aa",
+      "version": "5.1.6",
+      "sha256": "09mw7xzy6qnzqsf66ygllagnjnifmaj01wixcwpjrxg2jq7y9rjs",
       "depends": ["BH", "PreciseSums", "Rcpp", "RcppArmadillo", "RcppEigen", "RcppParallel", "StanHeaders", "backports", "checkmate", "cli", "data_table", "dparser", "ggplot2", "inline", "lotri", "memoise", "mirai", "qs2", "rex", "rxode2ll", "sitmo", "sys", "vctrs"]
     },
     "rxode2ll": {
@@ -124345,6 +125527,12 @@
       "sha256": "0x6hd2747v2w8hv87ymdk5xzxk57dh7zjibpgygli1y10sd2v0v7",
       "depends": ["sf"]
     },
+    "sappviz": {
+      "name": "sappviz",
+      "version": "1.0.16",
+      "sha256": "1gq9igf4g48602ziqm2w9czihhccgcdjmpcbwlb7yc353543px7p",
+      "depends": ["ggplot2", "ggrepel"]
+    },
     "saqgetr": {
       "name": "saqgetr",
       "version": "0.2.24",
@@ -124749,9 +125937,9 @@
     },
     "scTenifoldNet": {
       "name": "scTenifoldNet",
-      "version": "1.3",
-      "sha256": "02ijwi487pfwhgdmpals2snx5dvdnkbkyp9g1yldw12a9v8rz8q7",
-      "depends": ["MASS", "Matrix", "RSpectra", "RhpcBLASctl", "pbapply"]
+      "version": "1.4",
+      "sha256": "0yp0swj7hf70dmxlha3qiybdwp205i8k6z8qi170rpqqci8hqgb0",
+      "depends": ["MASS", "Matrix", "RSpectra", "Rcpp", "RcppArmadillo", "RhpcBLASctl", "cli", "furrr", "future"]
     },
     "sca": {
       "name": "sca",
@@ -125719,6 +126907,12 @@
       "sha256": "16h0j3fcj3ym2qp0lciibnh7801bda9jpygnzh4lwcfk0mqmzr0a",
       "depends": ["gstat", "raster", "sp"]
     },
+    "secfile": {
+      "name": "secfile",
+      "version": "0.1.1",
+      "sha256": "0jc9y5zp9gdz2s4pj8lhay7d7czvnmdc7kwivxkxr12bcsj3ghin",
+      "depends": ["curl", "jsonlite", "xml2"]
+    },
     "secr": {
       "name": "secr",
       "version": "5.4.3",
@@ -125751,8 +126945,8 @@
     },
     "secrfunc": {
       "name": "secrfunc",
-      "version": "1.0.0",
-      "sha256": "1pn3igh2g6p753s2qz8yp42gmmrryk9j9k9d0pr51drz8vnn6s5b",
+      "version": "1.1.4",
+      "sha256": "0pc81swg19f9l7g1gq58ss6dp0swx4755r26jz2z65krinb2yyk5",
       "depends": ["BH", "Rcpp", "RcppEigen", "RcppNumerical", "RcppParallel"]
     },
     "secrlinear": {
@@ -127707,8 +128901,8 @@
     },
     "shinydataviewer": {
       "name": "shinydataviewer",
-      "version": "0.1.0",
-      "sha256": "1003n92z0pwmxljkhakf265z67vfzj9rjal2jg8f9xs3hx31vfjz",
+      "version": "0.2.0",
+      "sha256": "0h6fy44kzwycgq72ch1prkrjvg1b4bidhh1wj6ssn7siy5sgcn2w",
       "depends": ["bslib", "htmltools", "reactable", "shiny"]
     },
     "shinydbauth": {
@@ -127734,6 +128928,12 @@
       "version": "0.3.0",
       "sha256": "0bccgi6m9ar4l7shnrs8vzbkkavcg00w1d7m31ca21wk30xl9zcz",
       "depends": ["htmltools", "shiny"]
+    },
+    "shinyelectron": {
+      "name": "shinyelectron",
+      "version": "0.2.1",
+      "sha256": "1hdf528j5mkzz23v3pgjm5ljgi81d9rkryns211mb801gpidwffj",
+      "depends": ["cli", "fs", "jsonlite", "processx", "rappdirs", "whisker", "yaml"]
     },
     "shinyfa": {
       "name": "shinyfa",
@@ -128214,6 +129414,12 @@
       "version": "0.2.0",
       "sha256": "1y3qbfsynssam05q4947zqd0dkrpcnq5pla409i3xy511wv9702d",
       "depends": ["Formula", "MASS", "maxLik", "pbivnorm", "randomForest", "stringr", "xtable"]
+    },
+    "sigPCA": {
+      "name": "sigPCA",
+      "version": "0.1.0",
+      "sha256": "0434k45sj8rp6phh0iafrwnp8wvq20rs276k30n7b3n62z78hn9c",
+      "depends": ["ggplot2"]
     },
     "sigclust": {
       "name": "sigclust",
@@ -129523,6 +130729,12 @@
       "sha256": "1sqbq5ramsfssjwwfsv4bxb7xvq1lf3w6h0hy4dkpdxa5c50lfr7",
       "depends": ["knitr"]
     },
+    "smartcor": {
+      "name": "smartcor",
+      "version": "1.0.1",
+      "sha256": "0kbx3724asszm0v414izx4vjclzmnrcxfl3d0x8nnsf650fspyp3",
+      "depends": ["cli", "generics", "ggplot2", "mvtnorm", "polycor", "rlang", "tibble", "withr"]
+    },
     "smarter": {
       "name": "smarter",
       "version": "1.0.1",
@@ -129726,6 +130938,12 @@
       "version": "1.0.5",
       "sha256": "0ljgk297sm201hzzjajddv39x78d90wn49sbzjrvia2d2hwz5s3j",
       "depends": ["survival"]
+    },
+    "smoothROC": {
+      "name": "smoothROC",
+      "version": "0.1.0",
+      "sha256": "15jnrbxl4d44jfri3cy0z2zwksbir2bvz72bdv8f3awsfnfg77nr",
+      "depends": ["ggplot2", "rlang"]
     },
     "smoothROCtime": {
       "name": "smoothROCtime",
@@ -130387,6 +131605,12 @@
       "sha256": "1f0f5iqi3y9vnxyym14nm8dqxw0vcpnxmvvkx4sm612i4fclg1f9",
       "depends": []
     },
+    "sondage": {
+      "name": "sondage",
+      "version": "0.9.1",
+      "sha256": "1kih1bmrf9sk6s0gn9ws24x7khb7ckfx7gafsfrkzp0vnag3qmik",
+      "depends": []
+    },
     "sonicLength": {
       "name": "sonicLength",
       "version": "1.4.7",
@@ -130557,9 +131781,9 @@
     },
     "spCF": {
       "name": "spCF",
-      "version": "0.1.2",
-      "sha256": "00wxz10m3xc726m1wwknzsl1klsgfdazcnq706rgalxp0si7d6is",
-      "depends": ["FNN", "Rcpp", "dbscan", "fields", "nloptr", "ranger", "withr"]
+      "version": "0.2.0",
+      "sha256": "1rhb1v1y31bz9v7i0mi1cnnlrygknj9s5lgl17gpa6vjl4x098i3",
+      "depends": ["FNN", "Matrix", "Rcpp", "dbscan", "fields", "nloptr", "withr"]
     },
     "spCP": {
       "name": "spCP",
@@ -131191,6 +132415,12 @@
       "sha256": "0cnvxww37nbgcypxzrv13h90fp80b7xgbiyxdhvjxkbb3c1ydlvg",
       "depends": ["Rcpp", "comat", "terra"]
     },
+    "spatialkit": {
+      "name": "spatialkit",
+      "version": "1.0.0",
+      "sha256": "01b8cwibr0lkcbxb5d5ashghnj05wi1j0vkpznpfa2wn5f44p65n",
+      "depends": ["digest", "dplyr", "logger", "sf"]
+    },
     "spatialprobit": {
       "name": "spatialprobit",
       "version": "1.0.4",
@@ -131472,6 +132702,12 @@
       "version": "1.0.0",
       "sha256": "0h2hgh0amvv7in5hplh6x3k95bnjm6d24nzmc57yihcsqjndli9k",
       "depends": ["colorRamps", "ggplot2", "reshape2"]
+    },
+    "specmine": {
+      "name": "specmine",
+      "version": "3.1.8",
+      "sha256": "0cis5psn1v0vxgka3pbk4gbnlkdmxpm1y1gasqyqriyrbwg73yfv",
+      "depends": ["GGally", "MASS", "Metrics", "RColorBrewer", "baseline", "caret", "compare", "ellipse", "genefilter", "ggplot2", "impute", "imputeTS", "narray", "pcaPP", "plotly", "pls", "readJDX"]
     },
     "specmine_datasets": {
       "name": "specmine.datasets",
@@ -131949,8 +133185,8 @@
     },
     "spliv": {
       "name": "spliv",
-      "version": "0.1.1",
-      "sha256": "07n71jdknvlvpmz14iv9vqilxlr73xrdg1qz8dn1p6hammxh66wm",
+      "version": "0.2.1",
+      "sha256": "0hh992k0zqgr3rvfhxlr4vn1j7798al9609jwlrisagsyr0cw2fc",
       "depends": ["fixest"]
     },
     "splm": {
@@ -132495,8 +133731,8 @@
     },
     "ssddata": {
       "name": "ssddata",
-      "version": "1.0.0",
-      "sha256": "0njcnjcgdghwrbjcbiq4yfn7nq9h4dvylrqh57c6vx35yqc4g375",
+      "version": "2.0.0",
+      "sha256": "1vwiwm4nf6c0c0lq14nqi49q1z53xxh5mw9j6x9cqrm5ii7fa209",
       "depends": ["Rdpack", "chk", "dplyr"]
     },
     "ssdtools": {
@@ -132663,8 +133899,8 @@
     },
     "sstvars": {
       "name": "sstvars",
-      "version": "1.2.4",
-      "sha256": "0hzh0l5467d34kv8qv2dkhl07b7qbignzk59wp9hfz1zidah76qi",
+      "version": "1.2.5",
+      "sha256": "0hy9zidqffpa812943j7w05wr91i6xpzkxdm3i7wdyfnccv2csrh",
       "depends": ["Rcpp", "RcppArmadillo", "pbapply"]
     },
     "ssutil": {
@@ -133194,6 +134430,12 @@
       "version": "0.1.0",
       "sha256": "1ki3kpjvwbradgr3nip8cxgasxcys1qyryh0gq9kmx9f0dbql5y2",
       "depends": []
+    },
+    "statim": {
+      "name": "statim",
+      "version": "0.1.0",
+      "sha256": "03w8sr9siim0cr3bi34rw4rx8hnp508z917c2wdxbx6bfcp91fr1",
+      "depends": ["S7", "cli", "pillar", "rlang", "tabstats", "tibble", "tidyselect", "vctrs"]
     },
     "statioVAR": {
       "name": "statioVAR",
@@ -134061,8 +135303,8 @@
     },
     "stringfish": {
       "name": "stringfish",
-      "version": "0.19.0",
-      "sha256": "1whs1i0rw2pr2kh3wvb4plg3jk7ncjnnx2msfckgzbc9vwvnf007",
+      "version": "0.19.2",
+      "sha256": "1l5ax54ki9bfjkqbv6fskmr0igp9z7x1qh1yfmsazdzmd4n9nkj2",
       "depends": ["Rcpp", "RcppParallel"]
     },
     "stringformattr": {
@@ -134073,14 +135315,14 @@
     },
     "stringi": {
       "name": "stringi",
-      "version": "1.8.7",
-      "sha256": "1in8sn7d7lxm2zcpzm7xlrmvcb2c752nkadcg0ic9ds1rp6xw9h5",
+      "version": "1.8.9",
+      "sha256": "0css4y9rnhc7sjr19a13lyad6vap0w45xrycpr8ahzhx52ywwzs2",
       "depends": []
     },
     "stringmagic": {
       "name": "stringmagic",
-      "version": "1.2.0",
-      "sha256": "180kzm9gbl4jr9vwh58r9qyp78svmakh68zkhxfb43bxk3zq20m6",
+      "version": "1.3.0",
+      "sha256": "0jccz5sjxqj6r9lqlc3zj2fcyj2q60shr5l8wmcvd3l6qi5q514m",
       "depends": ["Rcpp"]
     },
     "stringr": {
@@ -134133,8 +135375,8 @@
     },
     "strucchange": {
       "name": "strucchange",
-      "version": "1.5-4",
-      "sha256": "066pbldj1a0hdhrzszqp8ad71krj7w5dbqxmgp8kk5d76r6wd6vq",
+      "version": "1.6-0",
+      "sha256": "15b3yq7b5v3g88ncafbgjmrk0lq5v81yq9fs8gcci36py22acb3g",
       "depends": ["sandwich", "zoo"]
     },
     "strucchangeRcpp": {
@@ -134175,8 +135417,8 @@
     },
     "stt_api": {
       "name": "stt.api",
-      "version": "0.3.0",
-      "sha256": "1s9d77srj9rcawn1ixfq1608xsqrkm52qb6rx6kz33skhz68wal7",
+      "version": "0.3.1",
+      "sha256": "07rr898m5bdw3pfmbwxkhk2yny5w2g7j3jy9905hmvxkzwgdq6zz",
       "depends": ["curl", "jsonlite"]
     },
     "stuart": {
@@ -134463,8 +135705,8 @@
     },
     "sundialr": {
       "name": "sundialr",
-      "version": "0.1.7",
-      "sha256": "14clpqnrsmc8yfwbw8n2i4hpiz8hd1kpln1dslhn7dadac0hzfir",
+      "version": "0.2.0",
+      "sha256": "14z0z63vswi4yi116chzixl0m7wb7vbzyl6m04a7gx22jlgz4i0i",
       "depends": ["Rcpp", "RcppArmadillo"]
     },
     "suntools": {
@@ -135427,6 +136669,12 @@
       "sha256": "0w7q69whpwwi1d75jyglgc2qxvgg9v7xgs7jxgmqzl23z87nsjqp",
       "depends": ["checkmate", "lubridate", "stringr"]
     },
+    "swelex": {
+      "name": "swelex",
+      "version": "0.1.0",
+      "sha256": "17l4phz4c736bnfyjcvh76i3fs7lwgpmnf2f0k2wxbsa2i4wb9pr",
+      "depends": ["cli", "httr2", "tibble"]
+    },
     "swephR": {
       "name": "swephR",
       "version": "0.3.2",
@@ -135648,6 +136896,12 @@
       "version": "0.3.9",
       "sha256": "106hnq94dj70zbi740icayxn7l2jh0j8rqwc23qlvwx9sismcvgy",
       "depends": []
+    },
+    "syncons": {
+      "name": "syncons",
+      "version": "0.1.1",
+      "sha256": "0a4q8wjdcvig5ifa2qn7vlng7n0dcmzng66yk9gm8gf8820yfkry",
+      "depends": ["DT", "dplyr", "glue", "purrr", "shiny", "stringr", "tibble", "tidyr"]
     },
     "synopR": {
       "name": "synopR",
@@ -136195,6 +137449,12 @@
       "sha256": "0v86xn5rvr6c74cqhiwfxgfb4mizqlf5bqc51870na28i2ariaap",
       "depends": ["dplyr"]
     },
+    "tanner": {
+      "name": "tanner",
+      "version": "1.8.0",
+      "sha256": "1lmx9gqrdv2j3jk0366x3vvmqzrljyrd6y2yshp5pn0gf53im7kw",
+      "depends": ["haven"]
+    },
     "tantivyr": {
       "name": "tantivyr",
       "version": "0.1.0",
@@ -136254,6 +137514,12 @@
       "version": "1.12.0",
       "sha256": "0vm0ldgqg0j8jrd4fhwbjsyyinrz0xs6wmkzp57g7xavsbny1qls",
       "depends": ["R6", "base64url", "callr", "cli", "codetools", "data_table", "igraph", "knitr", "prettyunits", "ps", "rlang", "secretbase", "tibble", "tidyselect", "vctrs", "yaml"]
+    },
+    "tarpolyglot": {
+      "name": "tarpolyglot",
+      "version": "0.2.0",
+      "sha256": "09vmdkgy86b8ih361m829c6smqzq65jf8fvxk7jkif0ifx54blng",
+      "depends": ["JuliaCall", "crew", "reticulate", "rextendr", "targets"]
     },
     "tashu": {
       "name": "tashu",
@@ -136680,6 +137946,12 @@
       "version": "2.2.2",
       "sha256": "1k5k3lj6av5pyx130w1j7avd0jdmm12ryc71mi5mq49sp95ndl4v",
       "depends": []
+    },
+    "tejoR": {
+      "name": "tejoR",
+      "version": "0.2.2",
+      "sha256": "196k5hyqshg08ybn6vqz08ssvj4w9krs1q3gicjw8yhi70sp2d8v",
+      "depends": ["digest", "jsonlite", "sf"]
     },
     "telegram": {
       "name": "telegram",
@@ -137595,9 +138867,9 @@
     },
     "thisutils": {
       "name": "thisutils",
-      "version": "0.4.7",
-      "sha256": "14gafz908ab2s8aygkp5syqbrbyq0frv1wlkqsshw7qd6ybvy4vl",
-      "depends": ["Matrix", "Rcpp", "cli", "doParallel", "foreach", "pak", "rlang"]
+      "version": "0.4.9",
+      "sha256": "1ygs00cf9g38vgwxix4wafv1h15jysniw11a3y58q51j3j6p5r6g",
+      "depends": ["Matrix", "Rcpp", "callr", "cli", "pak", "ps", "rlang"]
     },
     "thor": {
       "name": "thor",
@@ -137763,9 +139035,9 @@
     },
     "tidyEmoji": {
       "name": "tidyEmoji",
-      "version": "0.2.0",
-      "sha256": "069p5i9jw3pn73qc6vq8ik7x4i10v3v3mjmcz1nwhxcczmlzildy",
-      "depends": ["dplyr", "emoji", "lifecycle", "tibble", "tidyr"]
+      "version": "0.3.0",
+      "sha256": "02s3m6bh9mdak67jllx5sgsyx9xcvkhxmd67af3n02k8616ns0xx",
+      "depends": ["dplyr", "emoji", "lifecycle", "rlang", "tibble", "tidyr"]
     },
     "tidyGenR": {
       "name": "tidyGenR",
@@ -138099,8 +139371,8 @@
     },
     "tidylearn": {
       "name": "tidylearn",
-      "version": "0.3.1",
-      "sha256": "19hxgz7xzqmrk09m01f71n8xx31lz8abmg6pck4v92j0flqpyg41",
+      "version": "0.4.0",
+      "sha256": "073prpikhkh64kyr5scwgv22jgqhsaa2cia8km3ska5g2l3zj21p",
       "depends": ["MASS", "ROCR", "cluster", "dbscan", "dplyr", "e1071", "gbm", "ggplot2", "glmnet", "magrittr", "nnet", "purrr", "randomForest", "rlang", "rpart", "rsample", "smacof", "tibble", "tidyr", "yardstick"]
     },
     "tidyllm": {
@@ -138192,6 +139464,12 @@
       "version": "1.1.0",
       "sha256": "1an9d0jxpa66pvc0242yw98zny3lsgw25g6pcyiznw0pw1mlyz0g",
       "depends": ["cli", "dplyr", "generics", "jsonlite", "knitr", "purrr", "rlang", "tibble", "tidyr"]
+    },
+    "tidyprf": {
+      "name": "tidyprf",
+      "version": "0.1.1",
+      "sha256": "15fh68rrrzam7rbdnmq3kanda9agxshslhkblswv69ngcxn084mj",
+      "depends": ["arrow", "cli", "dplyr", "fs", "httr2", "purrr", "rlang", "tibble"]
     },
     "tidyprompt": {
       "name": "tidyprompt",
@@ -138703,6 +139981,12 @@
       "sha256": "12kgzd36js8lsw1b8nsm11b3pn8307vrn2shdbrzca36cnmvyw04",
       "depends": ["Hmisc", "curl", "dplyr", "ggplot2", "httr2", "limma", "patchwork", "pheatmap", "stringr", "survival", "survminer", "tibble"]
     },
+    "tinycache": {
+      "name": "tinycache",
+      "version": "0.1",
+      "sha256": "1xwfwfp3ql67xm5xfn99jp46s72g4z9az2ifmhl90m7mzqsrziiq",
+      "depends": ["cpp4r"]
+    },
     "tinycodet": {
       "name": "tinycodet",
       "version": "0.7.0",
@@ -138753,8 +140037,14 @@
     },
     "tinyrox": {
       "name": "tinyrox",
-      "version": "0.4.0",
-      "sha256": "0873lynrjsp1ccbs5nw5cvmd1qkdwyybmyh65xpjfh88mwbp4a8r",
+      "version": "0.4.1",
+      "sha256": "1l6cr1rs5plvydjbdh9q4qz5xlswzlmy0rjqyqx4g44pj744flqx",
+      "depends": []
+    },
+    "tinyroxygen": {
+      "name": "tinyroxygen",
+      "version": "0.1",
+      "sha256": "1j6mh386knympvh3wmdmfjicvr80mp0i3fd1v7vgh3376jh5yjx4",
       "depends": []
     },
     "tinyscholar": {
@@ -139369,6 +140659,12 @@
       "sha256": "1n6108giihc4aa1871m558s2z96m766ysvhak5b6zg1bnvpdj0l8",
       "depends": ["RColorBrewer", "gdistance", "plotly", "raster", "scales", "sp"]
     },
+    "topocast": {
+      "name": "topocast",
+      "version": "0.0.5",
+      "sha256": "05fg1pzvw8h0wvzg1qczrrv2fywd0ax2833v3kiv7p878v9ik3mb",
+      "depends": ["Rcpp", "RcppArmadillo", "terra"]
+    },
     "topologyGSA": {
       "name": "topologyGSA",
       "version": "1.5.0",
@@ -139591,6 +140887,12 @@
       "sha256": "0zli0khgvc6fh7z58pbb26srw52nypy8rjb73sh6yspihm2zclrd",
       "depends": []
     },
+    "tplyr2": {
+      "name": "tplyr2",
+      "version": "0.2.0",
+      "sha256": "18mdrhf0ydq5r2p4vsiz7l1q5955kqr6al828jsswzsyrmgmhmq1",
+      "depends": ["data_table", "jsonlite", "purrr", "rlang", "stringr"]
+    },
     "tpm": {
       "name": "tpm",
       "version": "2.0.2",
@@ -139797,9 +141099,9 @@
     },
     "trajeR": {
       "name": "trajeR",
-      "version": "0.11.1",
-      "sha256": "09idfgmfq0x58yr8is8g5lkxjx1m73ls5fwd43k18ia8hryx3gxc",
-      "depends": ["MASS", "Rcpp", "RcppArmadillo", "capushe", "minpack_lm", "numDeriv", "ucminf"]
+      "version": "1.0",
+      "sha256": "1q9zra8rn05avdfgxlh0hkkm6if6ga1j70pb525br1iw7yg7v6k3",
+      "depends": ["MASS", "Rcpp", "RcppArmadillo", "capushe", "cli", "minpack_lm", "numDeriv", "ucminf"]
     },
     "trajectories": {
       "name": "trajectories",
@@ -139884,6 +141186,12 @@
       "version": "1.1.18",
       "sha256": "0dy8h2h0dzxfj47p29yc2ifk7p60cqx5qv4ij7mrq0isxwjnylzy",
       "depends": ["Matrix", "Rdpack", "doParallel", "foreach", "glmnet", "sf", "stars", "units"]
+    },
+    "transferegovr": {
+      "name": "transferegovr",
+      "version": "0.1.0",
+      "sha256": "0pffzrp9992fydnz24i70bd3vjp0y8jj9wb40x8h6l5vl63igpv5",
+      "depends": ["cli", "httr2", "purrr", "rlang", "tibble"]
     },
     "transforEmotion": {
       "name": "transforEmotion",
@@ -140280,6 +141588,12 @@
       "version": "0.1.1",
       "sha256": "1qmx0mxi440vgnxv6c9v5vag67pijfxry2g5gr13pmkk3b5fml4h",
       "depends": ["DALEX", "dplyr", "ellmer", "ggplot2", "mice", "naniar", "pROC", "parsnip", "quarto", "recipes", "tibble", "tidyr", "workflows", "yardstick"]
+    },
+    "trialSizing": {
+      "name": "trialSizing",
+      "version": "0.1.0",
+      "sha256": "1vr2g3wcyz97w1c3b7mvik5vy7nirc726ipxz30n7g7q9901lvb9",
+      "depends": ["ggplot2"]
     },
     "trialr": {
       "name": "trialr",
@@ -141277,6 +142591,12 @@
       "sha256": "0cf77b22ylvhmsj0g0gi6857l2p27fgych2lp3ph1np5z30j1pns",
       "depends": ["Rcpp"]
     },
+    "twinsvm": {
+      "name": "twinsvm",
+      "version": "0.0.4",
+      "sha256": "0p35n3r9wxwy0aq38aj9v0aqb9i7048hnk7fbpihnwbwcwag0krs",
+      "depends": ["Rcpp", "RcppArmadillo", "ggplot2", "rlang"]
+    },
     "twitteradsR": {
       "name": "twitteradsR",
       "version": "0.1.0",
@@ -141453,8 +142773,8 @@
     },
     "uGMAR": {
       "name": "uGMAR",
-      "version": "3.6.0",
-      "sha256": "0ggrjcy4ay88sys1jhx56vcs7v3fl8v4fkmnz91kk5c6q5nkgr87",
+      "version": "3.6.1",
+      "sha256": "1q4pq17yal64n0198fvry3npb1sc1g1krx2qc0cpyspfr0c3qgkc",
       "depends": ["Brobdingnag", "gsl", "pbapply"]
     },
     "uaparserjs": {
@@ -142086,6 +143406,12 @@
       "version": "1.11.1",
       "sha256": "0flpamy4wfjz1b0wi338rcim2zsh33jpskrq6g8jvljlc4asr485",
       "depends": ["htmlwidgets", "magrittr"]
+    },
+    "upsetly": {
+      "name": "upsetly",
+      "version": "0.1.1",
+      "sha256": "0x474vjvp0i8lhfdlhcn6br4ksvwfn8j9i15cqg14kiy2pyyj147",
+      "depends": ["htmltools", "htmlwidgets", "jsonlite", "plotly"]
     },
     "upstartr": {
       "name": "upstartr",
@@ -142911,8 +144237,8 @@
     },
     "vcdExtra": {
       "name": "vcdExtra",
-      "version": "0.9.6",
-      "sha256": "1l138rnyc45kzgin8dn8qs20pqg42drxgrjd7xmfkwq228g3260m",
+      "version": "0.9.7",
+      "sha256": "1cwbxapxp7iszjivm7n36qm54fhchxzddk106lvqhdnc4jqfrm2q",
       "depends": ["MASS", "ca", "colorspace", "dplyr", "forcats", "gnm", "gt", "htmlwidgets", "igraph", "knitr", "rlang", "scales", "vcd", "webshot2"]
     },
     "vcfR": {
@@ -142929,8 +144255,8 @@
     },
     "vcfppR": {
       "name": "vcfppR",
-      "version": "0.8.3",
-      "sha256": "1r4958485sc132r2ngjq0jz8fypkq7njglwb5i4ayqinfn7biz03",
+      "version": "0.8.4",
+      "sha256": "0mdiii1gnj20npzmx09kjk3d33xqa5kylw7y2baz2gk0vjiqzf2f",
       "depends": ["Rcpp"]
     },
     "vchartr": {
@@ -143211,9 +144537,9 @@
     },
     "verifyr2": {
       "name": "verifyr2",
-      "version": "1.2.0",
-      "sha256": "06idggal42x6cxig04fjh932vlcfmsxqb3wav2jrff61zp8i3ffk",
-      "depends": ["R6", "base64enc", "diffobj", "dplyr", "jsonlite", "magrittr", "mime", "rappdirs", "shiny", "stringr", "striprtf", "tibble"]
+      "version": "1.3.0",
+      "sha256": "0lhxhhyzhzaalp1cww1jwilrikdhd1mn51wmlla1dj31rgnir9xr",
+      "depends": ["R6", "base64enc", "diffobj", "dplyr", "htmltools", "jsonlite", "magrittr", "mime", "rappdirs", "shiny", "stringr", "striprtf", "tibble"]
     },
     "vermeulen": {
       "name": "vermeulen",
@@ -143649,8 +144975,8 @@
     },
     "vivainsights": {
       "name": "vivainsights",
-      "version": "0.7.2",
-      "sha256": "07a6lwqql8bwcxrnkdrs0qwyvwzs202l9qb63k8ag1y787dp5p99",
+      "version": "0.7.3",
+      "sha256": "0af7h52mbahyg5f81i692dhf496az1n7kq5ba3qvns2rfvxjpzxs",
       "depends": ["data_table", "dplyr", "ggplot2", "ggraph", "ggrepel", "glue", "htmltools", "igraph", "lifecycle", "magrittr", "markdown", "networkD3", "purrr", "reshape2", "rlang", "rmarkdown", "scales", "tibble", "tidyr", "tidyselect", "tidytext", "wpa"]
     },
     "vivaldi": {
@@ -144150,6 +145476,12 @@
       "version": "1.0.10",
       "sha256": "135psiyyhv91x5rfj2y8im3a0l4gkby75p9k5d1kdb5lrkyhq8ib",
       "depends": ["BH", "Hmisc", "KFAS", "Rcpp", "RcppArmadillo", "RcppEigen", "RcppParallel", "StanHeaders", "bayesplot", "coda", "dplyr", "ggplot2", "loo", "rlang", "rstan", "rstantools"]
+    },
+    "walking": {
+      "name": "walking",
+      "version": "0.7.0",
+      "sha256": "0ln5k6ik7j135g4g0p3c0r734mkmvwkfbckkv6vzfqabvrrrmd94",
+      "depends": ["actibase", "assertthat", "dplyr", "lubridate", "magrittr", "matrixStats", "reticulate", "signal", "tidyr"]
     },
     "walkscore": {
       "name": "walkscore",
@@ -144759,8 +146091,8 @@
     },
     "weightflow": {
       "name": "weightflow",
-      "version": "0.2.0",
-      "sha256": "1cnrz4gl2j8d9cjy0s36vxgj9x44hjhbs8banpm4yd81wjh9gp3y",
+      "version": "1.0.0",
+      "sha256": "0x1gqvrn0fbjnf2w53qbilzwa5400cqc8gg57b2hkkcp12d8d065",
       "depends": []
     },
     "weightr": {
@@ -144939,8 +146271,8 @@
     },
     "whisper": {
       "name": "whisper",
-      "version": "0.4.0",
-      "sha256": "150zw935niqy386nfdpbz77mr6pghkkyahxw1w16xqvxdllz4d27",
+      "version": "0.5.1",
+      "sha256": "0pqsc0pyajmrgd3y5fqnbzgly1w0sq7fc7sp6514pzzj3xr9xqnv",
       "depends": ["av", "hfhub", "jsonlite", "safetensors", "torch"]
     },
     "whitebox": {
@@ -145375,6 +146707,12 @@
       "sha256": "0894gqd2k9csaslxmfsc6045n0g427k1sh3y4s5iingjwmfvhym1",
       "depends": ["rJava"]
     },
+    "wordorientation": {
+      "name": "wordorientation",
+      "version": "0.1.0",
+      "sha256": "1cjbgbcchbwyndzxn3d0swh7qbn3jq3shi6nrqwdsiqllbcbnika",
+      "depends": ["igraph", "scales"]
+    },
     "wordpiece": {
       "name": "wordpiece",
       "version": "2.1.3",
@@ -145647,8 +146985,8 @@
     },
     "writexl": {
       "name": "writexl",
-      "version": "1.5.4",
-      "sha256": "1lv0fr333scllranvqi1agv3c071qqiwvishbxw7ig92x8lllmyh",
+      "version": "2.0.0",
+      "sha256": "0gdx1ph38vzi81fczhdf475svpwgflkd25ya4fh4m3y6mda46inw",
       "depends": []
     },
     "wrswoR": {
@@ -145809,8 +147147,8 @@
     },
     "xactonomial": {
       "name": "xactonomial",
-      "version": "1.2.1",
-      "sha256": "0i676kayxpifdg0yiwbnchcv8299knar85i0wkav245pldd7h8hb",
+      "version": "1.2.2",
+      "sha256": "144jpmbmcaw6nn9hncyxzva41qapz70s33bikq8n7yz3dpvfgxn0",
       "depends": []
     },
     "xadmix": {
@@ -145896,6 +147234,12 @@
       "version": "1.0.0.3",
       "sha256": "1dy0hz546dr6rkif4b7s8zms35s53sg87fxvq8gz1nbazm06ydjd",
       "depends": ["xegaBNF", "xegaDerivationTrees", "xegaSelectGene"]
+    },
+    "xegaMigration": {
+      "name": "xegaMigration",
+      "version": "0.5.0.4",
+      "sha256": "0h3ljpq95jjn6fmvk0s683f0x3hc34irkvdz9ppmd189hxzz3p06",
+      "depends": ["xegaPopulation", "xegaSelectGene"]
     },
     "xegaPermGene": {
       "name": "xegaPermGene",
@@ -146202,6 +147546,12 @@
       "version": "1.0.1",
       "sha256": "0sn1i4s0bxgab2gihmh8bmnfldygmvxh8v30189bznrv5qwz27bf",
       "depends": ["BH", "Rcpp", "RcppEigen", "bigmemory", "foreach"]
+    },
+    "xsdm": {
+      "name": "xsdm",
+      "version": "1.0.2",
+      "sha256": "1v8inbdmifyizlcp7wkzbiyvgwk6wnxjxvzm2iy8ydvgaa6h797l",
+      "depends": ["Rcpp", "RcppParallel", "checkmate", "expm", "furrr", "future", "future_callr", "purrr", "sobol", "terra", "tibble", "ucminfcpp"]
     },
     "xslt": {
       "name": "xslt",
@@ -146635,6 +147985,12 @@
       "sha256": "1ji4pqb0vh8ad8jr4pd6dkjr5cfckrlp24jncjc079wahw64fgs5",
       "depends": ["RCurl", "checkmate", "cli", "curl", "polite", "purrr", "readr", "rlang", "rvest", "tibble"]
     },
+    "zentraR": {
+      "name": "zentraR",
+      "version": "0.1.3",
+      "sha256": "18aianzn3w6hp4bvgmgh85skhbc5zyc1zzhzdjb8i6wx7y05k6l6",
+      "depends": ["cli", "httr2", "rlang", "tibble", "tidyr", "vctrs"]
+    },
     "zephyr": {
       "name": "zephyr",
       "version": "0.1.3",
@@ -146673,8 +148029,8 @@
     },
     "zip": {
       "name": "zip",
-      "version": "3.0.1",
-      "sha256": "1zli387y911qx40zsjn8bz2wim0ivkkxsp401zx3gpb1cx1fhl02",
+      "version": "3.0.2",
+      "sha256": "1dw8rjss9d77f81g3fg5a29gssikadxrwixlj78w6k6gsid7xwsv",
       "depends": ["cli"]
     },
     "zipR": {
@@ -146729,6 +148085,12 @@
       "name": "zmctp",
       "version": "0.1.2",
       "sha256": "0nk743v2h4irkfq42si0iv87hrcz4z2nfcafjggm7gqx4pqcr1m4",
+      "depends": []
+    },
+    "zmij": {
+      "name": "zmij",
+      "version": "0.1.0",
+      "sha256": "0m0lxjp9w9xgzhx9bhgcak60f89wrn7kqjwx1a2yh3r3xwg47psh",
       "depends": []
     },
     "zmisc": {
@@ -147588,13 +148950,6 @@
       "version": "0.5",
       "sha256": "0c8dlxsx23qfyygmajg2amj78ax01kb3808d9hvy7g3hkgp2i2fp",
       "depends": ["MASS", "Rcpp", "RcppArmadillo", "mcclust", "nFactors"],
-      "broken": true
-    },
-    "BCT": {
-      "name": "BCT",
-      "version": "1.2",
-      "sha256": "0fs6wh59njgj7ybnkf5ki4g8phmzrchvml0f8jyhhxdarkj5vr5d",
-      "depends": ["Rcpp", "igraph", "stringr"],
       "broken": true
     },
     "BCellMA": {
@@ -149970,13 +151325,6 @@
       "depends": ["MASS", "Rcpp", "RcppArmadillo", "hdi", "limSolve", "msm", "mvtnorm"],
       "broken": true
     },
-    "EBASS": {
-      "name": "EBASS",
-      "version": "0.1",
-      "sha256": "14hxzj06wrc4ihflr7dqk28fsjwbcizr0jy54vhv0mk1y1gd4201",
-      "depends": [],
-      "broken": true
-    },
     "EBPRS": {
       "name": "EBPRS",
       "version": "2.1.0",
@@ -150696,13 +152044,6 @@
       "version": "1.0",
       "sha256": "0v15ydz4sq9djwcdcfp90mk8l951rry7h91d7asgg53mddbxjj6f",
       "depends": [],
-      "broken": true
-    },
-    "FinancialInstrument": {
-      "name": "FinancialInstrument",
-      "version": "1.3.1",
-      "sha256": "0f1zaclrcmpkdhcfc8a09f7lsf2b7gfyd7js3173qckn84a01f3w",
-      "depends": ["TTR", "quantmod", "xts", "zoo"],
       "broken": true
     },
     "FindAllRoots": {
@@ -152572,13 +153913,6 @@
       "version": "0.3",
       "sha256": "0s8sq3caxn4swac81196dp52r9lbmxb3ni45yaxh53f5g34slsi8",
       "depends": ["lme4", "metafor", "nlme"],
-      "broken": true
-    },
-    "KernelICA": {
-      "name": "KernelICA",
-      "version": "0.1.0",
-      "sha256": "1yq7w24qq23c81a9y0jn36iw7zjbxsj3b3p1rq6yl0lanzda9bsr",
-      "depends": ["ICtest", "inline", "JADE", "ManifoldOptim", "Rcpp", "RcppArmadillo", "RcppEigen"],
       "broken": true
     },
     "KnockoffScreen": {
@@ -161408,6 +162742,13 @@
       "depends": ["dplyr", "ggplot2", "magrittr", "nplr", "reshape2", "rlang"],
       "broken": true
     },
+    "biodosetools": {
+      "name": "biodosetools",
+      "version": "3.7.2",
+      "sha256": "1sk9psc3mw7frn4piwq6x7d1s8mbric0b79g1md04dr5lz3nrx4p",
+      "depends": ["MASS", "bsplus", "cli", "config", "dplyr", "ggplot2", "golem", "gridExtra", "magrittr", "maxLik", "mixtools", "msm", "openxlsx", "pdftools", "readr", "rhandsontable", "rlang", "rmarkdown", "shiny", "shinyWidgets", "shinydashboard", "tidyr"],
+      "broken": true
+    },
     "biogeo": {
       "name": "biogeo",
       "version": "1.0",
@@ -166609,13 +167950,6 @@
       "depends": ["dplyr", "forcats", "furrr", "future", "httr", "jsonlite", "lubridate", "magrittr", "purrr", "readr", "stringr", "tibble", "tidyr"],
       "broken": true
     },
-    "fipp": {
-      "name": "fipp",
-      "version": "1.0.0",
-      "sha256": "0wr3czwsqwa1bpdcjk0r1739vjanxc0fv0vnl3r5lgykrbhw9v3r",
-      "depends": ["Rcpp", "RcppArmadillo", "matrixStats"],
-      "broken": true
-    },
     "firebehavioR": {
       "name": "firebehavioR",
       "version": "0.1.2",
@@ -167125,13 +168459,6 @@
       "version": "0.9.9.2",
       "sha256": "08pwhi19db173d4nsk5rl8xa8qmaddj4bn3cjxb8ql4kny59i57q",
       "depends": ["BH", "zoo"],
-      "broken": true
-    },
-    "ftsspec": {
-      "name": "ftsspec",
-      "version": "1.0.0",
-      "sha256": "12f9yws1r26i240ijq0xqprl3pgbw50wv68jsm75ycplbs2jsyhs",
-      "depends": ["sna"],
       "broken": true
     },
     "fugeR": {
@@ -168154,13 +169481,6 @@
       "version": "1.2.4",
       "sha256": "050rpdyp3xawkyjxcimjpbvn24677whlfhfmkyxijz7zqnvl7i8p",
       "depends": ["BB", "ape", "generics", "lbfgsb3c", "numDeriv", "optimx", "plyr", "rlang"],
-      "broken": true
-    },
-    "glmbayes": {
-      "name": "glmbayes",
-      "version": "0.9.6",
-      "sha256": "0lh63iln7kdji1xc725kd5qcfmq0ind2y0jmygnjns1b7y2g8a56",
-      "depends": ["MASS", "Rcpp", "RcppArmadillo", "RcppParallel", "Rdpack", "coda", "opencltools"],
       "broken": true
     },
     "glmdisc": {
@@ -171250,13 +172570,6 @@
       "depends": ["MASS"],
       "broken": true
     },
-    "log4r": {
-      "name": "log4r",
-      "version": "0.4.4",
-      "sha256": "0cp7divn39mdy5hg42ayva1r8iqmnpn7crz3h1kdd4pla8jjs7zz",
-      "depends": [],
-      "broken": true
-    },
     "logcondens_mode": {
       "name": "logcondens.mode",
       "version": "1.0.1",
@@ -172307,6 +173620,13 @@
       "depends": ["V8"],
       "broken": true
     },
+    "minired": {
+      "name": "minired",
+      "version": "1.0.1",
+      "sha256": "068jwb37d7dpqx9xxp6c56rk20aks89063hbx0gwxivc6rrsvyja",
+      "depends": ["cpp11"],
+      "broken": true
+    },
     "minval": {
       "name": "minval",
       "version": "0.8-2",
@@ -172809,13 +174129,6 @@
       "version": "0.5.1",
       "sha256": "10hssnm1afqmxa9kw6ifqnz3p3yyjrmxgi98zlj31a5g4nis8wb1",
       "depends": [],
-      "broken": true
-    },
-    "moranajp": {
-      "name": "moranajp",
-      "version": "0.9.7",
-      "sha256": "1vzid1j09s7v20y8bpfrl7xcz8lf8f5dg5npw3iz2ibvp2w5vjl7",
-      "depends": ["dplyr", "ggplot2", "ggraph", "igraph", "purrr", "rlang", "rvest", "stringi", "stringr", "tibble", "tidyr"],
       "broken": true
     },
     "moreparty": {
@@ -177032,13 +178345,6 @@
       "depends": ["crul", "data_table", "glue", "jsonlite", "tibble"],
       "broken": true
     },
-    "rcontroll": {
-      "name": "rcontroll",
-      "version": "0.1.2",
-      "sha256": "15bv66awbw85p3szbqhfs283i285pfysx0bb3vrp8aikfk4isgyb",
-      "depends": ["Rcpp", "RcppGSL", "doParallel", "doSNOW", "dplyr", "foreach", "gganimate", "ggplot2", "iterators", "lidR", "lubridate", "magrittr", "readr", "reshape2", "sys", "terra", "tibble", "tidyr", "viridis", "vroom"],
-      "broken": true
-    },
     "rcoreoa": {
       "name": "rcoreoa",
       "version": "0.4.0",
@@ -177338,13 +178644,6 @@
       "version": "2.0.1",
       "sha256": "1jyvyqr8r2fs1cmbz7zjcc8p116bnkslvx27pqi92y5pxgqvsqvr",
       "depends": ["ggplot2", "MASS", "MBESS", "pbapply"],
-      "broken": true
-    },
-    "repo": {
-      "name": "repo",
-      "version": "2.1.5",
-      "sha256": "13gdka37kbs4mp16pf65bh28f0dkyalrcrdik6lc67jw8r9h94f9",
-      "depends": ["digest"],
       "broken": true
     },
     "reproducible": {
@@ -180049,13 +181348,6 @@
       "depends": ["Rcpp"],
       "broken": true
     },
-    "specmine": {
-      "name": "specmine",
-      "version": "3.1.6",
-      "sha256": "0ik3nsb9mrja6709fwsf97f9qbf7lmmyc2zqrm7398h3mibf64l7",
-      "depends": ["baseline", "caret", "compare", "e1071", "ellipse", "genefilter", "GGally", "ggplot2", "impute", "imputeTS", "MASS", "Metrics", "mrbin", "narray", "pcaPP", "plotly", "pls", "RColorBrewer", "readJDX", "speaq", "specmine_datasets"],
-      "broken": true
-    },
     "spectralAnalysis": {
       "name": "spectralAnalysis",
       "version": "4.3.3",
@@ -182042,13 +183334,6 @@
       "version": "0.5-0",
       "sha256": "0r16nfk2afcw7w0j0n3g0sjs07dnafrp88abwcqg3jyvldp3kxnx",
       "depends": [],
-      "broken": true
-    },
-    "twinsvm": {
-      "name": "twinsvm",
-      "version": "0.0.2",
-      "sha256": "01aw5xpcfbf0sz61i9l32656hfwvmz5dczhccmskfx589w955kgl",
-      "depends": ["Rcpp", "RcppArmadillo", "ggplot2", "rlang"],
       "broken": true
     },
     "twitteR": {
