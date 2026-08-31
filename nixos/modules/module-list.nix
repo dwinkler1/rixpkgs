@@ -237,6 +237,7 @@
   ./programs/gnome-disks.nix
   ./programs/gnome-terminal.nix
   ./programs/gnupg.nix
+  ./programs/google-chrome.nix
   ./programs/gpaste.nix
   ./programs/gphoto2.nix
   ./programs/gpu-screen-recorder.nix
@@ -1069,6 +1070,7 @@
   ./services/monitoring/incron.nix
   ./services/monitoring/kapacitor.nix
   ./services/monitoring/karma.nix
+  ./services/monitoring/kener.nix
   ./services/monitoring/kthxbye.nix
   ./services/monitoring/librenms.nix
   ./services/monitoring/loki.nix
@@ -1084,6 +1086,7 @@
   ./services/monitoring/nezha.nix
   ./services/monitoring/ocsinventory-agent.nix
   ./services/monitoring/opentelemetry-collector.nix
+  ./services/monitoring/orbit.nix
   ./services/monitoring/osquery.nix
   ./services/monitoring/parsedmarc.nix
   ./services/monitoring/perses.nix
@@ -1290,6 +1293,7 @@
   ./services/networking/jitsi-videobridge.nix
   ./services/networking/jool.nix
   ./services/networking/jotta-cli.nix
+  ./services/networking/kapla.nix
   ./services/networking/kea.nix
   ./services/networking/keepalived/default.nix
   ./services/networking/keybase.nix
@@ -1664,6 +1668,7 @@
   ./services/web-apps/bluemap.nix
   ./services/web-apps/bluesky-pds.nix
   ./services/web-apps/bookstack.nix
+  ./services/web-apps/bulwark.nix
   ./services/web-apps/c2fmzq-server.nix
   ./services/web-apps/calibre-web.nix
   ./services/web-apps/castopod.nix
@@ -1824,6 +1829,7 @@
   ./services/web-apps/romm.nix
   ./services/web-apps/rss-bridge.nix
   ./services/web-apps/rsshub.nix
+  ./services/web-apps/rundeck.nix
   ./services/web-apps/rustical.nix
   ./services/web-apps/rutorrent.nix
   ./services/web-apps/screego.nix
@@ -1839,6 +1845,7 @@
   ./services/web-apps/sogo.nix
   ./services/web-apps/speedtest-tracker.nix
   ./services/web-apps/sshwifty.nix
+  ./services/web-apps/sstorytime.nix
   ./services/web-apps/stash.nix
   ./services/web-apps/stirling-pdf.nix
   ./services/web-apps/strfry.nix
