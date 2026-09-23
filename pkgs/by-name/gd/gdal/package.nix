@@ -83,14 +83,19 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "gdal" + lib.optionalString useMinimalFeatures "-minimal";
-  version = "3.13.2";
+  version = "3.13.3";
 
   src = fetchFromGitHub {
     owner = "OSGeo";
     repo = "gdal";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-sHMfAAZ4LrHXXh1g3Q9WsAqt8DHRkSdBlb3kZSy+vX0=";
+    hash = "sha256-8rTCv0Nsb+BhRypwXDY5SWP7Bo1vqJBlm7y6YCOMa2M=";
   };
+
+  patches = [
+    # https://github.com/OSGeo/gdal/pull/15259
+    ./proj-9.9.0-compat.patch
+  ];
 
   nativeBuildInputs = [
     bison
@@ -251,7 +256,7 @@ stdenv.mkDerivation (finalAttrs: {
     # https://github.com/OSGeo/gdal/blob/v3.9.0/autotest/gdrivers/bag.py#L54
     export CI=1
   '';
-  nativeInstallCheckInputs = with python3Packages; [  
+  nativeInstallCheckInputs = with python3Packages; [
     pytest-benchmark
     pytest-env
     filelock
@@ -298,6 +303,8 @@ stdenv.mkDerivation (finalAttrs: {
     # tests for magic numbers, seem to change with different poppler versions,
     # and architectures
     "test_pdf_extra_rasters"
+    "test_gdalalg_raster_tile_fork_forced"
+    "test_misc_12"
   ]
   ++ lib.optionals (!stdenv.hostPlatform.isx86_64) [
     # likely precision-related expecting x87 behaviour

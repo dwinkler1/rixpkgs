@@ -21,21 +21,30 @@ maven.buildMavenPackage (finalAttrs: {
     hash = "sha256-QVJhJliHLST5MJV9OZVC+jTk8vV+bUu7i2IL6GSqK34=";
   };
 
-  mvnHash = "sha256-Q0b45RdpdVfaLe+LdIKbvey/wGX/DYVGJWuL/L0d5Ag=";
+  mvnHash = "sha256-jhn6qWvM4TZdu3tsaNuyOXdTaIX8scfFvRkeSlPQXH0=";
 
   # go-offline-maven-plugin only fetches pinned JARs/POMs, not the
-  # ever-changing maven-metadata.xml timestamps, so the FOD hash is stable
-  # even when Maven Central publishes new versions of unrelated packages.
+  # ever-changing maven-metadata.xml timestamps, avoiding one source of
+  # hash drift. This does NOT cover unpinned build-plugin versions
+  # (compiler, jar, shade, etc.), which resolve from whatever defaults
+  # ship with nixpkgs' current `maven` and drift on every maven bump —
+  # see fix-plugin-versions.patch, which pins those explicitly.
   buildOffline = true;
 
   # go-offline-maven-plugin cannot handle "dynamic" test dependencies
   # (those resolved at test runtime rather than declared in the POM).
   # List them explicitly so they end up in the offline repo.
   manualMvnArtifacts = [
-    "org.apache.maven.surefire:surefire-junit-platform:3.5.5"
+    "org.apache.maven.surefire:surefire-junit-platform:3.5.4"
     "org.junit.jupiter:junit-jupiter-engine:5.14.3"
     "org.junit.platform:junit-platform-launcher:1.14.3"
+    "org.apache.maven.plugins:maven-resources-plugin:3.4.0"
   ];
+
+  # Pins otherwise-unversioned build plugins (compiler, jar, shade,
+  # enforcer, jacoco, resources, surefire) so they don't drift with
+  # nixpkgs' maven bumps — see comment on buildOffline above.
+  patches = [ ./fix-plugin-versions.patch ];
 
   mvnParameters = "-B package";
 
