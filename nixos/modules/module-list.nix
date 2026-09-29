@@ -316,6 +316,7 @@
   ./programs/qgroundcontrol.nix
   ./programs/qt5ct.nix
   ./programs/quark-goldleaf.nix
+  ./programs/renderdoc.nix
   ./programs/rog-control-center.nix
   ./programs/rush.nix
   ./programs/rust-motd.nix
@@ -911,6 +912,7 @@
   ./services/misc/gitolite.nix
   ./services/misc/gitweb.nix
   ./services/misc/gollum.nix
+  ./services/misc/gophernicus.nix
   ./services/misc/gotenberg.nix
   ./services/misc/gpsd.nix
   ./services/misc/graphical-desktop.nix
@@ -1256,7 +1258,6 @@
   ./services/networking/gnunet.nix
   ./services/networking/go-autoconfig.nix
   ./services/networking/go-camo.nix
-  ./services/networking/go-neb.nix
   ./services/networking/go-shadowsocks2.nix
   ./services/networking/gobgpd.nix
   ./services/networking/godns.nix
@@ -1731,6 +1732,7 @@
   ./services/web-apps/goupile.nix
   ./services/web-apps/grav.nix
   ./services/web-apps/greenlight.nix
+  ./services/web-apps/grist.nix
   ./services/web-apps/grocy.nix
   ./services/web-apps/guacamole-client.nix
   ./services/web-apps/guacamole-server.nix
