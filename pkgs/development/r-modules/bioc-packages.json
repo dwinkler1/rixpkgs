@@ -1973,8 +1973,8 @@
     },
     "DirichletMultinomial": {
       "name": "DirichletMultinomial",
-      "version": "1.54.0",
-      "sha256": "0fhzq77lmwii9gqna7byjbgnkifi21nxhya5hvyylkm3w4s6shcb",
+      "version": "1.54.1",
+      "sha256": "0vkdpfl7r4rc4k5czpr3w7xw3m4kp00d257ing8n8301l3fyklac",
       "depends": ["BiocGenerics", "IRanges", "S4Vectors"]
     },
     "DiscoRhythm": {
@@ -2111,8 +2111,8 @@
     },
     "ENmix": {
       "name": "ENmix",
-      "version": "1.48.3",
-      "sha256": "1g9mdi2bmx12jsvcbrsp9mpyzrhr6a3n11hmgyn9za7dzibq7dnj",
+      "version": "1.48.4",
+      "sha256": "1ic2f20dddrwxpafpxpjgaxskbm3jryhwlj2769mqgnq5q01ip8j",
       "depends": ["AnnotationHub", "Biobase", "ExperimentHub", "IRanges", "RPMM", "S4Vectors", "SummarizedExperiment", "doParallel", "dynamicTreeCut", "foreach", "genefilter", "geneplotter", "gplots", "gtools", "illuminaio", "impute", "irlba", "matrixStats", "minfi", "quadprog"]
     },
     "ERSSA": {
@@ -8795,8 +8795,8 @@
     },
     "enrichplot": {
       "name": "enrichplot",
-      "version": "1.32.0",
-      "sha256": "0jlkqhh29w57ssay97n3n8dzfl8gvscjvfjbq3hlzrffyzc1wyxq",
+      "version": "1.32.1",
+      "sha256": "1k6q0agpr5sjhwkh755g1y53m7ap7q3ibszzas05a81nib6piaxb",
       "depends": ["DOSE", "GOSemSim", "RColorBrewer", "aplot", "dplyr", "enrichit", "ggfun", "ggnewscale", "ggplot2", "ggrepel", "ggtangle", "ggtree", "igraph", "purrr", "reshape2", "rlang", "scatterpie", "tidydr", "yulab_utils"]
     },
     "ensembldb": {
@@ -10235,8 +10235,8 @@
     },
     "jvecfor": {
       "name": "jvecfor",
-      "version": "1.0.0",
-      "sha256": "1gf27yccs1yjrnwnwkyz5piiid3p2zdcx3bp06m9d88dcpk564f6",
+      "version": "1.0.3",
+      "sha256": "15dz4kvfq4lbbszabz3mp42wyv8bgac6xill79hx0q2imi2sk3zk",
       "depends": ["BiocNeighbors", "BiocParallel", "Matrix", "bluster", "data_table", "processx"]
     },
     "karyoploteR": {
@@ -10349,8 +10349,8 @@
     },
     "limpa": {
       "name": "limpa",
-      "version": "1.4.0",
-      "sha256": "1z47xbrcq41ch4xih2cldhx6clslzh7afr1gi0b8x6sd9v7f8sq2",
+      "version": "1.4.2",
+      "sha256": "1cfss4cwpil59l8grjfgs6bjjnps4xyaqyrfnl57gqwlccnnk1qs",
       "depends": ["data_table", "limma", "statmod"]
     },
     "limpca": {
@@ -10781,8 +10781,8 @@
     },
     "methylSig": {
       "name": "methylSig",
-      "version": "1.24.0",
-      "sha256": "0gbwyqwm88lv0wg1i2p609d2mljjmw0s1mjbhj2r4indd50g3wvz",
+      "version": "1.24.4",
+      "sha256": "00nlxn7kl2r1pgrn6a29ircrw5n40am7afb6dd9x2sxmppzwpim8",
       "depends": ["DSS", "DelayedArray", "DelayedMatrixStats", "GenomicRanges", "IRanges", "S4Vectors", "Seqinfo", "bsseq"]
     },
     "methylclock": {
@@ -12527,8 +12527,8 @@
     },
     "rpx": {
       "name": "rpx",
-      "version": "2.20.0",
-      "sha256": "1p3a2dz65ykkk23iwjl2f7g57cbi05fw0sk8p0mqxrzavw1agv57",
+      "version": "2.20.2",
+      "sha256": "1w3zqnmv4fjd3bb09s65xfa8c6hpdiazfcgp8ih8qcrkjs001f2m",
       "depends": ["BiocFileCache", "RCurl", "curl", "jsonlite", "xml2"]
     },
     "rqt": {
