@@ -21,9 +21,13 @@
   zlib,
   SDL2,
   SDL2_image,
+  lua5_2_compat,
 
   nixosTests,
 }:
+let
+  lua = lua5_2_compat;
+in
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "libresprite";
@@ -64,6 +68,7 @@ stdenv.mkDerivation (finalAttrs: {
     zlib
     SDL2
     SDL2_image
+    lua
     # no v8 due to missing libplatform and libbase
   ]
   ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [

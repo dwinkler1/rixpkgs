@@ -14,6 +14,7 @@
   libxmu,
   libpcap,
   libtool,
+  lua5_2_compat,
   meson,
   ninja,
   openal,
@@ -22,6 +23,9 @@
   tinyxml,
   zlib,
 }:
+let
+  lua = lua5_2_compat;
+in
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "desmume";
@@ -53,6 +57,7 @@ stdenv.mkDerivation (finalAttrs: {
     desktop-file-utils
     intltool
     libtool
+    lua
     meson
     ninja
     pkg-config

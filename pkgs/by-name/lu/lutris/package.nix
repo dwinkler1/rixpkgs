@@ -87,6 +87,7 @@ buildFHSEnv {
       libnghttp2
 
       # Desmume
+      lua5_2_compat
       agg
       soundtouch
       openal

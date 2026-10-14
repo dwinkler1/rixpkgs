@@ -4,6 +4,7 @@
   fetchFromGitHub,
   fetchurl,
   love,
+  lua5_2_compat,
   makeWrapper,
   makeDesktopItem,
   strip-nondeterminism,
@@ -11,6 +12,7 @@
 }:
 
 let
+  lua = lua5_2_compat;
   icon = fetchurl {
     url = "http://tangramgames.dk/img/thumb/mrrescue.png";
     sha256 = "1y5ahf0m01i1ch03axhvp2kqc6lc1yvh59zgvgxw4w7y3jryw20k";
@@ -40,6 +42,7 @@ stdenv.mkDerivation {
   };
 
   nativeBuildInputs = [
+    lua
     love
     makeWrapper
     strip-nondeterminism

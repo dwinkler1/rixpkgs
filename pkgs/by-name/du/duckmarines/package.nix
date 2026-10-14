@@ -4,11 +4,15 @@
   fetchFromGitHub,
   fetchurl,
   love,
+  lua5_2_compat,
   makeWrapper,
   makeDesktopItem,
   strip-nondeterminism,
   zip,
 }:
+let
+  lua = lua5_2_compat;
+in
 
 stdenv.mkDerivation rec {
   pname = "duckmarines";
@@ -47,6 +51,7 @@ stdenv.mkDerivation rec {
     zip
   ];
   buildInputs = [
+    lua
     love
   ];
 
