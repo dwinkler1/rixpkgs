@@ -59,6 +59,14 @@ stdenv.mkDerivation (finalAttrs: {
     finalAttrs.passthru.sources.${stdenv.hostPlatform.system}
       or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
 
+  patches = [
+    (
+      # This patch should be dropped when pandoc updates to 3.8
+      assert lib.versionOlder pandoc.version "3.8";
+      ./pandoc-3.7.patch
+    )
+  ];
+
   # the macOS tarball unpacks flat instead of into a versioned directory
   sourceRoot = if stdenv.hostPlatform.isDarwin then "." else "quarto-${finalAttrs.version}";
 
@@ -101,19 +109,6 @@ stdenv.mkDerivation (finalAttrs: {
       ${lib.optionalString (
         rWrapper != null
       ) "--set-default RETICULATE_PYTHON ${pythonWithPackages.interpreter}"}
-  '';
-
-  # This patches quarto to be compatible with pandoc <3.8
-  # When pandoc updates, this fix will not be needed, and will probably break
-  postFixup = ''
-    substituteInPlace $out/bin/quarto.js \
-      --replace-fail 'kSyntaxHighlighting = "syntax-highlighting"' 'kSyntaxHighlighting = "highlight-style"' \
-      --replace-fail '"--syntax-highlighting"' '"--highlight-style"'
-    substituteInPlace $out/share/filters/modules/jog.lua \
-      --replace-fail "elseif tp == 'pandoc TableHead' or tp == 'pandoc TableFoot' or" "elseif tp == 'pandoc TableBody' or tp == 'TableBody' then
-          element.head = jogger(element.head)
-          element.body = jogger(element.body)
-        elseif tp == 'pandoc TableHead' or tp == 'pandoc TableFoot' or"
   '';
 
   installPhase = ''

@@ -19,18 +19,19 @@
 }:
 
 let
-  version = "260919-28c46a116";
+  version = "261029-963b58c50";
   pname = "photoprism";
 
   src = fetchFromGitHub {
     owner = "photoprism";
     repo = "photoprism";
     tag = version;
-    hash = "sha256-+3zLhHTpNlDoYYD1ljDii/BhzP+72y+SCec7pa/1VNs=";
+    hash = "sha256-lbxqJWtFRmMZdGVSCx96aQB34ocsJd9Z4mDkaNRJVe4=";
   };
 
   backend = callPackage ./backend.nix { inherit src version; };
   frontend = callPackage ./frontend.nix { inherit src version; };
+  onnxruntime = callPackage ./onnxruntime.nix { };
 
   fetchModel =
     { name, hash }:
@@ -68,24 +69,24 @@ let
       passthru.updateScript = nix-update-script { };
     };
 
+  efficientformerv2_s2 = fetchOnnxModel {
+    name = "efficientformerv2_s2.onnx";
+    hash = "sha256-fWKIrYlHPCuhGXTJwkqW4HxOPuSMUxCB8QimOA3I0Ks=";
+  };
+
   facenet = fetchModel {
     name = "facenet";
     hash = "sha256-aS5kkNhxOLSLTH/ipxg7NAa1w9X8iiG78jmloR1hpRo=";
   };
 
-  nasnet = fetchModel {
-    name = "nasnet";
-    hash = "sha256-bF25jPmZLyeSWy/CGXZE/VE2UupEG2q9Jmr0+1rUYWE=";
-  };
-
-  nsfw = fetchModel {
-    name = "nsfw";
-    hash = "sha256-zy/HcmgaHOY7FfJUY6I/yjjsMPHR2Ote9ppwqemBlfg=";
-  };
-
   sface = fetchOnnxModel {
     name = "face_recognition_sface_2021dec.onnx";
     hash = "sha256-C6n7+gG1JwyWYnxO94TahZkx4C8EQZyCnoNIQIfDTnk=";
+  };
+
+  yahoo_open_nsfw = fetchOnnxModel {
+    name = "yahoo_open_nsfw.onnx";
+    hash = "sha256-dD3ewLjWpu6RL1K0c32B9NHlHlytAfI4T2ffCk04S5c=";
   };
 
   yunet = fetchOnnxModel {
@@ -97,6 +98,8 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   inherit pname version src;
+
+  __structuredAttrs = true;
 
   nativeBuildInputs = [
     makeWrapper
@@ -111,7 +114,11 @@ stdenv.mkDerivation (finalAttrs: {
     mkdir -p $out/bin ${assets_path}
 
     # install backend
-    ln -s ${backend}/bin/photoprism $out/bin/photoprism
+    # NB: this must be a copy not a symlink, photoprism looks for onnxruntime
+    # relative to its binary, and if we use a symlink we'd have to link the library
+    # in with the backend derivation itself
+    cp ${backend}/bin/photoprism $out/bin/photoprism
+    ln -s ${onnxruntime}/lib $out/lib
     wrapProgram $out/bin/photoprism \
       --set PHOTOPRISM_ASSETS_PATH ${assets_path} \
       --set PHOTOPRISM_DARKTABLE_BIN ${darktable}/bin/darktable-cli \
@@ -125,27 +132,27 @@ stdenv.mkDerivation (finalAttrs: {
     # install frontend
     ln -s ${frontend}/assets/* ${assets_path}
     rm ${assets_path}/models
-    mkdir -p ${assets_path}/models/{sface,yunet}
+    mkdir -p ${assets_path}/models/{efficientformerv2_s2,sface,yahoo_open_nsfw,yunet}
     ln -s ${frontend}/assets/models/* ${assets_path}/models/
 
     # install tensorflow models
-    ln -s ${nasnet}/nasnet ${assets_path}/models/
-    ln -s ${nsfw}/nsfw ${assets_path}/models/
     ln -s ${facenet}/facenet ${assets_path}/models/
 
     # install onnx models
+    ln -s ${efficientformerv2_s2.file} ${assets_path}/models/efficientformerv2_s2/${efficientformerv2_s2.name}
     ln -s ${sface.file} ${assets_path}/models/sface/${sface.name}
+    ln -s ${yahoo_open_nsfw.file} ${assets_path}/models/yahoo_open_nsfw/${yahoo_open_nsfw.name}
     ln -s ${yunet.file} ${assets_path}/models/yunet/${yunet.name}
 
     runHook postInstall
   '';
 
   passthru = {
-    inherit backend frontend;
+    inherit backend frontend onnxruntime;
 
     facenet = wrapModelForUpdate facenet;
-    nasnet = wrapModelForUpdate nasnet;
-    nsfw = wrapModelForUpdate nsfw;
+    efficientformerv2_s2 = wrapModelForUpdate efficientformerv2_s2;
+    yahoo_open_nsfw = wrapModelForUpdate yahoo_open_nsfw;
     sface = wrapModelForUpdate sface.file;
     yunet = wrapModelForUpdate yunet.file;
 
@@ -161,13 +168,15 @@ stdenv.mkDerivation (finalAttrs: {
         "--subpackage"
         "frontend"
         "--subpackage"
+        "efficientformerv2_s2"
+        "--subpackage"
         "facenet"
         "--subpackage"
-        "nasnet"
-        "--subpackage"
-        "nsfw"
+        "onnxruntime"
         "--subpackage"
         "sface"
+        "--subpackage"
+        "yahoo_open_nsfw"
         "--subpackage"
         "yunet"
       ];
@@ -178,6 +187,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://photoprism.app";
     description = "Personal Photo Management powered by Go and Google TensorFlow";
     license = lib.licenses.agpl3Only;
+    platforms = lib.platforms.linux;
     maintainers = with lib.maintainers; [
       ipetkov
     ];

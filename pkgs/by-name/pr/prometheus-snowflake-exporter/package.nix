@@ -10,18 +10,18 @@ buildGoModule (finalAttrs: {
   pname = "prometheus-snowflake-exporter";
   # No tagged release upstream (only a moving `latest` tag), so pin the commit and
   # use nixpkgs' unstable versioning. Bump the date + rev on update.
-  version = "latest-unstable-2026-09-16";
+  version = "0-unstable-2026-11-03";
 
   __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "grafana";
     repo = "snowflake-prometheus-exporter";
-    rev = "557f0c2f87b449acbbc81be5057a795774e77636";
-    hash = "sha256-Sax7qR0stLBHvECWG/ib04Z1+74GIvVGkq3OJwfSW+4=";
+    rev = "d86fcde62faa5eed5f77104ec0685f8d689ee8da";
+    hash = "sha256-RKuwUEQiU8pcIEA/XFRC3kt23F/CDMOKiD+Fb8fJb6U=";
   };
 
-  vendorHash = "sha256-QQKTxRBlx6v5gFOpQccYvMkRzwtjYaemheE3CMyA7W8=";
+  vendorHash = "sha256-q7DBUH2UEkWmuTI8916XjxfOY/yc5Zah7StY4Hb3xrs=";
 
   ldflags = [
     "-s"
@@ -35,7 +35,10 @@ buildGoModule (finalAttrs: {
   doInstallCheck = true;
 
   passthru.updateScript = nix-update-script {
-    extraArgs = [ "--version=branch" ];
+    extraArgs = [
+      "--version=branch"
+      "--version-regex=(\\d.*)"
+    ];
   };
 
   meta = {

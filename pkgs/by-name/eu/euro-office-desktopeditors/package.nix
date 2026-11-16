@@ -3,7 +3,6 @@
   lib,
   fetchurl,
   buildFHSEnv,
-  unzip,
   patchelfUnstable,
   # Alphabetic ordering below
   alsa-lib,
@@ -23,7 +22,6 @@
   glibc,
   gsettings-desktop-schemas,
   gst_all_1,
-  gtk2,
   gtk3,
   libGL,
   libdrm,
@@ -82,23 +80,28 @@ let
     pulseaudio
   ];
 
+  # Regular releases are tagged `v<version>` and ship assets named
+  # `<version>-0`, while hotfix releases (e.g. `9.3.5-2`) already include the
+  # build number in both the tag and the asset name.
+  sourceVersion = version: if lib.hasInfix "-" version then version else "${version}-0";
+
   derivation = stdenv.mkDerivation (finalAttrs: {
     pname = "euro-office-desktopeditors";
-    # No release yet, pinning to latest version where Linux artifacts
-    # where provided.
-    version = "9.3.1-dev.1";
-    # Manual uploaded Github CI artifact (actions run 28295624289,
-    # artifact 7926798036) of linux-packages-amd64 tarball.
-    src = fetchurl {
-      url = "https://archive.org/download/euro-office-desktopeditors-9.3.1-dev.1-linux-amd64/linux-packages-amd64.zip";
-      hash = "sha256-OV3abn9nYq/FeBkpft+27iGt34Rqi2VkJkAZwBHu1lM=";
-    };
+    version = "9.3.6";
+    src =
+      (fetchurl {
+        url = "https://github.com/Euro-Office/DesktopEditors/releases/download/v${finalAttrs.version}/euro-office-euro-office_${sourceVersion finalAttrs.version}_amd64.deb";
+        hash = "sha256-+AWZ9ArJEoEEYBiLkWVoiwise+4zcl/2W7XOuXxay4E=";
+      })
+      // {
+        # Hint for nix-update, only consider stable releases
+        tag = "refs/tags/v${finalAttrs.version}";
+      };
 
     unpackPhase = ''
       mkdir -p source
       cd source
-      unzip $src
-      dpkg-deb -x euro-office-desktopeditors_*.deb .
+      dpkg-deb -x ${finalAttrs.src} .
     '';
 
     nativeBuildInputs = [
@@ -106,7 +109,6 @@ let
       dpkg
       makeWrapper
       patchelfUnstable
-      unzip
       wrapGAppsHook3
     ];
 
@@ -124,7 +126,6 @@ let
       gsettings-desktop-schemas
       gst_all_1.gst-plugins-base
       gst_all_1.gstreamer
-      gtk2
       gtk3
       libdrm
       libgbm
@@ -174,12 +175,13 @@ let
 
       mv usr/bin/* $out/bin
       mv usr/share/* $out/share/
-      mv opt/euro-office/desktopeditors $out/share
+      mv opt/euro-office/* $out/share/euro-office/
 
-      substituteInPlace $out/bin/euro-office-desktopeditors \
+      substituteInPlace $out/bin/euro-office-euro-office \
         --replace-fail "/opt/euro-office/" "$out/share/"
 
-      ln -s $out/share/desktopeditors/DesktopEditors $out/bin/DesktopEditors
+      ln -s $out/share/euro-office/DesktopEditors $out/bin/DesktopEditors
+      ln -s $out/bin/euro-office-euro-office $out/bin/euro-office-desktopeditors
 
       runHook postInstall
     '';
@@ -200,8 +202,11 @@ in
 # In order to download plugins, Euro-Office uses /usr/bin/curl so we have to wrap it.
 # Curl still needs to be in runtimeLibs because the library is used directly in other parts of the code.
 # Fonts are also discovered by looking in /usr/share/fonts, so adding fonts to targetPkgs will include them
-buildFHSEnv {
+buildFHSEnv (finalAttrs: {
   inherit (derivation) pname version;
+
+  # Expose the source on the wrapper for nix-update
+  src = derivation.src;
 
   targetPkgs = pkgs': [
     curl
@@ -216,19 +221,19 @@ buildFHSEnv {
     mkdir -p $out/share
     ln -s ${derivation}/share/icons $out/share
     cp -r ${derivation}/share/applications $out/share
-    substituteInPlace $out/share/applications/euro-office-desktopeditors.desktop \
-        --replace-fail "/usr/bin/euro-office-desktopeditors" "$out/bin/euro-office-desktopeditors"
+    substituteInPlace $out/share/applications/euro-office-euro-office.desktop \
+        --replace-fail "/usr/bin/euro-office-euro-office" "$out/bin/euro-office-desktopeditors"
   '';
 
   meta = {
     description = "Office suite that combines text, spreadsheet and presentation editors allowing to create, view and edit local documents";
     homepage = "https://github.com/Euro-Office/DesktopEditors";
     downloadPage = "https://github.com/Euro-Office/DesktopEditors/releases";
-    changelog = "https://github.com/Euro-Office/DesktopEditors/blob/v9.3.1/CHANGELOG.md";
+    changelog = "https://github.com/Euro-Office/DesktopEditors/blob/v${finalAttrs.version}/CHANGELOG.md";
     platforms = [ "x86_64-linux" ];
     sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
     license = lib.licenses.agpl3Plus;
     maintainers = [ lib.maintainers.onny ];
     mainProgram = "euro-office-desktopeditors";
   };
-}
+})

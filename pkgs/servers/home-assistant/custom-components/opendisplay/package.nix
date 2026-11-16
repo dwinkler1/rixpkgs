@@ -28,13 +28,13 @@
 buildHomeAssistantComponent (finalAttrs: {
   owner = "OpenDisplay";
   domain = "opendisplay";
-  version = "3.0.2";
+  version = "3.2.0";
 
   src = fetchFromGitHub {
     inherit (finalAttrs) owner;
     repo = "Home_Assistant_Integration";
     tag = finalAttrs.version;
-    hash = "sha256-m76Ie6yBs5evTZ4Myp+YvFzbWnAOBUREoy2R0cKlwuw=";
+    hash = "sha256-f7fm6AfWAxSzLCcap79wO6Wl7hFDLGgebW0KYhsNAj4=";
   };
 
   dependencies = [

@@ -24,7 +24,6 @@ buildPythonPackage (finalAttrs: {
   version = "2.9.0";
   pyproject = true;
   doCheck = false;
-  __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "beartype";

@@ -55,9 +55,7 @@ stdenv.mkDerivation (finalAttrs: {
   configureFlags = [
     "--with-libgpg-error-prefix=${libgpg-error.dev}"
   ]
-  ++ lib.optional (
-    stdenv.hostPlatform.isMusl || (stdenv.hostPlatform.isDarwin && stdenv.hostPlatform.isAarch64)
-  ) "--disable-asm" # for darwin see https://dev.gnupg.org/T5157
+  ++ lib.optional (stdenv.hostPlatform.isMusl || stdenv.hostPlatform.isDarwin) "--disable-asm" # for darwin see https://dev.gnupg.org/T5157
   # Fix undefined reference errors with version script under LLVM.
   ++ lib.optional (
     stdenv.cc.bintools.isLLVM && lib.versionAtLeast stdenv.cc.bintools.version "17"
@@ -116,7 +114,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = {
     homepage = "https://www.gnu.org/software/libgcrypt/";
-    changelog = "https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgcrypt.git;a=blob;f=NEWS;hb=refs/tags/libgcrypt-${finalAttrs.version}";
+    changelog = "https://github.com/gpg/libgcrypt/blob/libgcrypt-${finalAttrs.version}/NEWS";
     description = "General-purpose cryptographic library";
     license = lib.licenses.lgpl2Plus;
     platforms = lib.platforms.all;

@@ -1,22 +1,24 @@
 {
+  # mockery has historically required changes to support new Go versions, so use the latest
+  # version that mockery supports rather than buildGoLatestModule.
+  # This should be bumped when a mockery release includes support for a new version of Go.
   lib,
-  stdenv,
-  buildGoModule,
+  buildGo127Module,
   fetchFromGitHub,
   versionCheckHook,
   go-task,
   gotestsum,
 }:
 
-buildGoModule (finalAttrs: {
+buildGo127Module (finalAttrs: {
   pname = "go-mockery";
-  version = "3.8.1";
+  version = "3.9.1";
 
   src = fetchFromGitHub {
     owner = "vektra";
     repo = "mockery";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-HCbnifYWE/3CG85dt0FPWT9hLSQbgOXuOKTBJHO0S2U=";
+    hash = "sha256-ARxAe7e0UJWaOgYo65pPNB7a1m1n6CpTLk0I+g2Zfz4=";
   };
 
   proxyVendor = true;
@@ -79,12 +81,6 @@ buildGoModule (finalAttrs: {
   checkPhase = ''
     runHook preCheck
 
-    ${
-      # TestRemoteTemplates/schema_validation_OK fails only on x86_64-darwin
-      (lib.optionalString (
-        stdenv.hostPlatform.isDarwin && stdenv.hostPlatform.isx86
-      ) "rm -rf e2e/test_remote_templates/")
-    }
     # run unit tests and e2e tests plus pre-gen necessary mocks
     task test.ci
 

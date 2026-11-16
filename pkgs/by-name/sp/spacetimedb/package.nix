@@ -12,19 +12,27 @@
     inherit (callPackage ./fetchers.nix { }) fetchLibrustyV8;
   },
   nix-update-script,
+  writableTmpDirAsHomeHook,
+  coreutils,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "spacetimedb";
-  version = "2.10.2";
+  version = "2.15.0";
 
   src = fetchFromGitHub {
     owner = "clockworklabs";
     repo = "spacetimedb";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-9kWIeDCi1wNGsUy5o2MwuKUjdNbPIdt8jatYkkgDIPQ=";
+    hash = "sha256-C007eKzhLcVoLoYvPBzmFe42bKsDhBX8+OaQiwpQRpY=";
   };
 
-  cargoHash = "sha256-yCNd7FLh8dDMv/x14Sv89uya2Gx4yMS+AYZlnI2AyJk=";
+  cargoHash = "sha256-MXWtIe7tMLO6To3O90PL6z8OZ+ZSv1mRnBLUNJqeEQg=";
+
+  postPatch = ''
+    substituteInPlace crates/cli/src/schema_extract/tests.rs \
+      --replace-fail /bin/cat ${coreutils}/bin/cat \
+      --replace-fail /usr/bin/head ${coreutils}/bin/head
+  '';
 
   nativeBuildInputs = [
     pkg-config
@@ -38,10 +46,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoBuildFlags = [ "-p spacetimedb-standalone -p spacetimedb-cli" ];
 
-  preCheck = ''
-    # server tests require home dir
-    export HOME=$(mktemp -d)
-  '';
+  nativeCheckInputs = [ writableTmpDirAsHomeHook ];
 
   checkFlags = [
     # require wasm32-unknown-unknown target

@@ -1,5 +1,6 @@
 {
   buildNpmPackage,
+  cacert,
   dart-sass,
   fetchFromGitHub,
   ffmpeg,
@@ -7,10 +8,10 @@
   nix-update-script,
   nixosTests,
   nodejs_24,
-  python313Packages,
+  python3Packages,
   unar,
 }:
-python313Packages.buildPythonApplication (finalAttrs: {
+python3Packages.buildPythonApplication (finalAttrs: {
   pname = "bazarr";
   version = "1.6.2";
 
@@ -21,7 +22,7 @@ python313Packages.buildPythonApplication (finalAttrs: {
     hash = "sha256-5bhNbLfuL1wzraO3UypRRstC1+ULTaFVNJC++Qov6AE=";
   };
 
-  dependencies = with python313Packages; [
+  dependencies = with python3Packages; [
     lxml
     numpy
     pillow
@@ -30,7 +31,6 @@ python313Packages.buildPythonApplication (finalAttrs: {
     webrtcvad
   ];
 
-  __structuredAttrs = true;
   dontBuild = true;
   dontWrapPythonPrograms = true;
   pyproject = false;
@@ -53,7 +53,7 @@ python313Packages.buildPythonApplication (finalAttrs: {
       }
     }" > $out/lib/bazarr/package_info
 
-    makeWrapper ${lib.getExe python313Packages.python} $out/bin/bazarr \
+    makeWrapper ${lib.getExe python3Packages.python} $out/bin/bazarr \
       --add-flags $out/lib/bazarr/bazarr.py \
       --prefix PATH : ${
         lib.makeBinPath [
@@ -61,10 +61,15 @@ python313Packages.buildPythonApplication (finalAttrs: {
           unar
         ]
       } \
-      --prefix PYTHONPATH : ${python313Packages.makePythonPath finalAttrs.passthru.dependencies} \
+      --prefix PYTHONPATH : ${python3Packages.makePythonPath finalAttrs.passthru.dependencies} \
       --set PYTHONNOUSERSITE true
 
     runHook postInstall
+  '';
+
+  postFixup = ''
+    rm $out/lib/bazarr/libs/certifi/cacert.pem
+    ln -s ${cacert}/etc/ssl/certs/ca-bundle.crt $out/lib/bazarr/libs/certifi/cacert.pem
   '';
 
   passthru = {
@@ -99,7 +104,10 @@ python313Packages.buildPythonApplication (finalAttrs: {
     tests.smoke-test = nixosTests.bazarr;
 
     updateScript = nix-update-script {
-      extraArgs = lib.cli.toCommandLineGNU { } { subpackage = "frontend"; };
+      extraArgs = lib.cli.toCommandLineGNU { } {
+        subpackage = "frontend";
+        use-github-releases = true;
+      };
     };
   };
 

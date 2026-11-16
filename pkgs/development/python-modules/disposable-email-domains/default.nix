@@ -8,15 +8,14 @@
 
 buildPythonPackage (finalAttrs: {
   pname = "disposable-email-domains";
-  version = "0.0.272";
+  version = "0.0.292";
   pyproject = true;
-  __structuredAttrs = true;
 
   # No tags on GitHub
   src = fetchPypi {
     pname = "disposable_email_domains";
     inherit (finalAttrs) version;
-    hash = "sha256-qB7Cr2PN4tj90mrWp5zazAXQb/sWfz4ySSKkQ4zen2c=";
+    hash = "sha256-/iAovql8Re9pHkb4E3ix9ZOyhHVKtFp8aQk8Oz5dKLU=";
   };
 
   build-system = [

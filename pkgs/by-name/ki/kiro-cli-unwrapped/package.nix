@@ -17,7 +17,7 @@
 # That is handled by the kiro-cli package, which wraps this one in an FHS env.
 stdenv.mkDerivation (finalAttrs: {
   pname = "kiro-cli-unwrapped";
-  version = "2.27.1";
+  version = "2.35.1";
 
   __structuredAttrs = true;
 
@@ -25,15 +25,15 @@ stdenv.mkDerivation (finalAttrs: {
     {
       x86_64-linux = fetchurl {
         url = "https://desktop-release.q.us-east-1.amazonaws.com/${finalAttrs.version}/kirocli-x86_64-linux.tar.gz";
-        hash = "sha256-PA1yaKS/tz+OgngiBJl4+leOAgsnGvwQIcdTJgLUXZk=";
+        hash = "sha256-tOyPYcRm2/sGtzly+nRvT5a/Gavi1DB6882Yi951G1Y=";
       };
       aarch64-linux = fetchurl {
         url = "https://desktop-release.q.us-east-1.amazonaws.com/${finalAttrs.version}/kirocli-aarch64-linux.tar.gz";
-        hash = "sha256-M61UYsMRG6TvUn8dWL2gip0Zl+Cuc4QafCynNOvLotA=";
+        hash = "sha256-kz1T7SY2xQNft3XnJfc5h4iOezmKC9sJpLXwNbfgv0A=";
       };
       aarch64-darwin = fetchurl {
         url = "https://desktop-release.q.us-east-1.amazonaws.com/${finalAttrs.version}/Kiro%20CLI.dmg";
-        hash = "sha256-hQ2hPgZn9bxO9kVSa1ugilDchELNkrrR/8dUanzoGVw=";
+        hash = "sha256-Zb0T3UsBO99S9wyvmw03BrxKbCPZ89awaSZU02Mq7+w=";
       };
     }
     .${stdenv.hostPlatform.system} or (throw "Unsupported system: ${stdenv.hostPlatform.system}");

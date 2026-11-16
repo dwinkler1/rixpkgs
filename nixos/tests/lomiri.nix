@@ -78,9 +78,10 @@ let
         magick -size 640x480 canvas:black -pointsize 30 -fill white -annotate +100+100 '${wallpaperText}' $out
       '';
 
-  lomiriWallpaperDconfSettings = pkgs: {
+  lomiriTestingDconfSettings = pkgs: {
     settings = {
       "com/lomiri/shell" = {
+        light-mode = true;
         background-picture-uri = "file://${wallpaperFile pkgs}";
       };
       "com/lomiri/shell/greeter" = {
@@ -137,6 +138,11 @@ let
       systemd.tmpfiles.settings = {
         "10-lomiri-test-setup" = terminalOcrTmpfilesSetup { inherit pkgs lib config; };
       };
+
+      # Help with OCR
+      programs.dconf.profiles.user.databases = [
+        (lomiriTestingDconfSettings pkgs)
+      ];
     };
 
   sharedTestFunctions = lib: ''
@@ -321,11 +327,7 @@ let
 
         nodes.machine =
           { config, ... }:
-          lib.attrsets.recursiveUpdate (sharedMachineConfig { inherit config pkgs lib; }) {
-            programs.dconf.profiles.user.databases = [
-              (lomiriWallpaperDconfSettings pkgs)
-            ];
-          };
+          sharedMachineConfig { inherit config pkgs lib; };
 
         enableOCR = true;
 
@@ -415,10 +417,6 @@ in
             greeters.lomiri.enable = true;
           };
           services.displayManager.defaultSession = lib.mkForce "none+icewm";
-
-          programs.dconf.profiles.user.databases = [
-            (lomiriWallpaperDconfSettings pkgs)
-          ];
         };
 
       enableOCR = true;
@@ -495,10 +493,6 @@ in
               })
             ];
           };
-
-          programs.dconf.profiles.user.databases = [
-            (lomiriWallpaperDconfSettings pkgs)
-          ];
         };
 
       enableOCR = true;
@@ -592,10 +586,6 @@ in
               lomiri.lomiri-content-hub.examples
             ];
           };
-
-          programs.dconf.profiles.user.databases = [
-            (lomiriWallpaperDconfSettings pkgs)
-          ];
         };
 
       enableOCR = true;
@@ -675,7 +665,7 @@ in
               mouse_click(540, 80)
 
               # Expect Gallery to be brought into the foreground, with its sharing page open
-              wait_for_text("Photos")
+              wait_for_text("Events")
 
               # If lomiri-content-hub encounters a problem, it may have crashed the original application issuing the request.
               # Check that it's still alive
@@ -723,10 +713,6 @@ in
               "de"
               # Then a QWERTY one to test switching
               "us"
-            ];
-
-            programs.dconf.profiles.user.databases = [
-              (lomiriWallpaperDconfSettings pkgs)
             ];
           };
 

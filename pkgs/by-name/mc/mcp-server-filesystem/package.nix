@@ -4,21 +4,25 @@
   yq-go,
   typescript_7,
   fetchFromGitHub,
+  fetchNpmDeps,
 }:
 
 buildNpmPackage (finalAttrs: {
   pname = "mcp-server-filesystem";
-  version = "2026.8.18";
+  version = "2.4.0";
 
   src = fetchFromGitHub {
     owner = "modelcontextprotocol";
     repo = "servers";
-    tag = finalAttrs.version;
-    hash = "sha256-tRx/ZCyHnDP3BmK/xOgVKtjlKCyKUfIll8y1sSDgzV8=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-edwibnJdNuOAF31FbZQ/CVDxM5WyIxl0ycmebTkWroE=";
   };
 
   postPatch = ''
     yq -i '.compilerOptions.types = ["node"]' tsconfig.json
+    # Remove this since it fails during `npmInstallHook` otherwise
+    substituteInPlace src/filesystem/package.json \
+      --replace-fail "prepare" "dont-prepare"
   '';
 
   nativeBuildInputs = [
@@ -26,9 +30,11 @@ buildNpmPackage (finalAttrs: {
     typescript_7
   ];
 
-  dontNpmPrune = true;
   npmWorkspace = "src/filesystem";
-  npmDepsHash = "sha256-psy1XH4DuZu2+tkHpe/bQw3R7uNr8nF5u/AFKoxJeTg=";
+  npmDeps = fetchNpmDeps {
+    inherit (finalAttrs) src;
+    hash = "sha256-t/Ugjb1nySxNNKcw9IGFAvuUwTBebmWPr1EgANY/DOk=";
+  };
 
   # TODO: revisit this when https://github.com/NixOS/nixpkgs/pull/333759 has landed
   postInstall = ''

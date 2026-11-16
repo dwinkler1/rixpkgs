@@ -6,14 +6,14 @@
 
 python3Packages.buildPythonApplication (finalAttrs: {
   pname = "mcp-server-fetch";
-  version = "2026.8.31";
+  version = "2.4.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "modelcontextprotocol";
     repo = "servers";
-    rev = "f4244583a6af9425633e433a3eec000d23f4e011";
-    hash = "sha256-bHknioQu8i5RcFlBBdXUQjsV4WN1IScnwohGRxXgGDk=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-edwibnJdNuOAF31FbZQ/CVDxM5WyIxl0ycmebTkWroE=";
   };
 
   sourceRoot = "${finalAttrs.src.name}/src/fetch/";

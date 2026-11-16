@@ -16,8 +16,7 @@
   useNetCDF ? (!useMinimalFeatures),
   usePoppler ? (!useMinimalFeatures),
   usePostgres ? (!useMinimalFeatures),
-  useTiledb ?
-    (!useMinimalFeatures) && !(stdenv.hostPlatform.isDarwin && stdenv.hostPlatform.isx86_64),
+  useTiledb ? (!useMinimalFeatures),
 
   ant,
   armadillo,
@@ -331,24 +330,7 @@ stdenv.mkDerivation (finalAttrs: {
     popd # autotest
   '';
 
-  passthru.tests = callPackage ./tests.nix {
-    gdal = finalAttrs.finalPackage;
-    inherit
-      useArmadillo
-      useArrow
-      useHDF
-      useJava
-      useLibAvif
-      useLibHEIF
-      useLibJXL
-      useMysql
-      useNetCDF
-      usePoppler
-      usePostgres
-      useTiledb
-      ;
-
-  };
+  passthru.tests = callPackage ./tests.nix { gdal = finalAttrs.finalPackage; };
 
   __darwinAllowLocalNetworking = true;
 

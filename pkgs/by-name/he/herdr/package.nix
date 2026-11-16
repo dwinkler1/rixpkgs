@@ -6,6 +6,7 @@
   zig_0_16,
   installAgentSkills,
   installShellFiles,
+  libnotify,
   cctools,
   xcbuild,
   versionCheckHook,
@@ -13,7 +14,7 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "herdr";
-  version = "0.9.3";
+  version = "0.9.5";
 
   __structuredAttrs = true;
 
@@ -21,10 +22,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
     owner = "herdrdev";
     repo = "herdr";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-uu452Xe23pSvFk7w7fKPjiaqY5QenUIljao2SFAxpc0=";
+    hash = "sha256-N7e7oCKxeCoxek6UT8Lweq16rSsQQi34QMb7C2iNpm8=";
   };
 
-  cargoHash = "sha256-+gTWtEheyuI59yf2PqRbcbcFIW+/cYb7zZ2mPv2VN0Y=";
+  cargoHash = "sha256-a6DgQodo+qa5yg/d+yMfsM9EUv2LQRFrqZgmwgVxggE=";
 
   zigDeps = zig_0_16.fetchDeps {
     inherit (finalAttrs) pname version;
@@ -45,6 +46,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   postPatch =
     lib.optionalString stdenv.hostPlatform.isLinux ''
+      # `ui.toast.delivery = "system"` silently no-ops when notify-send is not on PATH.
+      substituteInPlace src/platform/linux.rs \
+        --replace-fail 'let mut cmd = command("notify-send");' \
+          'let mut cmd = command("${lib.getExe' libnotify "notify-send"}");'
+
       substituteInPlace vendor/libghostty-vt/src/build/GhosttyLibVt.zig \
         --replace-fail 'lib.bundle_compiler_rt = true;' 'lib.bundle_compiler_rt = false;' \
         --replace-fail 'lib.bundle_ubsan_rt = true;' 'lib.bundle_ubsan_rt = false;'
@@ -75,12 +81,21 @@ rustPlatform.buildRustPackage (finalAttrs: {
     chmod -R u+w "$ZIG_GLOBAL_CACHE_DIR/p"
   '';
 
-  postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
-    installShellCompletion --cmd herdr \
-      --bash <("$out/bin/herdr" completion bash) \
-      --fish <("$out/bin/herdr" completion fish) \
-      --zsh <("$out/bin/herdr" completion zsh)
-  '';
+  postInstall =
+    lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
+      installShellCompletion --cmd herdr \
+        --bash <("$out/bin/herdr" completion bash) \
+        --fish <("$out/bin/herdr" completion fish) \
+        --zsh <("$out/bin/herdr" completion zsh)
+    ''
+    # Ship the per-agent hook/plugin sources so integrations can be wired up
+    # declaratively (e.g. home-manager) instead of running
+    # `herdr integration install <agent>`.
+    + ''
+      install -d "$out/share/herdr"
+      cp -r src/integration/assets "$out/share/herdr/integrations"
+      find "$out/share/herdr/integrations" -name '*.test.ts' -delete
+    '';
 
   nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;

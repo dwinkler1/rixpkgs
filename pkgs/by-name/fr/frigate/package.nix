@@ -34,6 +34,13 @@ let
 
           # Account for divergences with the main `tokenizers` derivation:
           postPatch = "";
+          # datasets>=5 is incompatible with huggingface-hub_0
+          nativeCheckInputs = builtins.filter (p: p.pname or "" != "datasets") oldAttrs.nativeCheckInputs;
+          disabledTestPaths = [
+            # ModuleNotFoundError: No module named 'datasets'
+            "benches/test_tiktoken.py"
+            "tests/documentation/test_tutorial_train_from_iterators.py"
+          ];
           disabledTests = [
             # PermissionError: [Errno 13] Permission denied: 'tests/data/small.txt'
             "TestUnigram"
@@ -56,6 +63,9 @@ let
 
       huggingface-hub = super.huggingface-hub_0;
       transformers = super.transformers_4;
+
+      peewee = super.peewee_3;
+      peewee-migrate = super.peewee-migrate_1;
     }
   );
 
@@ -63,7 +73,7 @@ let
 in
 python3Packages.buildPythonApplication (finalAttrs: {
   pname = "frigate";
-  version = "0.18.0";
+  version = "0.18.2";
   pyproject = false;
 
   src = fetchFromGitHub {
@@ -71,7 +81,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
     owner = "blakeblackshear";
     repo = "frigate";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-2FJG7tEZCuCQ6VJga9BMiuLTeswmlG8oN1MO6t0eroM=";
+    hash = "sha256-uu+TCH5QW6OZhPyA/QiORnqIsVxT+h3FDocv1K/cDNk=";
   };
 
   patches = [

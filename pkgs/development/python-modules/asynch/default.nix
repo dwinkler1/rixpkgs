@@ -21,13 +21,12 @@ buildPythonPackage (finalAttrs: {
   pname = "asynch";
   version = "0.4.0";
   pyproject = true;
-  __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "long2ice";
     repo = "asynch";
     tag = "v${finalAttrs.version}";
-    sha256 = "sha256-iLhhk7EiNHMVzxlw7HWjS00GwZ8cRXPz3jih1edWde4=";
+    hash = "sha256-iLhhk7EiNHMVzxlw7HWjS00GwZ8cRXPz3jih1edWde4=";
   };
 
   disabled = pythonOlder "3.11";

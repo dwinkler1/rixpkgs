@@ -2,11 +2,11 @@
   lib,
   stdenv,
   alsa-lib,
-  config,
   dbus,
   fetchFromGitHub,
   libpulseaudio,
   libxcb,
+  aws-lc,
   ncurses,
   nix-update-script,
   openssl,
@@ -24,7 +24,7 @@
   withNotify ? true,
   withPancurses ? false,
   withPortAudio ? stdenv.hostPlatform.isDarwin,
-  withPulseAudio ? config.pulseaudio or stdenv.hostPlatform.isLinux,
+  withPulseAudio ? stdenv.hostPlatform.isLinux,
   withRodio ? false,
   withShareSelection ? false,
   withTermion ? false,
@@ -45,6 +45,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   nativeBuildInputs = [ pkg-config ] ++ lib.optional withClipboard python3;
 
   buildInputs = [
+    aws-lc
     ncurses
   ]
   ++ lib.optional stdenv.hostPlatform.isLinux openssl

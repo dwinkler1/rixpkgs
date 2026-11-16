@@ -6,10 +6,12 @@
   python3,
   gitMinimal,
   versionCheckHook,
+  oniguruma,
   pkg-config,
   nixVersions,
   nix-update-script,
   enableNixImport ? false,
+  nickel,
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
@@ -35,13 +37,14 @@ rustPlatform.buildRustPackage (finalAttrs: {
   nativeBuildInputs = [
     python3
     gitMinimal
-  ]
-  ++ lib.optionals enableNixImport [
     pkg-config
   ];
 
-  buildInputs = lib.optionals enableNixImport [
-    nixVersions.nix_2_31
+  buildInputs = [
+    oniguruma
+  ]
+  ++ lib.optionals enableNixImport [
+    nixVersions.nix_2_34
     boost
   ];
 
@@ -87,6 +90,13 @@ rustPlatform.buildRustPackage (finalAttrs: {
   doInstallCheck = true;
 
   passthru.updateScript = nix-update-script { };
+  passthru.tests = {
+    build = lib.recurseIntoAttrs {
+      nickelWithNix = nickel.override {
+        enableNixImport = true;
+      };
+    };
+  };
 
   meta = {
     homepage = "https://nickel-lang.org/";
